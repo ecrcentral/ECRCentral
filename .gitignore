@@ -1,0 +1,46 @@
+### OSX Vendor Configs ###
+.DS_Store
+*._DS_Store
+._.DS_Store
+*._
+._*
+._.*
+
+### Sass ###
+#bower_components/*
+/.sass-cache/*
+.sass-cache
+
+### PHP Storm Vendor Configs ###
+.idea/*
+/.idea/*
+.phpintel/*
+/.phpintel/*
+
+### VS Code Vendor Configs ###
+/.vscode
+
+### Vagrant/Homestead Vendor Configs ###
+/.vagrant
+Homestead.yaml
+Homestead.json
+
+### Master Configs ###
+.env
+composer.lock
+
+### Assets ###
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+/storage/debugbar
+/storage/framework
+/storage/logs
+/storage/users
+packages/
+
+# Debug Files
+npm-debug.log
+yarn-error.log
