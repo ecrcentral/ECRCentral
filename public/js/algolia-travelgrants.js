@@ -115,7 +115,7 @@ const search = instantsearch({
     container: "#stats",
     templates: {
       body(hit) {
-        return `<span role="img" aria-label="emoji">⚡️</span> <strong>${hit.nbHits}</strong> travel grants found ${
+        return `<i class="fab fa-searchengin"></i> <strong>${hit.nbHits}</strong> travel grants found ${
           hit.query != "" ? `for <strong>"${hit.query}"</strong>` : ``
         }</strong>`;
       }

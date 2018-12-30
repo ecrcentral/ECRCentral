@@ -1,3 +1,11 @@
+@if( Request::is( Config::get('chatter.routes.home')) )
+    <title>Early career researchers forum -  {{ config('app.name') }} </title>
+@elseif( Request::is( Config::get('chatter.routes.home') . '/' . Config::get('chatter.routes.category') . '/*' ) && isset( $discussion ) )
+    <title>{{ $discussion->category->name }} - {{ config('app.name') }}</title>
+@elseif( Request::is( Config::get('chatter.routes.home') . '/*' ) && isset($discussion->title))
+    <title>{{ $discussion->title }} - {{ config('app.name') }}</title>
+@endif
+
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
     <head>

@@ -119,7 +119,7 @@ search.addWidget(
  search.addWidget(
   instantsearch.widgets.searchBox({
     container: "#searchbox",
-    placeholder: "Search fundings",
+    placeholder: "Search funding schemes and fellowships",
     autofocus: false
   })
 );
@@ -131,7 +131,7 @@ search.addWidget(
     container: "#stats",
     templates: {
       body(hit) {
-        return `<span role="img" aria-label="emoji">⚡️</span> <strong>${hit.nbHits}</strong> funding opportunities found ${
+        return `<i class="fab fa-searchengin"></i> <strong>${hit.nbHits}</strong> funding opportunities found ${
           hit.query != "" ? `for <strong>"${hit.query}"</strong>` : ``
         }</strong>`;
       }

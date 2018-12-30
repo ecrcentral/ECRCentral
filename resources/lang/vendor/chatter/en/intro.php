@@ -32,7 +32,7 @@ return [
     */
 
     'headline'      => 'early career researchers forum',
-    'description'   => 'A unique and dynamic platform for early career researchers to discuss opportunities and share experiences'
+    'description'   => 'A unique forum for ECRs to discuss funding opportunities, share experiences and get expert feedback on applications'
 
 
 ];
