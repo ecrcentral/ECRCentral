@@ -190,6 +190,9 @@ return [
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         jeremykenedy\laravelexceptionnotifier\LaravelExceptionNotifier::class,
 
+        Laravel\Scout\ScoutServiceProvider::class,
+
+
     ],
 
     /*

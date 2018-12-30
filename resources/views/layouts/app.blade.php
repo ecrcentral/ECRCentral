@@ -5,153 +5,17 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-<style type="text/css">
-            body { padding-top: 40px; }
-
-#container {
-
-    padding-top: 40px;
-}
-
-
-/* ==========================================================================
-   Wrap Sections
-   ========================================================================== */
-
-#headerwrap {
-    background-color: #34495e;
-    padding-top: 10px;
-}
-
-#headerwrap h1 {
-    margin-top: 30px;
-    color: white;
-    font-size: 70px;
-    
-}
-
-#headerwrap h3 {
-    color: white;
-    font-size: 30px;
-    line-height: 40px;
-}
-
-#headerwrap h5 {
-    color: white;
-    font-weight: 700;
-    text-align: left;
-}
-
-#headerwrap p {
-    text-align: left;
-    color: white
-}
-
-/* intro Wrap */
-
-#intro {
-    padding-top: 50px;
-    border-top: #c1652b solid 5px;
-}
-
-#page-header {
-    background-color: #38495c;
-    padding-top: 50px;
-    padding-bottom: 10px;
-    text-align: center;
-}
-#page-header h3 {
-    color: white;
-    text-align: center;
-}
-
-#upcoming {
-    background-color: #19b491;
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-#upcoming h3 {
-    color: white;
-}
-
-#features {
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-
-#features .ac a{
-    font-size: 20px;
-}
-
-/* Showcase Wrap */
-
-#showcase {
-    display: block;
-    background-color: #34495e;
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-
-#showcase h1 {
-    color: white;
-}
-
-#footerwrap {
-    background-color: #2f2f2f;
-    color: white;
-    padding-top: 40px;
-    padding-bottom: 60px;
-    text-align: left;
-}
-
-#footerwrap h3 {
-    font-size: 28px;
-    color: white;
-}
-
-#footerwrap p {
-    color: white;
-    font-size: 18px;
-}
-
-/* Copyright Wrap */
-
-#c {
-    background: #222222;
-    padding-top: 15px;
-    text-align: center;
-}
-
-#c p {
-    color: white
-}
-
-h3.feature-title {
-    color: #329ef4;
-}
-ol.features {
-    padding: 0px;
-}
-ol.features li {
-    margin-bottom: 15px;
-    padding-left: 5px;
-}
-.contact-link {
-    margin-bottom: 10px;
-}
-.contact-link i {
-    margin-right: 7px;
-}
-        </style>
-
         {{-- CSRF Token --}}
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>@if (trim($__env->yieldContent('template_title')))@yield('template_title') | @endif {{ config('app.name', Lang::get('titles.app')) }}</title>
-        <meta name="description" content="">
-        <meta name="author" content="Aziz han">
+        <meta name="description" content="ECRcentral is a central platform for early career researchers to find postdoc research fellowships, travel grants and to share experiences and to provide feedback."/>
+        <meta name="keywords" content="funding, opportunities, Postdoc, fellowships, schemes, early career researchers, postdoctoral, research, grants, travel"/>
+        <meta name="author" content="Aziz Khan">
+
         <link rel="shortcut icon" href="/favicon.ico">
+
+        @yield('socials_card')
 
         {{-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --}}
         <!--[if lt IE 9]>
@@ -163,7 +27,11 @@ ol.features li {
         @yield('template_linked_fonts')
 
         {{-- Styles --}}
+
+        <link href="{{ asset('css/ecrcentral.css') }}" rel="stylesheet">
+
         <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
 
         @yield('template_linked_css')
 
@@ -205,7 +73,7 @@ ol.features li {
 
             @include('partials.nav')
 
-            <div class="container">
+            <div class="container">                
 
                 @include('partials.form-status')
 

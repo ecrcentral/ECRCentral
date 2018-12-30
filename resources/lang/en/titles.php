@@ -19,7 +19,7 @@ return [
 
     'editProfile'    => 'Edit Profile',
     'createProfile'  => 'Create Profile',
-    'adminUserList'  => 'Users Administration',
+    'adminUserList'  => 'User Management',
     'adminEditUsers' => 'Edit Users',
     'adminNewUser'   => 'Create New User',
 

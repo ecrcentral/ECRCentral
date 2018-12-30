@@ -6,39 +6,75 @@
 
 
 @section('content')
-<br><br>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-      <h4><i class="fa fa-search-o"></i> {{ $funding->name }}</h4>
-      {{ $funding->funder_name }}
-      
-      <div class="pull-right">
-          <a class="btn btn-sm btn-info btn-block" href="{{ URL::to('fundings/' . $funding->id . '/edit') }}" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i> Edit
-          </a>                                     
-      </div>
-      <hr>
+        <h4 class="page-header">{{ $funding->name }} <br>
+                    <small>{{ $funding->funder_name }}</small>
+          @if(Auth::user() && Auth::user()->role->name != 'user')
+          <div class="pull-right">
+              <a class="btn btn-sm btn-info btn-block" target="_blank" href="{{ URL::to('admin/fundings/' . $funding->id . '/edit') }}" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i> Edit
+              </a>                                     
+          </div>
+          @endif
+        </h4>
+
       </div>
       <div class="col-md-8">
 
-      <p>{!! $funding->description !!}</p>
-      
-      <p>Diversity: {{ $funding->diversity }}</p> 
-      <p>Comments: {{ $funding->comments }}</p> 
+      @if($funding->status == 0)
+      <div class="alert alert-danger fade in">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          Note: This funding opportunity is not published/active.
+      </div>
+      @endif
 
+      <p>{!! $funding->description !!}</p>
+
+      <p><b>Award</b>: {{ $funding->award }}</p> 
+      <p><b>Award type</b>: {{ $funding->award_type }}</p>
+      <p><b>Award Duration</b>: {{ $funding->duration }}</p>  
+      <p><b>Research costs</b>: {{ $funding->research_costs }}</p> 
+      <p><b>Benefits</b>: {{ $funding->benefits }}</p>      
+      <p><b>Diversity</b>: {{ $funding->diversity }}</p> 
+
+      <p><b>Mobility rule</b>: {{ $funding->mobility_rule }}</p> 
+
+      <p><b>Subjects</b>: {{ $funding->fileds }}</p>
+
+      <p><b>Comments</b>: {{ $funding->comments }}</p>
+
+      <!--
+      <h5>Subjects</h5>
+    
+            @foreach ($funding->subjects as $subject)
+             <a href="#"><button type="button" class="btn btn-info">{{ $subject->name }}</button></a>
+             @endforeach
+      -->
+
+      <div class="alert alert-info fade in">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <small>
+          We make ensure the accuracy, please refer to the call website for complete details about the funding.
+          <br><b>Note</b>: This is a community curated project, please contribute/report if any information is missing or not correct. We highly appreciate your contributions!
+        </small>
+    </div>
+
+      <hr>
        @if ($funding->updated_at)
-       <p><strong>
-        Last updated: </strong>
-        {{ $funding->updated_at }}</p>
+       <p>
+       <small>
+        This entry has been last updated: 
+        {{ $funding->updated_at }}</small>
+      </p>
       @endif
 
       </div>
 
       <div class="col-md-4">
-        <a href="/forums"><button type="button" class="btn btn-info">Talk to a mentor</button></a>
         <a href="{{ $funding->url }}" target="_blank"><button type="button" class="btn btn-success">Call website</button></a>
+        <a href="/forums"><button type="button" class="btn btn-info">Talk to a mentor</button></a>
         <div class="border-bottom"></div>
-
       </div>
 
       <div class="col-md-4">
@@ -51,10 +87,10 @@
            Applicant Info
           </div>
           <div class="panel-body">
-                   <p><strong>Applicant citizenship</strong>: {{ $funding->applicant_country }}</p> 
-                    <p><strong>Host country</strong>: {{ $funding->host_country }}</p> 
-                    <p><strong>Academic level</strong>: {{ $funding->academic_level }}</p> 
-                    <p><strong>Years since PhD</strong>: {{ $funding->years_since_phd }}</p> 
+                  <p><strong>Applicant citizenship</strong>: {{ $funding->applicant_country }}</p> 
+                  <p><strong>Host country</strong>: {{ $funding->host_country }}</p> 
+                  <p><strong>Academic level</strong>: {{ $funding->academic_level }}</p> 
+                  <p><strong>Years since PhD</strong>: {{ $funding->years_since_phd }}</p> 
           </div>
         </div>
       </div>
@@ -71,36 +107,10 @@
 
       </div>
 
-      <div class="col-md-4">
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <h3 class="panel-title">Award info</h3>
-          </div>
-          <div class="panel-body">
-            <p>Award: {{ $funding->award }}</p> 
-            <p>Award type: {{ $funding->award_type }}</p>
-            <p>Award Duration: {{ $funding->duration }}</p>  
-            <p>Research costs: {{ $funding->research_costs }}</p> 
-          </div>
-        </div>
-      </div>
+  
+        
 
-      <div class="col-md-4">
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <h3 class="panel-title">Subjects</h3>
-          </div>
-          <div class="panel-body">
-            <ul>
-            @foreach ($funding->subjects as $subject)
-             <li>{{ $subject->name }}</li> 
-             @endforeach
-             </ul>
-           </div>
-        </div>
-      </div>
-
-
+       <div id="disqus_thread"></div>
 
     </div>
   </div>

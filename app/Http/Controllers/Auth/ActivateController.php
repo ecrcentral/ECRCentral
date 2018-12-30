@@ -13,7 +13,9 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 //use jeremykenedy\LaravelRoles\Models\Role;
-use App\Models\Role;
+#use App\Models\Role;
+use TCG\Voyager\Models\Role;
+
 
 class ActivateController extends Controller
 {

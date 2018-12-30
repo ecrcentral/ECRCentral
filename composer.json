@@ -9,8 +9,10 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "algolia/algoliasearch-client-php": "^1.27",
         "barryvdh/laravel-debugbar": "^3.0",
         "creativeorange/gravatar": "~1.0",
+        "cviebrock/eloquent-sluggable": "^4.3",
         "devdojo/chatter": "0.2.*",
         "doctrine/dbal": "^2.5",
         "fideloper/proxy": "~3.3",
@@ -24,13 +26,15 @@
         "jeremykenedy/laravel2step": "^1.0",
         "jeremykenedy/uuid": "^3.1",
         "laravel/framework": "5.5.*",
+        "laravel/scout": "^6.1",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.5",
         "pusher/pusher-php-server": "^3.0",
         "rap2hpoutre/laravel-log-viewer": "^0.10.4",
         "socialiteproviders/generators": "^2.0",
-        "tcg/voyager": "^1.0"
+        "tcg/voyager": "1.0.15",
+        "yajra/laravel-disqus": "^1.1"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
@@ -57,18 +61,7 @@
             "dont-discover": []
         }
     },
-    "scripts": {
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "post-create-project-cmd": [
-            "@php artisan key:generate"
-        ],
-        "post-autoload-dump": [
-            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover"
-        ]
-    },
+
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,

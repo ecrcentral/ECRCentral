@@ -13,9 +13,6 @@
 |
 */
 
-// Homepage Route
-Route::get('/', 'StaticController@index')->name('index');
-Route::get('/about', 'StaticController@about')->name('about');
 
 // Authentication Routes
 Auth::routes();
@@ -23,6 +20,14 @@ Auth::routes();
 
 // Public Routes
 Route::group(['middleware' => ['web', 'activity']], function () {
+
+    // Static pages routes
+    Route::get('/', 'StaticController@index')->name('index');
+    Route::get('/about', 'StaticController@about')->name('about');
+    Route::get('/team', 'StaticController@team')->name('team');
+    Route::get('/privacy', 'StaticController@privacy')->name('privacy');
+    Route::get('/contact', 'StaticController@contact')->name('contact');
+
 
     // Activation Routes
     Route::get('/activate', ['as' => 'activate', 'uses' => 'Auth\ActivateController@initial']);
@@ -44,8 +49,8 @@ Route::group(['middleware' => ['web', 'activity']], function () {
         'FundingsController', [
             'only' => [
                 'show',
-                'edit',
-                'update',
+                //'edit',
+                //'update',
                 'create',
             ],
         ]
@@ -57,6 +62,8 @@ Route::group(['middleware' => ['web', 'activity']], function () {
         'uses' => 'FundingsController@show',
     ]);
 
+    Route::post('fundings/create','FundingsController@store')->name('fundings.store');
+
     
     // Funders Route
     Route::get('/funders', 'FundersController@index')->name('funders');
@@ -65,11 +72,39 @@ Route::group(['middleware' => ['web', 'activity']], function () {
         'uses' => 'FundersController@show',
     ]);
 
+
+
     // Travel grants Route
+    Route::resource(
+        'travel-grants',
+        'TravelGrantsController', [
+            'only' => [
+                'show',
+                //'edit',
+                //'update',
+                'create',
+            ],
+        ]
+    );
+
     Route::get('/travel-grants', 'TravelGrantsController@index')->name('travelgrants');
     Route::get('travel-grants/{id}', [
         'as'   => '{id}',
         'uses' => 'TravelGrantsController@show',
+    ]);
+
+    Route::post('travel-grants/create','TravelGrantsController@store')->name('travelgrants.store');
+
+    // Blog Route
+    Route::get('/blog', 'PostsController@index')->name('posts');
+    Route::get('blog/{id}', [
+        'as'   => '{id}',
+        'uses' => 'PostsController@show',
+    ]);
+
+    Route::get('blog/category/{category_slug}', [
+        'as'   => '{category_slug}',
+        'uses' => 'PostsController@show_category',
     ]);
 
 });
@@ -86,7 +121,8 @@ Route::group(['middleware' => ['auth', 'activated', 'activity']], function () {
 Route::group(['middleware' => ['auth', 'activated', 'activity', 'twostep']], function () {
 
     //  Homepage Route - Redirect based on user role is in controller.
-    Route::get('/home', ['as' => 'public.home',   'uses' => 'UserController@index']);
+    #Route::get('/home', ['as' => 'public.home',   'uses' => 'UserController@index']);
+    Route::get('/home', ['as' => 'public.home',   'uses' => 'StaticController@index']);
 
     // Show users profile - viewable by other users.
     Route::get('profile/{username}', [
@@ -130,42 +166,7 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser', 'activity', '
 
     // Route to upload user avatar.
     Route::post('avatar/upload', ['as' => 'avatar.upload', 'uses' => 'ProfilesController@upload']);
-
     
-    #Fundings route
-    Route::get('fundings/{id}/edit', [
-        'as'   => '{id}',
-        'uses' => 'FundingsController@edit',
-    ]);
-
-    Route::put('fundings/{id}/update', [
-        'as'   => '{id}',
-        'uses' => 'FundingsController@update',
-    ]);
-
-    #Funders route
-    Route::get('funders/{id}/edit', [
-        'as'   => '{id}',
-        'uses' => 'FundersController@edit',
-    ]);
-
-    Route::put('funders/{id}/update', [
-        'as'   => '{id}',
-        'uses' => 'FundersController@update',
-    ]);
-
-
-     #Fundings route
-    Route::get('travel-grants/{id}/edit', [
-        'as'   => '{id}',
-        'uses' => 'TravelGrantsController@edit',
-    ]);
-
-    Route::put('travel-grants/{id}/update', [
-        'as'   => '{id}',
-        'uses' => 'TravelGrantsController@update',
-    ]);
-
 
 });
 
@@ -197,6 +198,58 @@ Route::group(['middleware' => ['auth', 'activated', 'activity', 'twostep']], fun
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
     Route::get('routes', 'AdminDetailsController@listRoutes');
     Route::get('active-users', 'AdminDetailsController@activeUsers');
+
+
+    #Fundings route
+    Route::get('fundings/{id}/edit', [
+        'as'   => '{id}',
+        'uses' => 'FundingsController@edit',
+    ]);
+
+    Route::put('fundings/{id}/update', [
+        'as'   => '{id}',
+        'uses' => 'FundingsController@update',
+    ]);
+
+    Route::delete('fundings/{id}', [
+        'as'   => '{id}',
+        'uses' => 'FundingsController@destroy',
+    ]);
+
+    #Funders route
+    Route::get('funders/{id}/edit', [
+        'as'   => '{id}',
+        'uses' => 'FundersController@edit',
+    ]);
+
+    Route::put('funders/{id}/update', [
+        'as'   => '{id}',
+        'uses' => 'FundersController@update',
+    ]);
+
+    Route::delete('funders/{id}', [
+        'as'   => '{id}',
+        'uses' => 'FundersController@destroy',
+    ]);
+
+
+    #Travel grants route
+    Route::get('travel-grants/{id}/edit', [
+        'as'   => '{id}',
+        'uses' => 'TravelGrantsController@edit',
+    ]);
+
+    Route::put('travel-grants/{id}/update', [
+        'as'   => '{id}',
+        'uses' => 'TravelGrantsController@update',
+    ]);
+
+    Route::delete('travel-grants/{id}', [
+        'as'   => '{id}',
+        'uses' => 'TravelGrantsController@destroy',
+    ]);
+
+    
 });
 
 //Route::redirect('/php', '/phpinfo', 301);

@@ -18,28 +18,40 @@
 <br>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-10 col-md-offset-1">
+			<div class="col-md-12">
 				<div class="profile">
                     <center>
                     
                     <img src="@if ($user->profile->avatar_status == 1) {{ $user->profile->avatar }} @else {{ Gravatar::get($user->email) }} @endif" alt="{{ $user->name }}"  width="140" height="140" border="0" class="img-circle"><br>
-                    <small>@ {{ $user->name }}</small>
-                    <h3 class="media-heading">{{ $user->first_name }} {{ $user->last_name }} <small>{{ $user->title }}</small></h3>
+                   
+                    <h3 class="media-heading">{{ $user->first_name }} {{ $user->last_name }} <small>{{ $user->profile->title }}</small></h3>
+                    @if ($user->profile->organization)
+                    {{ $user->profile->organization }}
+                    <br>
+					@endif
 
+                    @if ($user->profile->orcid)
+                     <a href="https://orcid.org/{{ $user->profile->orcid }}" target="_blank">
+                     	<i class="ai ai-orcid ai-2x"></i>
+                     </a>
+					@endif
                     
                      @if ($user->profile->twitter_username)
                      <a href="https://twitter.com/{{ $user->profile->twitter_username }}" target="_blank">
                      	<i class="fa fa-twitter fa-2x"> </i>
                      </a>
-							
-							
 					@endif
 
 					@if ($user->profile->github_username)
 						<a href="https://github.com/{{ $user->profile->github_username }}" target="_blank">
                      	<i class="fa fa-github fa-2x"> </i>
                      </a>
-									
+					@endif
+
+					@if ($user->profile->linkedin_username)
+                     <a href="{{ $user->profile->linkedin_username }}" target="_blank">
+                     	<i class="fa fa-linkedin fa-2x"> </i>
+                     </a>
 					@endif
 
                     </center>
@@ -59,62 +71,68 @@
                     </span>
                     <hr>
 
-                    <center>
-                    @if ($user->profile->bio)
-									
-					{{ $user->profile->bio }}
-					
-					<hr>				
-					@endif
-                   
+                    @if ($user->profile)
+	                    @if ($user->profile->bio)
+										
+						{{ $user->profile->bio }}
+						
+						<hr>				
+						@endif
 
-                    	<dl class="user-info">
+						<center>
+						@if ($user->email)
+						 <i class="fa fa-envelope"> </i>  {{ $user->email }} 
+						@endif
+						@if ($user->profile->organization)
+						| <i class="fa fa-bank"> </i> {{ $user->profile->organization }}
+						@endif
 
-							
-							@if ($user->email)
-
-							<dt>
-								{{ trans('profile.showProfileEmail') }}
-							</dt>
-							<dd>
-								{{ $user->email }}
-							</dd>
-							@endif
-
-							@if ($user->profile)
-
-								@if ($user->profile->theme_id)
-									<dt>
-										{{ trans('profile.showProfileTheme') }}
-									</dt>
-									<dd>
-										{{ $currentTheme->name }}
-									</dd>
-								@endif
-
-								@if ($user->profile->location)
-									<dt>
-										{{ trans('profile.showProfileLocation') }}
-									</dt>
-									<dd>
-										{{ $user->profile->location }} <br />
-
-										@if(config('settings.googleMapsAPIStatus'))
-											Latitude: <span id="latitude"></span> / Longitude: <span id="longitude"></span> <br />
-
-											<div id="map-canvas"></div>
-										@endif
-									</dd>
-								@endif
-							@endif
-
-						</dl>
+						@if ($user->profile->website)
+						| <i class="fa fa-globe"> </i> <a href="{{ $user->profile->website }}" target="_blank">{{ $user->profile->website }}</a>
+						@endif
 						 </center>
+						 <br><br>
+					@endif
+						
                 </div>
 			</div>
 		</div>
 		  
 	</div>
+	<div style="background-color: #edf0f1;">
+       <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+            	<br>
+            	<br>
+            	<!--
+                <h4 class="page-header">Curation activities</h4>
+            -->
+            </div>
+            
+        </div>
+
+      </div>
+
+    </div>
+
+    @if ($user->profile->location)
+    <div class="container">
+        <div class="row">
+        	<div class="col-md-10 col-md-offset-1">
+        	{{ trans('profile.showProfileLocation') }}:
+									<small>{{ $user->profile->location }} </small>
+				<br />
+				@if(config('settings.googleMapsAPIStatus'))
+				<!--
+				Latitude: <span id="latitude"></span> / Longitude: <span id="longitude"></span>
+				--> <br />
+				<div id="map-canvas"></div>
+				@endif
+			</div>
+		</div>
+	</div>
+	@endif
 @endsection
 
 @section('footer_scripts')

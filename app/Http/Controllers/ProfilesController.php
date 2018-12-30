@@ -48,6 +48,8 @@ class ProfilesController extends Controller
             'twitter_username' => 'max:50',
             'github_username'  => 'max:50',
             'avatar'           => '',
+            'website'           => 'url',
+            'linkedin_username' => 'url',
             'avatar_status'    => '',
         ]);
     }
@@ -136,7 +138,7 @@ class ProfilesController extends Controller
     {
         $user = $this->getUserByUsername($username);
 
-        $input = Input::only('theme_id', 'location', 'bio', 'twitter_username', 'github_username', 'avatar_status');
+        $input = Input::only('theme_id', 'location', 'bio', 'title', 'website', 'twitter_username', 'github_username', 'organization', 'linkedin_username', 'orcid', 'avatar_status');
 
         $ipAddress = new CaptureIpTrait();
 

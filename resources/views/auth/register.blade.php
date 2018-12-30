@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('template_title')
+  Register
+@endsection
+
 @section('content')
 <br>
 <div class="container">
@@ -98,7 +102,7 @@
                             Or Use Social Logins to Register
                         </p>
 
-                        @include('partials.socials-icons')
+                        @include('partials.socials')
 
                     {!! Form::close() !!}
 

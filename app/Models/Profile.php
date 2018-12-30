@@ -34,7 +34,12 @@ class Profile extends Model
         'twitter_username',
         'github_username',
         'user_profile_bg',
+        'linkedin_username',
         'avatar',
+        'orcid',
+        'title',
+        'organization',
+        'website',
         'avatar_status',
     ];
 

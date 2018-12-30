@@ -9,6 +9,10 @@ use App\Traits\CaptureIpTrait;
 use Illuminate\Http\Request;
 use Validator;
 
+use Auth;
+
+use Mail;
+use App\Mail\TravelGrantAdded;
 
 class travelgrantsController extends Controller
 {
@@ -21,14 +25,31 @@ class travelgrantsController extends Controller
      */
     public function index(Request $request)
     {
-        $q = $request->get('q', 'None');
+        $travelgrants = TravelGrant::where('status', 1);
 
-        if($q != '' and $q != 'None') {
-       		$travelgrants = TravelGrant::where('name', 'LIKE', '%' . $q . '%')->orWhere('funder_name', 'LIKE', '%' . $q . '%')->paginate(env('USER_LIST_PAGINATION_SIZE'));
-    	}else{
+        $request_append = array();
 
-        	$travelgrants = TravelGrant::paginate(100);
+        if($request->has('q')) {
+
+            $query_string = $request->input('q');
+
+            $request_append['q'] = $query_string;
+
+            $travelgrants = $travelgrants->where('name', 'LIKE', '%' . $query_string . '%')
+            ->orWhere('funder_name', 'LIKE', '%' . $query_string . '%')
+            ->orWhere('applicant_country', 'LIKE', '%' . $query_string . '%')
+            ->orWhere('fields', 'LIKE', '%' . $query_string . '%');
         }
+
+        if($request->has('applicant_country')) {
+
+            $travelgrants = $travelgrants->where('applicant_country', $request->input('applicant_country'));
+
+            $request_append['applicant_country'] = $request->input('applicant_country');
+        }
+
+
+        $travelgrants = $travelgrants->paginate(env('USER_LIST_PAGINATION_SIZE'))->appends($request_append);
 
         return View('travelgrants.show-travelgrants', compact('travelgrants'));
     }
@@ -62,20 +83,12 @@ class travelgrantsController extends Controller
             [
                 'name' => 'required',
                 'funder_name' => 'required',
-                #'funder_id' => 'required|unique',
-                'url' => 'required',
-                'logo' => '',
-               
+                'url' => 'url|required',
             ],
             [
-                #'name.unique'         => trans('auth.travelgrantNameTaken'),
-                #'name.required'       => trans('auth.travelgrantNameRequired'),
-                #'first_name.required' => trans('auth.fNameRequired'),
-                #'last_name.required'  => trans('auth.lNameRequired'),
-                #'email.required'      => trans('auth.emailRequired'),
-                #'email.email'         => trans('auth.emailInvalid'),
-                #'password.max'        => trans('auth.PasswordMax'),
-                #'role.required'       => trans('auth.roleRequired'),
+                'name.required'       => trans('travelgrants.fundingNameRequired'),
+                'funder_name.required' => trans('travelgrants.funderNameRequired'),
+                'url.required'  => trans('travelgrants.urlRequired'),
             ]
         );
 
@@ -86,19 +99,39 @@ class travelgrantsController extends Controller
         $ipAddress = new CaptureIpTrait();
         $travelgrant = new TravelGrant();
 
+        if(Auth::user()){
+            $user_id = Auth::id();
+        }else{
+            $user_id = 1;
+        }
+
         $travelgrant = TravelGrant::create([
-            'name'             => $request->input('name'),
-            'travelgrant_id'       => $request->input('travelgrant_id'),
-            'country'        => $request->input('country'),
-            'url'            => $request->input('url'),
-            'logo'         => $request->input('logo'),
+            'name' => $request->input('name'),
+            'funder_name' => $request->input('funder_name'),
+            'description' => $request->input('description'),            
+            'applicant_country' => $request->input('applicant_country'),
+            'url' => $request->input('url'),
+            'award' => $request->input('award'),
+            'purpose' => $request->input('purpose'),
+            'deadline' => $request->input('deadline'),
+            'comments' => $request->input('comments'),
+            'membership' => $request->input('membership'),
+            'membership_time' => $request->input('membership_time'),
+            'fields' => $request->input('fields'),
+            'diversity' => $request->input('diversity'),
+            'career_level' => $request->input('career_level'),
+            'status' => 0,
+            'featured' => 0,
+            'user_id' => $user_id,
          
         ]);
 
-        #$travelgrant->travelgrant()->save($travelgrant);
+
         $travelgrant->save();
 
-        return redirect('travelgrants')->with('success', trans('travelgrants.createSuccess'));
+        Mail::to('azez.khan@gmail.com')->send(new TravelGrantAdded($travelgrant));
+
+        return redirect('travel-grants')->with('success', trans('travelgrants.createSuccess'));
     }
 
     /**
@@ -110,7 +143,8 @@ class travelgrantsController extends Controller
      */
     public function show($id)
     {
-        $travelgrant = TravelGrant::find($id);
+        #$travelgrant = TravelGrant::find($id);
+        $travelgrant = TravelGrant::where('slug', '=', $id)->orWhere('id', '=', $id)->firstOrFail();
 
         return view('travelgrants.show-travelgrant')->withtravelgrant($travelgrant);
     }
@@ -148,7 +182,6 @@ class travelgrantsController extends Controller
         $validator = Validator::make($request->all(), [
                 'name'     => 'required',
                 'funder_name' => 'required',
-                'host_country' => 'required',
                 'url' => 'url',
             ]);
 
@@ -189,11 +222,11 @@ class travelgrantsController extends Controller
         $ipAddress = new CaptureIpTrait();
 
         
-         $travelgrant->deleted_ip_address = $ipAddress->getClientIp();
+         #$travelgrant->deleted_ip_address = $ipAddress->getClientIp();
          $travelgrant->save();
          $travelgrant->delete();
 
-         return redirect('travelgrants')->with('success', trans('travelgrants.deleteSuccess'));
+         return redirect('travel-grants')->with('success', trans('travelgrants.deleteSuccess'));
 
     }
 }

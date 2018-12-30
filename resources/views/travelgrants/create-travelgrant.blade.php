@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-  Create New User
+  Add New Travel Grant
 @endsection
 
 @section('template_fastload_css')
@@ -11,135 +11,181 @@
 
   <div class="container">
     <div class="row">
+      <div class="col-md-12">
+            <h4 class="page-header"><i class="fa fa-plus"></i> Add new travel grant
+            <a href="/travel-grants" class="btn btn-info btn-xs pull-right">
+              <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
+              Back <span class="hidden-md">to</span><span class="hidden-md"> Travel Grants</span>
+            </a>
+          </h4>
+
+        <div class="alert alert-info fade in">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <small>
+          We encourage the community to help to add new travel grants using below form, which will be reviewed and added to the travel grants list. <br>Please add travel grants which are not in the above list and we only accept submissions in English. Thanks for your contributions!
+        </small>
+       </div>
+            
+      </div>
+    </div>
+
+    <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default">
-          <div class="panel-heading">
-
-            Create New User
-
-            <a href="/users" class="btn btn-info btn-xs pull-right">
-              <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
-              Back <span class="hidden-xs">to</span><span class="hidden-xs"> Users</span>
-            </a>
-
-          </div>
           <div class="panel-body">
 
-            {!! Form::open(array('action' => 'UsersManagementController@store')) !!}
+            {!! Form::open(array( 'route'=>'travelgrants.store', 'method'=> 'POST')) !!} 
+
+
+            {{ csrf_field() }}
 
               <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
-                {!! Form::label('name', trans('forms.create_user_label_username'), array('class' => 'col-md-3 control-label')); !!}
+                {!! Form::label('name', 'Name' , array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
                   <div class="input-group">
-                    {!! Form::text('name', NULL, array('id' => 'name', 'class' => 'form-control', 'placeholder' => trans('forms.create_user_ph_username'))) !!}
-                    <label class="input-group-addon" for="name"><i class="fa fa-fw {{ trans('forms.create_user_icon_username') }}" aria-hidden="true"></i></label>
+                    {!! Form::text('name', old('name'), array('id' => 'name', 'class' => 'form-control', 'placeholder' => 'Add travel grant name')) !!}
+                    <label class="input-group-addon" for="name"><i class="fa fa-fw fa-pencil }}" aria-hidden="true"></i></label>
                   </div>
-                  @if ($errors->has('name'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('name') }}</strong>
-                    </span>
-                  @endif
                 </div>
               </div>
 
-              <div class="form-group has-feedback row {{ $errors->has('email') ? ' has-error ' : '' }}">
-                {!! Form::label('email', trans('forms.create_user_label_email'), array('class' => 'col-md-3 control-label')); !!}
+              <div class="form-group has-feedback row {{ $errors->has('description') ? ' has-error ' : '' }}">
+                {!! Form::label('description', 'Description' , array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
                   <div class="input-group">
-                    {!! Form::text('email', NULL, array('id' => 'email', 'class' => 'form-control', 'placeholder' => trans('forms.create_user_ph_email'))) !!}
-                    <label class="input-group-addon" for="email"><i class="fa fa-fw {{ trans('forms.create_user_icon_email') }}" aria-hidden="true"></i></label>
+                    {!! Form::textarea('description', old('description'), array('id' => 'description', 'class' => 'form-control', 'placeholder' => 'Add funding description')) !!}
+                    <label class="input-group-addon" for="description"><i class="fa fa-fw fa-pencil }}" aria-hidden="true"></i></label>
                   </div>
-                  @if ($errors->has('email'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('email') }}</strong>
-                    </span>
-                  @endif
                 </div>
               </div>
 
-              <div class="form-group has-feedback row {{ $errors->has('first_name') ? ' has-error ' : '' }}">
-                {!! Form::label('first_name', trans('forms.create_user_label_firstname'), array('class' => 'col-md-3 control-label')); !!}
+              <div class="form-group has-feedback row {{ $errors->has('funder_name') ? ' has-error ' : '' }}">
+                {!! Form::label('funder_name', 'Funder name' , array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
                   <div class="input-group">
-                    {!! Form::text('first_name', NULL, array('id' => 'first_name', 'class' => 'form-control', 'placeholder' => trans('forms.create_user_ph_firstname'))) !!}
-                    <label class="input-group-addon" for="name"><i class="fa fa-fw {{ trans('forms.create_user_icon_firstname') }}" aria-hidden="true"></i></label>
+                    {!! Form::text('funder_name', old('funder_name'), array('id' => 'funder_name', 'class' => 'form-control', 'placeholder' => 'Funder name')) !!}
+                    <label class="input-group-addon" for="funder_name"><i class="fa fa-fw fa-pencil " aria-hidden="true"></i></label>
                   </div>
-                  @if ($errors->has('first_name'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('first_name') }}</strong>
-                    </span>
-                  @endif
                 </div>
               </div>
 
-              <div class="form-group has-feedback row {{ $errors->has('last_name') ? ' has-error ' : '' }}">
-                {!! Form::label('last_name', trans('forms.create_user_label_lastname'), array('class' => 'col-md-3 control-label')); !!}
+              <div class="form-group has-feedback row {{ $errors->has('url') ? ' has-error ' : '' }}">
+                {!! Form::label('url', 'Grant URL' , array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
                   <div class="input-group">
-                    {!! Form::text('last_name', NULL, array('id' => 'last_name', 'class' => 'form-control', 'placeholder' => trans('forms.create_user_ph_lastname'))) !!}
-                    <label class="input-group-addon" for="name"><i class="fa fa-fw {{ trans('forms.create_user_icon_lastname') }}" aria-hidden="true"></i></label>
+                    {!! Form::text('url', old('url'), array('id' => 'url', 'class' => 'form-control', 'placeholder' => 'Grant URL')) !!}
+                    <label class="input-group-addon" for="url"><i class="fa fa-fw fa-link " aria-hidden="true"></i></label>
                   </div>
-                  @if ($errors->has('last_name'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('last_name') }}</strong>
-                    </span>
-                  @endif
+                </div>  
+              </div>
+
+              <div class="form-group has-feedback row {{ $errors->has('applicant_country') ? ' has-error ' : '' }}">
+                {!! Form::label('applicant_country', 'Applicant country' , array('class' => 'col-md-3 control-label')); !!}
+                <div class="col-md-9">
+                  <div class="input-group">
+                    {!! Form::text('applicant_country', old('applicant_country'), array('id' => 'applicant_country', 'class' => 'form-control', 'placeholder' => 'Applicant country')) !!}
+                    <label class="input-group-addon" for="applicant_country"><i class="fa fa-fw fa-pencil " aria-hidden="true"></i></label>
+                  </div>
                 </div>
               </div>
 
-              <div class="form-group has-feedback row {{ $errors->has('role') ? ' has-error ' : '' }}">
-                {!! Form::label('role', trans('forms.create_user_label_role'), array('class' => 'col-md-3 control-label')); !!}
+              <div class="form-group has-feedback row {{ $errors->has('purpose') ? ' has-error ' : '' }}">
+                {!! Form::label('purpose', 'Grant purpose' , array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
                   <div class="input-group">
-                    <select class="form-control" name="role" id="role">
-                      <option value="">{{ trans('forms.create_user_ph_role') }}</option>
-                      @if ($roles->count())
-                        @foreach($roles as $role)
-                          <option value="{{ $role->id }}">{{ $role->name }}</option>
-                        @endforeach
-                      @endif
-                    </select>
-                    <label class="input-group-addon" for="name"><i class="fa fa-fw {{ trans('forms.create_user_icon_role') }}" aria-hidden="true"></i></label>
+                    {!! Form::text('purpose', old('purpose'), array('id' => 'purpose', 'class' => 'form-control', 'placeholder' => 'Grant purpose')) !!}
+                    <label class="input-group-addon" for="purpose"><i class="fa fa-fw fa-pencil " aria-hidden="true"></i></label>
                   </div>
-                  @if ($errors->has('role'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('role') }}</strong>
-                    </span>
-                  @endif
                 </div>
               </div>
 
-              <div class="form-group has-feedback row {{ $errors->has('password') ? ' has-error ' : '' }}">
-                {!! Form::label('password', trans('forms.create_user_label_password'), array('class' => 'col-md-3 control-label')); !!}
+              <div class="form-group has-feedback row {{ $errors->has('membership') ? ' has-error ' : '' }}">
+                {!! Form::label('membership', 'Memberschip required?' , array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
                   <div class="input-group">
-                    {!! Form::password('password', array('id' => 'password', 'class' => 'form-control ', 'placeholder' => trans('forms.create_user_ph_password'))) !!}
-                    <label class="input-group-addon" for="password"><i class="fa fa-fw {{ trans('forms.create_user_icon_password') }}" aria-hidden="true"></i></label>
+                    {!! Form::text('membership', old('membership'), array('id' => 'membership', 'class' => 'form-control', 'placeholder' => 'Memberschip required?')) !!}
+                    <label class="input-group-addon" for="membership"><i class="fa fa-fw fa-pencil " aria-hidden="true"></i></label>
                   </div>
-                  @if ($errors->has('password'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('password') }}</strong>
-                    </span>
-                  @endif
                 </div>
               </div>
 
-              <div class="form-group has-feedback row {{ $errors->has('password_confirmation') ? ' has-error ' : '' }}">
-                {!! Form::label('password_confirmation', trans('forms.create_user_label_pw_confirmation'), array('class' => 'col-md-3 control-label')); !!}
+              <div class="form-group has-feedback row {{ $errors->has('membership_time') ? ' has-error ' : '' }}">
+                {!! Form::label('membership_time', 'Minimum time of membership' , array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
                   <div class="input-group">
-                    {!! Form::password('password_confirmation', array('id' => 'password_confirmation', 'class' => 'form-control', 'placeholder' => trans('forms.create_user_ph_pw_confirmation'))) !!}
-                    <label class="input-group-addon" for="password_confirmation"><i class="fa fa-fw {{ trans('forms.create_user_icon_pw_confirmation') }}" aria-hidden="true"></i></label>
+                    {!! Form::text('membership_time', old('membership_time'), array('id' => 'membership_time', 'class' => 'form-control', 'placeholder' => 'Minimum time of membership')) !!}
+                    <label class="input-group-addon" for="membership_time"><i class="fa fa-fw fa-pencil " aria-hidden="true"></i></label>
                   </div>
-                  @if ($errors->has('password_confirmation'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                    </span>
-                  @endif
+                </div>  
+              </div>
+
+
+              <div class="form-group has-feedback row {{ $errors->has('fields') ? ' has-error ' : '' }}">
+                {!! Form::label('fields', 'Subjects' , array('class' => 'col-md-3 control-label')); !!}
+                <div class="col-md-9">
+                  <div class="input-group">
+                    {!! Form::text('fields', old('fields'), array('id' => 'fields', 'class' => 'form-control', 'placeholder' => 'Subjects')) !!}
+                    <label class="input-group-addon" for="fields"><i class="fa fa-fw fa-pencil " aria-hidden="true"></i></label>
+                  </div>
+                </div>  
+              </div>
+
+              
+              <div class="form-group has-feedback row {{ $errors->has('award') ? ' has-error ' : '' }}">
+                {!! Form::label('award', 'Award' , array('class' => 'col-md-3 control-label')); !!}
+                <div class="col-md-9">
+                  <div class="input-group">
+                    {!! Form::text('award', old('award'), array('id' => 'award', 'class' => 'form-control', 'placeholder' => 'Award')) !!}
+                    <label class="input-group-addon" for="award"><i class="fa fa-fw fa-pencil " aria-hidden="true"></i></label>
+                  </div>
                 </div>
               </div>
 
-              {!! Form::button('<i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;' . trans('forms.create_user_button_text'), array('class' => 'btn btn-success btn-flat margin-bottom-1 pull-right','type' => 'submit', )) !!}
+
+               <div class="form-group has-feedback row {{ $errors->has('diversity') ? ' has-error ' : '' }}">
+                {!! Form::label('diversity', 'Diversity' , array('class' => 'col-md-3 control-label')); !!}
+                <div class="col-md-9">
+                  <div class="input-group">
+                    {!! Form::text('diversity', old('diversity'), array('id' => 'diversity', 'class' => 'form-control', 'placeholder' => 'Diversity')) !!}
+                    <label class="input-group-addon" for="diversity"><i class="fa fa-fw fa-pencil " aria-hidden="true"></i></label>
+                  </div>
+                </div>  
+              </div>
+
+               <div class="form-group has-feedback row {{ $errors->has('career_level') ? ' has-error ' : '' }}">
+                {!! Form::label('career_level', 'Career level' , array('class' => 'col-md-3 control-label')); !!}
+                <div class="col-md-9">
+                  <div class="input-group">
+                    {!! Form::text('career_level', old('career_level'), array('id' => 'career_level', 'class' => 'form-control', 'placeholder' => 'Career level')) !!}
+                    <label class="input-group-addon" for="career_level"><i class="fa fa-fw fa-pencil " aria-hidden="true"></i></label>
+                  </div>
+                </div>  
+              </div>
+
+              
+
+              <div class="form-group has-feedback row {{ $errors->has('deadline') ? ' has-error ' : '' }}">
+                {!! Form::label('deadline', 'Application deadline' , array('class' => 'col-md-3 control-label')); !!}
+                <div class="col-md-9">
+                  <div class="input-group">
+                    {!! Form::text('deadline', old('deadline'), array('id' => 'deadline', 'class' => 'form-control', 'placeholder' => 'Application deadline')) !!}
+                    <label class="input-group-addon" for="deadline"><i class="fa fa-fw fa-calander " aria-hidden="true"></i></label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group has-feedback row {{ $errors->has('comments') ? ' has-error ' : '' }}">
+                {!! Form::label('comments', 'Additional comments' , array('class' => 'col-md-3 control-label')); !!}
+                <div class="col-md-9">
+                  <div class="input-group">
+                    {!! Form::text('comments', old('comments'), array('id' => 'comments', 'class' => 'form-control', 'placeholder' => 'Additional comments')) !!}
+                    <label class="input-group-addon" for="comments"><i class="fa fa-fw fa-pencil " aria-hidden="true"></i></label>
+                  </div>
+                </div>
+              </div>
+        
+
+              {!! Form::button('<i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Submit travel grant', array('class' => 'btn btn-success btn-flat margin-bottom-1 pull-right','type' => 'submit', )) !!}
 
             {!! Form::close() !!}
 

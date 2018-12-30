@@ -26,9 +26,12 @@ return [
     'showProfileEmail'           => 'E-mail Address',
     'showProfileLocation'        => 'Location',
     'showProfileBio'             => 'Bio',
+    'showProfileOrganization'           => 'Affliation/organization',
+    'showProfileTitle'           => 'Title',
     'showProfileTheme'           => 'Theme',
     'showProfileTwitterUsername' => 'Twitter Username',
     'showProfileGitHubUsername'  => 'Github Username',
+
 
     // USER profile page
     'showProfileTitle' => ':username\'s Profile',
@@ -43,11 +46,26 @@ return [
     'label-location' => 'Your location:',
     'ph-location'    => 'Enter your location',
 
+    'label-title' => 'Your title:',
+    'ph-title'    => 'Enter your academic title',
+
+    'label-organization' => 'Your affliation/organization:',
+    'ph-organization'    => 'Enter your affliation/organization',
+
     'label-bio' => 'Your bio:',
     'ph-bio'    => 'Enter your bio',
 
     'label-github_username' => 'Your GitHub username:',
     'ph-github_username'    => 'Enter your GitHub username',
+
+    'label-linkedin_username' => 'Your Linkedin URL:',
+    'ph-linkedin_username'    => 'Enter your Linkedin URL',
+
+    'label-orcid' => 'Your ORCID:',
+    'ph-orcid'    => 'Enter your ORCID',
+
+    'label-website' => 'Your personal website:',
+    'ph-website'    => 'Enter your webpage url',
 
     'label-twitter_username' => 'Your Twitter username:',
     'ph-twitter_username'    => 'Enter your Twitter username',

@@ -31,8 +31,8 @@ return [
     |
     */
 
-    'headline'      => 'ECRCentral Forum',
-    'description'   => 'A unique place for early career researchers to discuss and guide each other.'
+    'headline'      => 'early career researchers forum',
+    'description'   => 'A unique and dynamic platform for early career researchers to discuss opportunities and share experiences'
 
 
 ];

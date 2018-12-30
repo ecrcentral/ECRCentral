@@ -29,6 +29,7 @@ class UserController extends Controller
         #    return view('pages.admin.home');
         #}
 
-        return view('pages.user.home');
+        #return view('pages.user.home');
+        return view('home');
     }
 }

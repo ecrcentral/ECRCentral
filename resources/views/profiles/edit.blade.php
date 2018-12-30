@@ -106,8 +106,111 @@
 													</div>
 												</div>
 											</div>
+											
 
+											<div class="form-group has-feedback {{ $errors->has('bio') ? ' has-error ' : '' }}">
+												{!! Form::label('bio', trans('profile.label-bio') , array('class' => 'col-sm-4 control-label')); !!}
+												<div class="col-sm-6">
+													{!! Form::textarea('bio', old('bio'), array('id' => 'bio', 'class' => 'form-control', 'placeholder' => trans('profile.ph-bio'))) !!}
+													<span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
+											        @if ($errors->has('bio'))
+											            <span class="help-block">
+											                <strong>{{ $errors->first('bio') }}</strong>
+											            </span>
+											        @endif
+												</div>
+											</div>
 
+											<div class="form-group has-feedback {{ $errors->has('title') ? ' has-error ' : '' }}">
+												{!! Form::label('title', trans('profile.label-title') , array('class' => 'col-sm-4 control-label')); !!}
+												<div class="col-sm-6">
+													{!! Form::text('title', old('title'), array('id' => 'title', 'class' => 'form-control', 'placeholder' => trans('profile.ph-title'))) !!}
+													<span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
+											        @if ($errors->has('title'))
+											            <span class="help-block">
+											                <strong>{{ $errors->first('title') }}</strong>
+											            </span>
+											        @endif
+												</div>
+											</div>
+
+											<div class="form-group has-feedback {{ $errors->has('organization') ? ' has-error ' : '' }}">
+												{!! Form::label('organization', trans('profile.label-organization') , array('class' => 'col-sm-4 control-label')); !!}
+												<div class="col-sm-6">
+													{!! Form::text('organization', old('organization'), array('id' => 'organization', 'class' => 'form-control', 'placeholder' => trans('profile.ph-organization'))) !!}
+													<span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
+											        @if ($errors->has('organization'))
+											            <span class="help-block">
+											                <strong>{{ $errors->first('organization') }}</strong>
+											            </span>
+											        @endif
+												</div>
+											</div>
+
+											<div class="form-group has-feedback {{ $errors->has('website') ? ' has-error ' : '' }}">
+												{!! Form::label('website', trans('profile.label-website') , array('class' => 'col-sm-4 control-label')); !!}
+												<div class="col-sm-6">
+													{!! Form::text('website', old('website'), array('id' => 'website', 'class' => 'form-control', 'placeholder' => trans('profile.ph-website'))) !!}
+													<span class="glyphicon glyphicon-link form-control-feedback" aria-hidden="true"></span>
+											        @if ($errors->has('website'))
+											            <span class="help-block">
+											                <strong>{{ $errors->first('website') }}</strong>
+											            </span>
+											        @endif
+												</div>
+											</div>
+
+											<div class="form-group has-feedback {{ $errors->has('orcid') ? ' has-error ' : '' }}">
+												{!! Form::label('orcid', trans('profile.label-orcid') , array('class' => 'col-sm-4 control-label')); !!}
+												<div class="col-sm-6">
+													{!! Form::text('orcid', old('orcid'), array('id' => 'orcid', 'class' => 'form-control', 'placeholder' => trans('profile.ph-orcid'))) !!}
+													<span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
+											        @if ($errors->has('orcid'))
+											            <span class="help-block">
+											                <strong>{{ $errors->first('orcid') }}</strong>
+											            </span>
+											        @endif
+												</div>
+											</div>
+
+											<div class="form-group has-feedback {{ $errors->has('linkedin_username') ? ' has-error ' : '' }}">
+												{!! Form::label('linkedin_username', trans('profile.label-linkedin_username') , array('class' => 'col-sm-4 control-label')); !!}
+												<div class="col-sm-6">
+													{!! Form::text('linkedin_username', old('linkedin_username'), array('id' => 'linkedin_username', 'class' => 'form-control', 'placeholder' => trans('profile.ph-linkedin_username'))) !!}
+													<span class="glyphicon glyphicon-link form-control-feedback" aria-hidden="true"></span>
+											        @if ($errors->has('linkedin_username'))
+											            <span class="help-block">
+											                <strong>{{ $errors->first('linkedin_username') }}</strong>
+											            </span>
+											        @endif
+												</div>
+											</div>
+
+											<div class="form-group has-feedback {{ $errors->has('twitter_username') ? ' has-error ' : '' }}">
+												{!! Form::label('twitter_username', trans('profile.label-twitter_username') , array('class' => 'col-sm-4 control-label')); !!}
+												<div class="col-sm-6">
+													{!! Form::text('twitter_username', old('twitter_username'), array('id' => 'twitter_username', 'class' => 'form-control', 'placeholder' => trans('profile.ph-twitter_username'))) !!}
+													<span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
+											        @if ($errors->has('twitter_username'))
+											            <span class="help-block">
+											                <strong>{{ $errors->first('twitter_username') }}</strong>
+											            </span>
+											        @endif
+												</div>
+											</div>
+
+											<div class="margin-bottom-2 form-group has-feedback {{ $errors->has('github_username') ? ' has-error ' : '' }}">
+												{!! Form::label('github_username', trans('profile.label-github_username') , array('class' => 'col-sm-4 control-label')); !!}
+												<div class="col-sm-6">
+													{!! Form::text('github_username', old('github_username'), array('id' => 'github_username', 'class' => 'form-control', 'placeholder' => trans('profile.ph-twitter_username'))) !!}
+													<span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
+											        @if ($errors->has('github_username'))
+											            <span class="help-block">
+											                <strong>{{ $errors->first('github_username') }}</strong>
+											            </span>
+											        @endif
+												</div>
+											</div>
 											<div class="form-group has-feedback {{ $errors->has('theme') ? ' has-error ' : '' }}">
 												{!! Form::label('theme', trans('profile.label-theme') , array('class' => 'col-sm-4 control-label')); !!}
 												<div class="col-sm-6">
@@ -139,45 +242,6 @@
 											        @if ($errors->has('location'))
 											            <span class="help-block">
 											                <strong>{{ $errors->first('location') }}</strong>
-											            </span>
-											        @endif
-												</div>
-											</div>
-
-											<div class="form-group has-feedback {{ $errors->has('bio') ? ' has-error ' : '' }}">
-												{!! Form::label('bio', trans('profile.label-bio') , array('class' => 'col-sm-4 control-label')); !!}
-												<div class="col-sm-6">
-													{!! Form::textarea('bio', old('bio'), array('id' => 'bio', 'class' => 'form-control', 'placeholder' => trans('profile.ph-bio'))) !!}
-													<span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
-											        @if ($errors->has('bio'))
-											            <span class="help-block">
-											                <strong>{{ $errors->first('bio') }}</strong>
-											            </span>
-											        @endif
-												</div>
-											</div>
-
-											<div class="form-group has-feedback {{ $errors->has('twitter_username') ? ' has-error ' : '' }}">
-												{!! Form::label('twitter_username', trans('profile.label-twitter_username') , array('class' => 'col-sm-4 control-label')); !!}
-												<div class="col-sm-6">
-													{!! Form::text('twitter_username', old('twitter_username'), array('id' => 'twitter_username', 'class' => 'form-control', 'placeholder' => trans('profile.ph-twitter_username'))) !!}
-													<span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
-											        @if ($errors->has('twitter_username'))
-											            <span class="help-block">
-											                <strong>{{ $errors->first('twitter_username') }}</strong>
-											            </span>
-											        @endif
-												</div>
-											</div>
-
-											<div class="margin-bottom-2 form-group has-feedback {{ $errors->has('github_username') ? ' has-error ' : '' }}">
-												{!! Form::label('github_username', trans('profile.label-github_username') , array('class' => 'col-sm-4 control-label')); !!}
-												<div class="col-sm-6">
-													{!! Form::text('github_username', old('github_username'), array('id' => 'github_username', 'class' => 'form-control', 'placeholder' => trans('profile.ph-twitter_username'))) !!}
-													<span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
-											        @if ($errors->has('github_username'))
-											            <span class="help-block">
-											                <strong>{{ $errors->first('github_username') }}</strong>
 											            </span>
 											        @endif
 												</div>

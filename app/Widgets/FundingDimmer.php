@@ -32,7 +32,7 @@ class FundingDimmer extends AbstractWidget
                 'text' => 'View all fundings',
                 'link' => route('voyager.fundings.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/03.jpg'),
+            'image' => voyager_asset('images/widget-backgrounds/funding.png'),
         ]));
     }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-  Showing funders
+  List of funders
 @endsection
 
 @section('template_linked_css')
@@ -42,18 +42,36 @@
                     <!-- END FILTERS -->
                     <!-- BEGIN RESULT -->
                     <div class="col-md-12">
-                        <h3><i class="fa fa-search-o"></i> Funders</h3>
-                        <hr>
-                         <!-- BEGIN SEARCH INPUT -->
+
+                    <h4 class="page-header"><i class="fa fa-bank"></i> Funders</h4>
+
+                     <div class="row">
                      {{ Form::open(array('route' => 'funders', 'method' => 'get')) }}
-                        <div class="input-group input-group-lg">
-                        <input type="text" id="search-funders" value="{{ Request::get('q') }}" class="form-control" autocomplete="off" name="q" placeholder="Search funders..." data-toggle="tooltip" data-placement="bottom" title="You can search by any other keyword."/> <span class="input-group-btn">
-                        <button class="btn btn-primary btn-flat" type="submit">Search <i class="fa fa-search"></i></button>
-                        </span>
+                    <!--
+                    <div class="col-md-2">
+                            <div class="input-group input-group-lg">
+                                 <label></label>
+                              <select name="country" id="country" class="form-control" width="100%">
+                                  <option value="">Funder country </option>
+                                  @foreach ($countries as $country)
+                                  <option value="{{ $country->country }}" {{ (Request::get('country') == $country->country ? "selected":"") }}>{{ $country->country }} </option>
+                                  @endforeach
+                              </select>
+                            </div>
+                        </div>
+                    -->
+                        <div class="col-md-12">
+                            <div class="input-group input-group-lg">
+                            <input type="text" id="search-funders" value="{{ Request::get('q') }}" class="form-control" autocomplete="off" name="q" placeholder="Search funders..." data-toggle="tooltip" data-placement="bottom" title="You can search by any other keyword."/> <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">Search <i class="fa fa-search"></i></button>
+                            </span>
+                            </div>
                         </div>
                     {{ Form::close() }}
-                        <p> </p>
-                        <div class="padding"></div>
+                    </div>
+                    <p></p>
+                       
+                    <div class="padding"></div>
                         
                         <!--
                         <div class="row">
@@ -89,7 +107,7 @@
                                             <td><strong><a href="{{ route('funders') }}/{{$funder->id}}">{{$funder->name}}</a></strong><br>
                                             {{$funder->country}}</td>
                                             <td><a href="http://dx.doi.org/10.13039/{{$funder->funder_id}}" target="_blank">http://dx.doi.org/10.13039/{{$funder->funder_id}}</a></td>
-                                           
+                                           <!--
                                            @if(Auth::user() && Auth::user()->role->id == '1')
                                             <td>
                                                 {!! Form::open(array('url' => 'funders/' . $funder->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => 'Delete')) !!}
@@ -98,16 +116,16 @@
                                                 {!! Form::close() !!}
                                             </td>
                                             @endif
+                                        -->
+
+                                            @if(Auth::user() && Auth::user()->role->id == '1')
                                             <td>
-                                                <a class="btn btn-sm btn-success btn-block" href="{{ URL::to('funders/' . $funder->id) }}" data-toggle="tooltip" title="Show">
-                                                    <i class="fa fa-eye fa-fw" aria-hidden="true"></i>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-sm btn-info btn-block" href="{{ URL::to('funders/' . $funder->id . '/edit') }}" data-toggle="tooltip" title="Edit">
+                                                <a class="btn btn-sm btn-info btn-block" target="_blank" href="{{ URL::to('admin/funders/' . $funder->id . '/edit') }}" data-toggle="tooltip" title="Edit">
                                                     <i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
                                                 </a>
                                             </td>
+                                             @endif
+
                                         </tr>
                                     @endforeach
                             

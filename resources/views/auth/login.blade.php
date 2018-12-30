@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('template_title')
+  Login
+@endsection
+
 @section('content')
 <br>
 <div class="container">

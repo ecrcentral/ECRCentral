@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Funding;
 use App\Models\Funder;
+use App\Models\TravelGrant;
 
 use App\Traits\CaptureIpTrait;
 
@@ -16,25 +17,43 @@ class FundersController extends Controller
     
 
     /**
-     * Display a listing of the resource.
+     * Display a list of funders.
      *
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
-        $q = $request->get('q', 'None');
+        $funders = new Funder;
 
-        if($q != '' and $q != 'None') {
-       		$funders = Funder::where('name', 'LIKE', '%' . $q . '%')
-       		->orWhere('country', 'LIKE', '%' . $q . '%')
-       		->orWhere('funder_id', 'LIKE', '%' . $q . '%')
-       		->paginate(env('USER_LIST_PAGINATION_SIZE'));
-    	}else{
+        $request_append = array();
 
-        	$funders = Funder::orderBy('funder_id', 'asc')->paginate(env('USER_LIST_PAGINATION_SIZE'));
+        if($request->has('country')) {
+            $funders = $funders->where('country', $request->input('country'));
+            $request_append['country'] = $request->input('country');
         }
 
-        return View('funders.show-funders', compact('funders'));
+        if($request->has('q')) {
+
+            $query_string = $request->input('q');
+
+            $request_append['q'] = $query_string;
+
+            $funders = $funders->where('name', 'LIKE', '%' . $query_string . '%')
+            ->orWhere('country', 'LIKE', '%' . $query_string . '%')
+            ->orWhere('funder_id', 'LIKE', '%' . $query_string . '%');
+        }
+
+        
+
+        $funders = $funders->paginate(env('USER_LIST_PAGINATION_SIZE'))->appends($request_append);
+
+        $data = [
+            'funders' => $funders,
+            'countries' => Funder::select('country')->distinct()->get(),
+        ];
+
+        return View('funders.show-funders')->with($data);
+    
     }
 
         /**
@@ -116,7 +135,16 @@ class FundersController extends Controller
     {
         $funder = Funder::find($id);
 
-        return view('funders.show-funder')->withfunder($funder);
+        $fundings = Funding::where('funder_name', $funder['name']);
+        $travelgrants = TravelGrant::where('funder_name', $funder['name']);
+
+        $data = [
+            'funder' => $funder,
+            'fundings' => $fundings,
+            'travelgrants' => $travelgrants,
+        ];
+
+        return view('funders.show-funder')->with($data);
     }
 
     /**

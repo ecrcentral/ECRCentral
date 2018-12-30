@@ -40,8 +40,9 @@ return [
     */
 
     'models' => [
-        'role'       => jeremykenedy\LaravelRoles\Models\Role::class,
-        'permission' => jeremykenedy\LaravelRoles\Models\Permission::class,
+        //'role'       => jeremykenedy\LaravelRoles\Models\Role::class,
+        'role'       => TCG\Voyager\Models\Role::class,
+        'permission' => TCG\Voyager\Models\Permission::class,
     ],
 
     /*

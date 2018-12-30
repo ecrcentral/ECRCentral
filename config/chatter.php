@@ -35,6 +35,7 @@ return [
     */
 
     'headline_logo' => '',
+    #'headline_logo' => 'images/ecrcentral-forum.png',
 
     /*
     |--------------------------------------------------------------------------

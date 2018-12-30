@@ -19,10 +19,10 @@ return [
      */
 
     'activationSubject'  => 'Activation required',
-    'activationGreeting' => 'Welcome!',
-    'activationMessage'  => 'You need to activate your email before you can start using all of our services.',
+    'activationGreeting' => 'Welcome to ECRcentral!',
+    'activationMessage'  => 'You need to activate your email before you can start using ECRcentral.',
     'activationButton'   => 'Activate',
-    'activationThanks'   => 'Thank you for using our application!',
+    'activationThanks'   => 'Thank you for your interest in ECRcentral!',
 
     /*
      * Goobye email.

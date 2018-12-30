@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top bg-dark">
     <div class="container">
         <div class="navbar-header">
 
@@ -24,13 +24,26 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             {{-- Left Side Of Navbar --}}
             <ul class="nav navbar-nav">
-                
-                <li><a href="{{ url('/about') }}">About</a></li>
-                <li><a href="{{ route('fundings') }}">Fundings</a></li>
-                <li><a href="{{ url('/travel-grants') }}">Travel Grants</a></li>
-                <li><a href="{{ route('funders') }}">Community</a></li>
-                <li><a href="/forums">Forums</a></li>
-                <li><a href="/blog">Blog</a></li>
+                <!--
+                <li {{ Route::is('index') ? 'class=active' : null }}><a href="{{ route('index') }}">Home</a></li>
+                -->
+                <li {{ Route::is('fundings') ? 'class=active' : null }}><a href="{{ route('fundings') }}">Fundings</a></li>
+                <li {{ Request::is('travel-grants') ? 'class=active' : null }}><a href="{{ url('/travel-grants') }}">Travel Grants</a></li>
+                <li {{ Request::is('forums') ? 'class=active' : null }}><a href="/forums">Forums</a></li>
+                <li {{ Request::is('blog') ? 'class=active' : null }}> <a href="/blog">Blog</a></li>
+                <li {{ Route::is('about') ? 'class=active' : null }}><a href="{{ route('about') }}">About</a></li>
+
+                <!--
+                <li class="dropdown" {{ Request::is('about') ? 'class=active' : null }}>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">About</a>
+                  <span class="dropdown-arrow"></span>
+                  <ul class="dropdown-menu">
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/team">Team</a></li>
+         
+                  </ul>
+                </li>
+            -->
             </ul>
              
 
@@ -38,8 +51,8 @@
             <ul class="nav navbar-nav navbar-right">
                 {{-- Authentication Links --}}
                 @if (Auth::guest())
-                    <li><a href="{{ route('login') }}">{!! trans('titles.login') !!}</a></li>
-                    <li><a href="{{ route('register') }}">{!! trans('titles.register') !!}</a></li>
+                    <li {{ Request::is('login') ? 'class=active' : null }}><a href="{{ route('login') }}">{!! trans('titles.login') !!}</a></li>
+                    <li {{ Request::is('register') ? 'class=active' : null }}><a href="{{ route('register') }}">{!! trans('titles.register') !!}</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -57,13 +70,19 @@
                                 {!! HTML::link(url('/profile/'.Auth::user()->name), trans('titles.profile')) !!}
                             </li>
 
-                            @if(Auth::user()->role->id == '1')
+                            @if(Auth::user() && Auth::user()->role->name != 'user')
                 
+                                <li>{!! HTML::link(url('/admin'), 'Administration Panel') !!}</li>
+
                                 <li {{ Request::is('users', 'users/' . Auth::user()->id, 'users/' . Auth::user()->id . '/edit') ? 'class=active' : null }}>{!! HTML::link(url('/users'), Lang::get('titles.adminUserList')) !!}</li>
-                                <li {{ Request::is('users/create') ? 'class=active' : null }}>{!! HTML::link(url('/users/create'), Lang::get('titles.adminNewUser')) !!}</li>
+
+
+                                <li {{ Request::is('users/create') ? 'class=active' : null }}>{!! HTML::link(url('users/create'), Lang::get('titles.adminNewUser')) !!}</li>
                                 <li {{ Request::is('themes','themes/create') ? 'class=active' : null }}>{!! HTML::link(url('/themes'), Lang::get('titles.adminThemesList')) !!}</li>
                                 <li {{ Request::is('logs') ? 'class=active' : null }}>{!! HTML::link(url('/logs'), Lang::get('titles.adminLogs')) !!}</li>
+                                <!--
                                 <li {{ Request::is('phpinfo') ? 'class=active' : null }}>{!! HTML::link(url('/phpinfo'), Lang::get('titles.adminPHP')) !!}</li>
+                            -->
                                 <li {{ Request::is('routes') ? 'class=active' : null }}>{!! HTML::link(url('/routes'), Lang::get('titles.adminRoutes')) !!}</li>
                                 <li {{ Request::is('active-users') ? 'class=active' : null }}>{!! HTML::link(url('/active-users'), Lang::get('titles.activeUsers')) !!}</li>
                             

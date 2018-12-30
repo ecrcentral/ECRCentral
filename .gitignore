@@ -27,6 +27,7 @@ Homestead.json
 
 ### Master Configs ###
 .env
+.env.dev
 composer.lock
 
 ### Assets ###
@@ -44,3 +45,8 @@ packages/
 # Debug Files
 npm-debug.log
 yarn-error.log
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

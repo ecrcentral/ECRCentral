@@ -32,7 +32,7 @@ class TravelGrantDimmer extends AbstractWidget
                 'text' => 'View all travel grants',
                 'link' => route('voyager.travel-grants.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/03.jpg'),
+            'image' => voyager_asset('images/widget-backgrounds/travelgrant.png'),
         ]));
     }
 }

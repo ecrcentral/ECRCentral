@@ -89,7 +89,7 @@ class SocialController extends Controller
                 $socialData->social_id = $socialUserObject->id;
                 $socialData->provider = $provider;
                 $user->social()->save($socialData);
-                $user->attachRole($role);
+                #$user->attachRole($role);
                 $user->activated = true;
 
                 $user->profile()->save($profile);
@@ -103,6 +103,7 @@ class SocialController extends Controller
                 if ($socialData->provider == 'twitter') {
                     $user->profile()->twitter_username = $socialUserObject->screen_name;
                 }
+                $user->profile->theme_id = 1;
                 $user->profile->save();
 
                 $socialUser = $user;

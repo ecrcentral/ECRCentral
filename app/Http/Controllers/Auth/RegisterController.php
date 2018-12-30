@@ -9,7 +9,9 @@ use App\Traits\CaptchaTrait;
 use App\Traits\CaptureIpTrait;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
-use jeremykenedy\LaravelRoles\Models\Role;
+#use jeremykenedy\LaravelRoles\Models\Role;
+use TCG\Voyager\Models\Role;
+
 
 class RegisterController extends Controller
 {
@@ -99,7 +101,8 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $ipAddress = new CaptureIpTrait();
-        $role = Role::where('slug', '=', 'unverified')->first();
+        #$role = Role::where('slug', '=', 'unverified')->first();
+        $role = Role::where('name', '=', 'user')->first();
 
         $user = User::create([
                 'name'              => $data['name'],
@@ -112,7 +115,7 @@ class RegisterController extends Controller
                 'activated'         => !config('settings.activation'),
             ]);
 
-        $user->attachRole($role);
+        #$user->attachRole($role);
         $this->initiateEmailActivation($user);
 
         return $user;

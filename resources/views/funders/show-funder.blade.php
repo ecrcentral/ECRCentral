@@ -1,97 +1,83 @@
 @extends('layouts.app')
 
 @section('template_title')
-  Showing funder {{ $funder->name }}
+  Funder {{ $funder->name }}
 @endsection
 
 
 @section('content')
-
+<br><br>
   <div class="container">
+    
     <div class="row">
       <div class="col-md-12">
-
-        <div class="panel panel-success">
-
-          <div class="panel-heading">
-            <a href="/funders/" class="btn btn-primary btn-xs pull-right">
-              <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
-              <span class="hidden-xs">Back to funders</span>
-            </a>
-            {{ $funder->name }}
-          </div>
-          <div class="panel-body">
-
-            <div class="well">
-              <div class="row">
-                <div class="col-sm-6">
-                  <img src="@if ($funder->logo) {{ $funder->logo }} @else {{ '' }} @endif" alt="{{ $funder->name }}" id="" class="img-circle center-block margin-bottom-2 margin-top-1 funder-image">
-                </div>
-
-                <div class="col-sm-6">
-                  <h4 class="text-muted margin-top-sm-1 text-center text-left-tablet">
-                    {{ $funder->name }}
-                  </h4>
-                  <h4 class="text-muted margin-top-sm-1 text-center text-left-tablet">
-                    {{ $funder->country }}
-                  </h4>
-                  <h4 class="text-muted margin-top-sm-1 text-center text-left-tablet">
-                    {{ $funder->funder_id }}
-                  </h4>
-                  
-                </div>
-              </div>
-            </div>
-
-            <div class="clearfix"></div>
-            <div class="border-bottom"></div>
-
-            
+      <h4><i class="fa fa-search-o"></i> {{ $funder->name }}</h4>
+      {{ $funder->country }} <br>
+      <i class="ai ai-orcid"></i> <a href="http://dx.doi.org/10.13039/{{$funder->funder_id}}" target="_blank">http://dx.doi.org/10.13039/{{$funder->funder_id}}</a>
       
+      <div class="pull-right">
+          <a class="btn btn-sm btn-info btn-block" target="_blank" href="{{ URL::to('admin/funders/' . $funder->id . '/edit') }}" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i> Edit
+          </a>                                     
+      </div>
+      <hr>
+      </div>
 
-            <div class="clearfix"></div>
-            <div class="border-bottom"></div>
+    </div>
 
-            @if ($funder->created_at)
 
-              <div class="col-sm-5 col-xs-6 text-larger">
-                <strong>
-                  {{ trans('usersmanagement.labelCreatedAt') }}
-                </strong>
-              </div>
+    <div class="row">
+            <div class="col-md-12">
+              <h4 class="page-header">Funding opportunities <small> offered by {{ $funder->name }}</small></h4>
 
-              <div class="col-sm-7">
-                {{ $funder->created_at }}
-              </div>
+               @foreach($funder->fundings as $funding)
+                <div class="media">
+                    <div class="pull-left">
+                        <span class="fa-stack fa-2x">
+                              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                              <i class="fa fa-bank fa-stack-1x fa-inverse"></i>
+                        </span> 
+                    </div>
+                    <div class="media-body">
+                        <strong><a href="{{ route('fundings') }}/@if($funding->slug){{$funding->slug}}@else{{$funding->id}}@endif">{{$funding->name}}</a></strong>
+                        <p>
+                        <small><b>Funder</b>: {{$funding->funder_name}} | <b>Deadline</b>: {{$funding->deadline}}</small>
+                        </p>
 
-              <div class="clearfix"></div>
-              <div class="border-bottom"></div>
+                    </div>
+                </div>
+                @endforeach
+               </div>
 
-            @endif
+               <!--
+                <div class="col-md-6">
+                  <h4 class="page-header">Travel grants</h4>
 
-            @if ($funder->updated_at)
+                   @foreach($funder->fundings as $travelgrant)
+                    <div class="media">
+                        <div class="pull-left">
+                            <span class="fa-stack fa-2x">
+                                  <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                                  <i class="fa fa-plane fa-stack-1x fa-inverse"></i>
+                            </span> 
+                        </div>
+                        <div class="media-body">
+                            <strong><a href="{{ route('travelgrants') }}/@if($travelgrant->slug){{$travelgrant->slug}}@else{{$travelgrant->id}}@endif">{{$travelgrant->name}}</a></strong>
+                            <p>
+                            <small><b>Funder</b>: {{$travelgrant->funder_name}} | <b>Subject</b>: {{$travelgrant->subjects}}</small>
+                            </p>
 
-              <div class="col-sm-5 col-xs-6 text-larger">
-                <strong>
-                  {{ trans('usersmanagement.labelUpdatedAt') }}
-                </strong>
-              </div>
-
-              <div class="col-sm-7">
-                {{ $funder->updated_at }}
-              </div>
-
-              <div class="clearfix"></div>
-              <div class="border-bottom"></div>
-
-            @endif
-
-          
-
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+              -->
           </div>
 
-        </div>
-      </div>
+    <div class="row">
+            <div class="col-lg-12"> 
+       <div id="disqus_thread"></div>
+     </div>
+
     </div>
   </div>
 
