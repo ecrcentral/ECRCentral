@@ -32,7 +32,7 @@ function hitTemplate(hit) {
             <div class="entry-funder-content">
               <div class="funder-name">
                 <i class="fas fa-user-graduate"></i> Applicant nationality: ${hit.applicant_country} | 
-<i class="fas fa-university"></i> Grant purpose: ${hit.purpose}
+<i class="fas fa-university"></i> Grant purpose: ${hit.travel_purpose.toString()}
               </div>
               <div class="post-date">
                 <i class="far fa-calendar-alt"></i> Deadline: ${deadline} | Last updated: ${dateString}
@@ -146,7 +146,7 @@ const search = instantsearch({
 search.addWidget(
   instantsearch.widgets.refinementList({
     container: "#applicant_countries",
-    attributeName: "purpose",
+    attributeName: "travel_purpose",
     autoHideContainer: true,
     showMore: true,
     searchForFacetValues: false,

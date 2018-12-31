@@ -102,7 +102,7 @@
                             Or Use Social Logins to Register
                         </p>
 
-                        @include('partials.socials')
+                        @include('partials.socials-icons')
 
                     {!! Form::close() !!}
 

@@ -33,9 +33,11 @@ class TravelGrant extends Model
 
         // Customize array...
 
-        $funders = "";
+        $extraFields = [
+            'travel_purpose' => $this->travelpurposes->pluck('name')->toArray(),
+        ];
 
-        return $array;
+        return array_merge($array, $extraFields);
     }
 
     protected $guarded = [
@@ -60,6 +62,15 @@ class TravelGrant extends Model
 
     /**
      * The subjects that belong to the travel grants.
+     */
+    public function travelpurposes()
+    {
+        return $this->belongsToMany(TravelPurpose::class, 'travelpurpose_travelgrant');
+
+    }
+
+    /**
+     * The purpose that belong to the travel grants.
      */
     public function subjects()
     {

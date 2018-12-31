@@ -73,7 +73,7 @@
 
       <div class="col-md-4">
         <a href="{{ $funding->url }}" target="_blank"><button type="button" class="btn btn-success">Call website</button></a>
-        <a href="/forums"><button type="button" class="btn btn-info">Talk to a mentor</button></a>
+        <a href="/forums/category/funding-schemes"><button type="button" class="btn btn-info">Disscuss this funding</button></a>
         <div class="border-bottom"></div>
       </div>
 

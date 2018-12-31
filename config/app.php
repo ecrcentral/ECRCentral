@@ -177,7 +177,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         // Laravel\Socialite\SocialiteServiceProvider::class,
-        SocialiteProviders\Manager\ServiceProvider::class,
+        #SocialiteProviders\Manager\ServiceProvider::class,
         SocialiteProviders\Generators\GeneratorsServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Illuminate\Notifications\NotificationServiceProvider::class,

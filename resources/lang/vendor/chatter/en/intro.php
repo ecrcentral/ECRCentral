@@ -31,7 +31,7 @@ return [
     |
     */
 
-    'headline'      => 'early career researchers forum',
+    'headline'      => 'community forum',
     'description'   => 'A unique forum for ECRs to discuss funding opportunities, share experiences and get expert feedback on applications'
 
 

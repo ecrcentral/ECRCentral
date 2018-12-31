@@ -59,8 +59,11 @@
       </div>
 
       <div class="col-md-4">
+
         <a href="{{ $travelgrant->url }}" target="_blank"><button type="button" class="btn btn-success">Call website</button></a>
-        <a href="/forums"><button type="button" class="btn btn-info">Talk to a mentor</button></a>
+        <div class="border-bottom"></div>
+        <a href="/forums/category/travel-grants"><button type="button" class="btn btn-info">Ask question about this travel grant</button></a>
+        
         <div class="border-bottom"></div>
 
       </div>

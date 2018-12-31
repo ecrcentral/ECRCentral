@@ -43,9 +43,8 @@
                               <p class="pull-right"> <div id="stats"></div></p>
                               <hr>
                               <div id="hits" ></div>
-
                                
-                                <div id="pagination"></div>
+                            <div id="pagination"></div>
                             </div>
 
                   </div><!-- /.row --> 
