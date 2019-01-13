@@ -4,6 +4,10 @@
   {{ $post->title }}
 @endsection
 
+@section('template_linked_css')
+
+@endsection
+
 
 @section('content')
 
@@ -41,13 +45,20 @@
                 <img class="img-responsive" src="/storage/{{ $post->image }}" alt="">
                 <hr>
                  @endif
-                
 
+                  <a href="https://twitter.com/intent/tweet?text={{$post->title}}&amp;url={{ urlencode(Request::fullUrl()) }}&amp;via=ecrcentral" target="_blank" class="btn btn-social-icon btn-sm margin-half btn-twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::fullUrl()) }}" target="_blank" class="btn btn-social-icon btn-sm margin-half btn-facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                  <a href="https://plus.google.com/share?url={{ urlencode(Request::fullUrl()) }}" target="_blank" class="btn btn-social-icon btn-sm margin-half btn-google"><i class="fa fa-google" aria-hidden="true"></i></a>
+                  <a href="http://www.linkedin.com/shareArticle?url={{ urlencode(Request::fullUrl()) }}" target="_blank" class="btn btn-social-icon btn-sm margin-half btn-linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                  <a href="mailto:?Subject={{$post->title}}&Body={{ urlencode(Request::fullUrl()) }}" target="_blank" class="btn btn-social-icon btn-sm margin-half btn-github"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+
+  
                 <!-- Post Content -->
                 <p>{!! $post->body !!}</p>
 
                 <hr>
-                <div id="disqus_thread"></div>
+                <div id="disqus_thread"> </div>
+                
             </div>
      
             <!-- Blog Sidebar Widgets Column -->
@@ -69,5 +80,8 @@
         <!-- /.row -->
 
  </div>
+
+@endsection
+@section('footer_scripts')
 
 @endsection

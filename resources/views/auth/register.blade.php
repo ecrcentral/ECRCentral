@@ -83,6 +83,21 @@
                                 {!! Form::password('password_confirmation', ['class' => 'form-control', 'id' => 'password-confirm', 'placeholder' => 'Confirm Password', 'required']) !!}
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="privacy_confirm" class="col-sm-4 control-label"> </label>
+                            <div class="col-sm-6">
+                            
+                                 <input class="form-check-input" name="privacy_confirm" type="checkbox" value="confirmed" id="invalidCheck" required>
+                                 <small> I agree to the <a href="{{ route('terms') }}" target="_blank">Terms of Use</a> and <a href="{{ route('privacy') }}" target="_blank">Privacy Policy</a>.</small>
+                                @if ($errors->has('privacy_confirm'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('privacy_confirm') }}</strong>
+                                    </span>
+                                @endif
+
+                                
+                            </div>
+                        </div>
                         @if(config('settings.reCaptchStatus'))
                             <div class="form-group">
                                 <div class="col-sm-6 col-sm-offset-4">
@@ -93,7 +108,7 @@
                         <div class="form-group margin-bottom-2">
                             <div class="col-sm-6 col-sm-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Register
+                                Register
                                 </button>
                             </div>
                         </div>

@@ -17,6 +17,12 @@
                     @if ($page->slug == 'about')
                     <small>ECRcentral</small>
                     @endif
+                @if(Auth::user() && Auth::user()->role->name != 'user')
+                  <div class="pull-right">
+                      <a class="btn btn-sm btn-info btn-block" target="_blank" href="{{ URL::to('admin/pages/' . $page->id . '/edit') }}" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i> Edit
+                      </a>                                     
+                  </div>
+                  @endif
                 </h3>
                 
             </div>
@@ -25,7 +31,8 @@
         <div class="row">
             <div class="col-md-12">
                 <p>{!! $page->body !!}</p>
-                           
+                  
+             <div id="disqus_thread"> </div>         
             </div>
         </div>
 </div>

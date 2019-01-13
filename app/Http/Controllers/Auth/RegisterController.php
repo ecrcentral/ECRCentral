@@ -74,6 +74,7 @@ class RegisterController extends Controller
                 'password_confirmation' => 'required|same:password',
                 'g-recaptcha-response'  => '',
                 'captcha'               => 'required|min:1',
+                'privacy_confirm'       => 'required',
             ],
             [
                 'name.unique'                   => trans('auth.userNameTaken'),
@@ -87,6 +88,7 @@ class RegisterController extends Controller
                 'password.max'                  => trans('auth.PasswordMax'),
                 'g-recaptcha-response.required' => trans('auth.captchaRequire'),
                 'captcha.min'                   => trans('auth.CaptchaWrong'),
+                'privacy_confirm.required'      => trans('auth.privacy_confirm'),
             ]
         );
     }

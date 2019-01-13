@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use TCG\Voyager\Models\Page;
+use App\Models\User;
+use TCG\Voyager\Models\Role;
 use App\Traits\CaptureIpTrait;
 use Illuminate\Http\Request;
 use Validator;
@@ -15,7 +17,7 @@ use App\Models\TravelGrant;
 
 use App\Models\Funder;
 
-class StaticController extends Controller
+class PagesController extends Controller
 {
     /**
      * Show the application dashboard.
@@ -48,6 +50,23 @@ class StaticController extends Controller
 
         return View('home')->with($data);
     }
+
+    public function show($slug)
+    {   
+
+        $page = Page::where('slug', $slug)->first();
+
+        return view('page')->withpage($page);
+    }
+
+    public function community(Request $request)
+    {
+        $users = User::with('profile')->where('activated', 1)->paginate(env('USER_LIST_PAGINATION_SIZE'));
+
+
+        return View('community', compact('users'));
+    }
+
 
      /**
      * Display the specified resource.
@@ -84,12 +103,28 @@ class StaticController extends Controller
         return view('page')->withpage($page);
     }
 
+    public function terms()
+    {
+        $page = Page::where('slug', 'terms')->first();
+
+        return view('page')->withpage($page);
+    }
+
     public function contact()
     {
         $page = Page::where('slug', 'contact')->first();
 
         return view('contact-us')->withpage($page);
     }
+
+    public function get_involved()
+    {
+        $page = Page::where('slug', 'get-involved')->first();
+
+        return view('page')->withpage($page);
+    }
+
+    
 
 
 }

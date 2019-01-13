@@ -1,5 +1,5 @@
-            body {
-            padding-top: 50px; 
+body {
+    padding-top: 50px; 
 }
 
 #container {
@@ -14,7 +14,11 @@
 
 #headerwrap {
     background-color: #34495e;
-    padding-top: 0px;
+    background-image: url(/images/banner-homepage11.png);
+    padding-bottom: 20px;
+    padding-top: 20px;
+    background-repeat: repeat;
+
 }
 
 #headerwrap h1 {
@@ -22,6 +26,11 @@
     color: white;
     font-size: 70px;
     
+}
+#headerwrap h2 {
+    color: white;
+    font-size: 33px;
+    line-height: 40px;
 }
 
 #headerwrap h3 {
@@ -38,7 +47,7 @@
 
 #headerwrap p {
     text-align: left;
-    color: white
+    color: white;
 }
 
 /* intro Wrap */
@@ -46,6 +55,24 @@
 #intro {
     padding-top: 50px;
     border-top: #c1652b solid 5px;
+}
+
+#search-box {
+    border-top: #c1652b solid 2px;
+    border-bottom: #c1652b solid 2px;
+    background-image: url(/images/banner.jpg);
+    padding-bottom: 20px;
+    padding-top: 35px;
+    background-repeat: repeat;
+}
+
+#intro2 {
+    border-top: #c1652b solid 0px;
+    border-bottom: #c1652b solid 0px;
+    background-image: url(/images/banner.jpg);
+    padding-bottom: 20px;
+    padding-top: 40px;
+    background-repeat: repeat;
 }
 
 #page-header {

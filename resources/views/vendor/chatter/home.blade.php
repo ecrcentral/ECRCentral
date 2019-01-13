@@ -75,7 +75,9 @@
 
 	        		<!-- Message to show on the top of home page -->
 	        		@if( Route::current()->getName() == 'chatter.home')
-	        			
+
+	        		<p>	<b>Welcome to the early career researchers community forum!</b>
+	        			Introduce yourself and tell us why you're here. Here, you can ask questions about fellowship and grant applications, and share your experience with the community.</p>
 	        		@endif
 
 	        		<!-- Message about each category -->

@@ -1,7 +1,7 @@
 <footer class="footer">
       <div class="container">
         <div class="row">
-          <div class="col-md-5">
+          <div class="col-md-4">
     
             <h3 class="footer-title">
                 @if(setting('site.logo'))
@@ -35,14 +35,14 @@
             </a>
           -->
 
-          </div> <!-- /col-xs-7 -->
+          </div>
 
           <div class="col-md-4">
               <br>
             <a class="twitter-timeline" href="https://twitter.com/ECRcentral?ref_src=twsrc%5Etfw">Tweets by ECRcentral</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
           </div>
 
-           <div class="col-md-3">
+           <div class="col-md-4">
             <div class="footer-banner">
               <h3 class="footer-title">Links</h3>
               <ul>
@@ -53,11 +53,11 @@
               <li {{ Route::is('team') ? 'class=active' : null }}><a href="{{ route('team') }}">Our team</a></li>
             -->
 
-              <li><a class="nav-link" href="#">Resources</a></li>
+              <li {{ Request::is('resources') ? 'class=active' : null }}><a href="{{ route('resources') }}">Resources</a></li>
               <li {{ Request::is('funders') ? 'class=active' : null }}><a href="{{ route('funders') }}">Funders</a></li>
 
-              <li><a class="nav-link active" href="#">Disclaimer</a></li>
-              <li {{ Route::is('privacy') ? 'class=active' : null }}><a href="{{ route('privacy') }}">Privacy</a></li>
+              <li {{ Route::is('terms') ? 'class=active' : null }}><a  href="{{ route('terms') }}">Terms of Use</a></li>
+              <li {{ Route::is('privacy') ? 'class=active' : null }}><a href="{{ route('privacy') }}">Privacy Policy</a></li>
               <li {{ Route::is('contact') ? 'class=active' : null }}><a href="{{ route('contact') }}">Contact us</a></li>
 
             </ul>
@@ -68,8 +68,7 @@
       </div>
       <div class="row" style="background: #38495c;">
         <br>
-        <p align="center">&copy; 2019 ECRcentral. The content is licensed under <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"> <i class="fa fa-creative-commons" aria-hidden="true"></i> </a> CC BY 4.0 | ECRcentral is developed with <span style="color: #e25555;">&#9829;</span> by
-          <a href="https://asntech.github.io/" target="_blank"> Aziz </a> and brought to you by eLife Ambassadors 2018.</p>
+        <p align="center">&copy; 2019 ECRcentral. The content is licensed under <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"> <i class="fa fa-creative-commons" aria-hidden="true"></i> </a> CC BY 4.0 | Developed with <span style="color: #e25555;">&#9829;</span> by eLife Ambassadors.</p>
         <br>
       </div>
     </footer>

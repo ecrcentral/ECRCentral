@@ -1,4 +1,17 @@
 {
     "last_remote_check": 1519121972,
-    "hooks": []
+    "hooks": {
+        "voyager-themes": {
+            "name": "voyager-themes",
+            "description": "This hook will add support for Voyager front-end themes",
+            "version": "0.15",
+            "enabled": false
+        },
+        "wordpress-import": {
+            "name": "wordpress-import",
+            "description": "This hook will allow you to import your wordpress posts, pages, categories, and users from the WP XML export file.",
+            "version": "v1.0.3",
+            "enabled": true
+        }
+    }
 }

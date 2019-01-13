@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-   Early career researchers blog
+   Early Career Researchers Community Blog
 @endsection
 
 @section('template_linked_css')
@@ -15,7 +15,7 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h3 class="page-header">Blog<small> by early career researchers for early career researchers</small></h3>
+                <h3 class="page-header">ECR community blog<small> by early career researchers for early career researchers</small></h3>
             </div>
         </div>
         <!-- /.row -->
@@ -75,6 +75,8 @@
                     <!-- /.input-group -->
                 </div>
 
+                <div id="disqus_thread"> </div>
+
                 <!-- Blog Categories Well -->
                 <div class="well">
                     <h6> Categories</h6>
@@ -106,15 +108,4 @@
     <!-- /.container -->
     <!-- /.container -->
 
-  @include('modals.modal-delete')
-
-@endsection
-
-@section('footer_scripts')
-
-    @include('scripts.delete-modal-script')
-    @include('scripts.save-modal-script')
-    {{--
-        @include('scripts.tooltips')
-    --}}
 @endsection

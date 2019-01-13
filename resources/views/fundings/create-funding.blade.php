@@ -14,7 +14,7 @@
             <h4 class="page-header"><i class="fa fa-plus"></i> Add new funding
             <a href="/fundings" class="btn btn-info btn-xs pull-right">
               <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
-              Back <span class="hidden-md">to</span><span class="hidden-md"> Fundings</span>
+              Back <span class="hidden-md">to</span><span class="hidden-md"> Funding</span>
             </a>
           </h4>
 

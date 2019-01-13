@@ -27,23 +27,57 @@
                 <!--
                 <li {{ Route::is('index') ? 'class=active' : null }}><a href="{{ route('index') }}">Home</a></li>
                 -->
-                <li {{ Route::is('fundings') ? 'class=active' : null }}><a href="{{ route('fundings') }}">Fundings</a></li>
-                <li {{ Request::is('travel-grants') ? 'class=active' : null }}><a href="{{ url('/travel-grants') }}">Travel Grants</a></li>
-                <li {{ Request::is('forums') ? 'class=active' : null }}><a href="/forums">Forums</a></li>
-                <li {{ Request::is('blog') ? 'class=active' : null }}> <a href="/blog">Blog</a></li>
-                <li {{ Route::is('about') ? 'class=active' : null }}><a href="{{ route('about') }}">About</a></li>
 
-                <!--
-                <li class="dropdown" {{ Request::is('about') ? 'class=active' : null }}>
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">About</a>
-                  <span class="dropdown-arrow"></span>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Funding <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/team">Team</a></li>
-         
+                    <li {{ Route::is('fundings') ? 'class=active' : null }}><a href="{{ route('fundings') }}">Funding schemes and fellowships</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li {{ Request::is('travel-grants') ? 'class=active' : null }}><a href="{{ route('travelgrants') }}">Travel Grants</a></li> 
                   </ul>
                 </li>
+
+                <li {{ Request::is('resources') ? 'class=active' : null }}><a href="{{ route('resources') }}">Resources</a></li>
+
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+
+                    
+                    <li {{ Request::is('forums') ? 'class=active' : null }}><a href="/forums">Community Forum</a></li>
+                     <li {{ Request::is('blog') ? 'class=active' : null }}> <a href="/blog">Community Blog</a></li>
+
+                    <li role="separator" class="divider"></li>
+                    <li {{ Request::is('community') ? 'class=active' : null }}><a href="{{ route('community') }}">Community members</a></li>
+
+                    <li><a href="#">Contributers</a></li>
+                    <li><a href="#">Mentors</a></li>
+                    <!--
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Another tab</a></li>
+                -->
+                  </ul>
+                </li>
+                <!--
+                
+                <li {{ Request::is('blog') ? 'class=active' : null }}> <a href="/blog">Blog</a></li>
             -->
+
+               
+                <li class="dropdown" {{ Request::is('about') ? 'class=active' : null }}>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret active"></span></a>
+
+                  <span class="dropdown-arrow"></span>
+                  <ul class="dropdown-menu">
+                    <li {{ Route::is('about') ? 'class=active' : null }}><a href="{{ route('about') }}">About ECRcentral</a></li>
+                    <li {{ Route::is('team') ? 'class=active' : null }}><a href="{{ route('team') }}">Our team</a></li>
+                    <li {{ Route::is('getinvolved') ? 'class=active' : null }}><a  href="{{ route('getinvolved') }}">Get Involved</a></li>
+                    
+                    <li {{ Route::is('terms') ? 'class=active' : null }}><a  href="{{ route('terms') }}">Terms of Use</a></li>
+                    <li {{ Route::is('privacy') ? 'class=active' : null }}><a href="{{ route('privacy') }}">Privacy Policy</a></li>         
+                  </ul>
+                </li>
+           
             </ul>
              
 
@@ -73,6 +107,10 @@
                             @if(Auth::user() && Auth::user()->role->name != 'user')
                 
                                 <li>{!! HTML::link(url('/admin'), 'Administration Panel') !!}</li>
+
+                            @endif
+
+                            @if(Auth::user() && Auth::user()->role->name == 'admin')
 
                                 <li {{ Request::is('users', 'users/' . Auth::user()->id, 'users/' . Auth::user()->id . '/edit') ? 'class=active' : null }}>{!! HTML::link(url('/users'), Lang::get('titles.adminUserList')) !!}</li>
 

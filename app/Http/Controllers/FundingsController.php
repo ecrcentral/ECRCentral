@@ -160,7 +160,16 @@ class FundingsController extends Controller
 
         $funding = Funding::where('id', '=', $id)->orWhere('slug', '=', $id)->firstOrFail();
 
-        return view('fundings.show-funding')->withfunding($funding);
+        $related_fundings = Funding::where('id', "!=", $funding->id)
+            ->where('applicant_country', 'LIKE', '%' . $funding->applicant_country . '%')
+            ->orWhere('host_country', 'LIKE', '%' . $funding->host_country . '%')->paginate(8);
+
+        $data = [
+            'funding'        => $funding,
+            'related_fundings' => $related_fundings,
+        ];
+
+        return view('fundings.show-funding')->with($data);
     }
 
     /**

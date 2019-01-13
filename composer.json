@@ -30,10 +30,13 @@
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.5",
+        "laravolt/avatar": "^2.1",
         "pusher/pusher-php-server": "^3.0",
         "rap2hpoutre/laravel-log-viewer": "^0.10.4",
         "socialiteproviders/generators": "^2.0",
         "tcg/voyager": "1.0.15",
+        "voyager-themes": "^0.15.0",
+        "wordpress-import": "^1.0",
         "yajra/laravel-disqus": "^1.1"
     },
     "require-dev": {

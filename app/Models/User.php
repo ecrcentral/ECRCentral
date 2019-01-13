@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-#use jeremykenedy\LaravelRoles\Traits\HasRoleAndPermission;
+use App\Traits\HasRoleAndPermission;
 use TCG\Voyager\Models\Role;
 
 class User extends \TCG\Voyager\Models\User
@@ -103,6 +103,32 @@ class User extends \TCG\Voyager\Models\User
         }
 
         return false;
+    }
+
+
+    public function mask_email( $email ) {
+        /*
+        Author: Fed
+        Simple way of masking emails
+        */
+        
+        $char_shown = 1;
+        
+        $mail_parts = explode("@", $email);
+        $username = $mail_parts[0];
+        $len = strlen( $username );
+        
+        if( $len <= $char_shown ){
+            return implode("@", $mail_parts );  
+        }
+        
+        //Logic: show asterisk in middle, but also show the last character before @
+        $mail_parts[0] = substr( $username, 0 , $char_shown )
+            . str_repeat("*", $len - $char_shown - 1 )
+            . substr( $username, $len - $char_shown + 2 , 1  )
+            ;
+            
+        return implode("@", $mail_parts );
     }
 
     public function assignProfile($profile)

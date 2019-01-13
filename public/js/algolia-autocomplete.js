@@ -20,7 +20,7 @@ autocomplete('#aa-search-input', {}, [
       templates: {
         header: '<div class="aa-suggestions-category">Travel Grants for conferences collaborations</div>',
         suggestion: function(suggestion) {
-          return '<span><a href="/trave-grants/'+suggestion.slug+'">'+suggestion._highlightResult.name.value + '</a></span><span>'
+          return '<span><a href="/travel-grants/'+suggestion.slug+'">'+suggestion._highlightResult.name.value + '</a></span><span>'
               + suggestion._highlightResult.funder_name.value + '</span>';
         }
       }

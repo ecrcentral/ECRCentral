@@ -208,6 +208,12 @@ em {
 
 .ais-hits--item .post-excerpt {
   margin-bottom: 12px;
+
+}
+
+.post-excerpt {
+  font-size: 16px;
+  
 }
 
 .ais-hits--item .entry-title {

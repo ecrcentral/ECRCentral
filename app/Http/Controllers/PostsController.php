@@ -58,24 +58,12 @@ class PostsController extends Controller
     public function index_category($category_slug)
     {
        
-       $category = Category::where('slug', $category_slug)->get();
+       $category = Category::where('slug', "=", $category_slug)->get();
 
-       $posts = Post::where('category_id', $category['id']);
+       $posts = Post::where('category_id', '=', $category->id)->get();
 
-       $request_append = [];
 
-       if($request->has('q')) {
-
-            $query_string = $request->input('q');
-
-            $request_append['q'] = $query_string;
-
-            $posts = $posts->where('excerpt', 'LIKE', '%' . $query_string . '%')
-            ->orWhere('title', 'LIKE', '%' . $query_string . '%')
-            ->orWhere('body', 'LIKE', '%' . $query_string . '%');
-        }
-
-        $posts = $posts->orderBy('id', 'asc')->paginate(env('USER_LIST_PAGINATION_SIZE'))->appends($request_append);
+        $posts = $posts->orderBy('id', 'asc')->paginate(env('USER_LIST_PAGINATION_SIZE'));
 
         $data = [
             'posts' => $posts,

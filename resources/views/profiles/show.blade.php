@@ -22,7 +22,7 @@
 				<div class="profile">
                     <center>
                     
-                    <img src="@if ($user->profile->avatar_status == 1) {{ $user->profile->avatar }} @else {{ Gravatar::get($user->email) }} @endif" alt="{{ $user->name }}"  width="140" height="140" border="0" class="img-circle"><br>
+                    <img src="@if ($user->profile->avatar_status == 1) {{ $user->profile->avatar }} @endif" alt="{{ $user->name }}"  width="140" height="140" border="0" class="img-circle"><br>
                    
                     <h3 class="media-heading">{{ $user->first_name }} {{ $user->last_name }} <small>{{ $user->profile->title }}</small></h3>
                     @if ($user->profile->organization)
@@ -81,7 +81,12 @@
 
 						<center>
 						@if ($user->email)
-						 <i class="fa fa-envelope"> </i>  {{ $user->email }} 
+						 <i class="fa fa-envelope"> </i>
+						 	@if (Auth::user()->id == $user->id)
+						 		{{ $user->email }}
+						 	@else
+						 		{{ $user->mask_email($user->email) }}
+						 	@endif
 						@endif
 						@if ($user->profile->organization)
 						| <i class="fa fa-bank"> </i> {{ $user->profile->organization }}

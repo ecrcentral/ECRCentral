@@ -24,7 +24,7 @@
                       <h4 class="page-header"><i class="fa fa-certificate"></i> Funding schemes and fellowships for early career researchers
 
                       <div class="pull-right">
-                      <a class="btn btn-sm btn-success btn-block" href="{{ URL::to('fundings/create') }}" data-toggle="tooltip" title="Add"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add fundings
+                      <a class="btn btn-sm btn-primary btn-block" href="{{ URL::to('fundings/create') }}" data-toggle="tooltip" title="Add"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add Funding
                       </a></div></h4>
                    </div>
                  </div>
@@ -38,7 +38,8 @@
 
                             <div class="col-md-8">
                               <div id="searchbox"></div>
-                              <p class="pull-right"> <div id="stats"></div></p>
+                              <div id="stats"></div>
+                              <img src="{{ asset('images/algolia.svg') }}" class="pull-right" width="100px">
                               <hr>
                               <div id="current-refinements"></div>
                               

@@ -31,7 +31,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
-            // \Illuminate\Session\Middleware\AuthenticateSession::class,
+            \Illuminate\Session\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
@@ -60,9 +60,9 @@ class Kernel extends HttpKernel
         'guest'       => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle'    => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'activated'   => CheckIsUserActivated::class,
-        //'role'        => \jeremykenedy\LaravelRoles\Middleware\VerifyRole::class,
-        //'permission'  => \jeremykenedy\LaravelRoles\Middleware\VerifyPermission::class,
-        //'level'       => \jeremykenedy\LaravelRoles\Middleware\VerifyLevel::class,
+        'role'        => \App\Http\Middleware\VerifyRole::class,
+        'permission'  => \App\Http\Middleware\VerifyPermission::class,
+        'level'       => \App\Http\Middleware\VerifyLevel::class,
         'currentUser' => \App\Http\Middleware\CheckCurrentUser::class,
     ];
 }

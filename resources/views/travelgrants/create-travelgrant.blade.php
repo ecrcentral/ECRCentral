@@ -79,6 +79,19 @@
                 </div>  
               </div>
 
+              <div class="form-group has-feedback row {{ $errors->has('purposes') ? ' has-error ' : '' }}">
+                {!! Form::label('purposes', 'Grant purpose' , array('class' => 'col-md-3 control-label')); !!}
+                <div class="col-md-9">
+                  <div class="input-group">
+
+                    @foreach($purposes as $purpose)
+                    <label>{!! Form::checkbox('purposes[]', $purpose->id, null,  ['id' => 'purposes']) !!} {!! $purpose->name !!} </label>
+                    &nbsp;&nbsp;
+                    @endforeach
+                  </div>
+                </div>
+              </div>
+
               <div class="form-group has-feedback row {{ $errors->has('applicant_country') ? ' has-error ' : '' }}">
                 {!! Form::label('applicant_country', 'Applicant country' , array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
@@ -89,15 +102,7 @@
                 </div>
               </div>
 
-              <div class="form-group has-feedback row {{ $errors->has('purpose') ? ' has-error ' : '' }}">
-                {!! Form::label('purpose', 'Grant purpose' , array('class' => 'col-md-3 control-label')); !!}
-                <div class="col-md-9">
-                  <div class="input-group">
-                    {!! Form::text('purpose', old('purpose'), array('id' => 'purpose', 'class' => 'form-control', 'placeholder' => 'Grant purpose')) !!}
-                    <label class="input-group-addon" for="purpose"><i class="fa fa-fw fa-pencil " aria-hidden="true"></i></label>
-                  </div>
-                </div>
-              </div>
+              
 
               <div class="form-group has-feedback row {{ $errors->has('membership') ? ' has-error ' : '' }}">
                 {!! Form::label('membership', 'Memberschip required?' , array('class' => 'col-md-3 control-label')); !!}

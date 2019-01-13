@@ -15,10 +15,12 @@
       {{ $funder->country }} <br>
       <i class="ai ai-orcid"></i> <a href="http://dx.doi.org/10.13039/{{$funder->funder_id}}" target="_blank">http://dx.doi.org/10.13039/{{$funder->funder_id}}</a>
       
+      @if(Auth::user() && Auth::user()->role->name != 'user')
       <div class="pull-right">
           <a class="btn btn-sm btn-info btn-block" target="_blank" href="{{ URL::to('admin/funders/' . $funder->id . '/edit') }}" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i> Edit
           </a>                                     
       </div>
+      @endif
       <hr>
       </div>
 

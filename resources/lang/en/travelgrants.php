@@ -45,5 +45,6 @@ return [
     'urlRequired'    => 'URL is required',
     'captchaRequire'   => 'Captcha is required',
     'CaptchaWrong'     => 'Wrong captcha, please try again.',
+    'purposesRequired' => 'Travel grant purpose is required',
 
 ];

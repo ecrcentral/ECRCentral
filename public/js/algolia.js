@@ -28,7 +28,7 @@ function hitTemplate(hit) {
             </a>
           </div>
             <div class="entry-meta clear">
-            ${get_logo(hit.funder_name)}
+            ${get_logo(hit.logos)}
             <div class="entry-funder-content">
               <div class="funder-name">
                 <i class="fas fa-user-graduate"></i> Applicant nationality: ${hit.applicant_country} | 
@@ -48,7 +48,28 @@ function hitTemplate(hit) {
     </div>`;
 }
 
-function get_logo(funder_name){
+function get_logo(logos){
+  if (logos != null){
+    if(logos.length == 1)
+    {
+    return `<div class="funder-gravatar">
+              <img src="/storage/${logos}" width="40" height="40">
+          </div>`;
+    }else{
+        logos_html = '<div class="funder-gravatar">'
+        for(var logo in logos)
+        {
+          logos_html = logos_html.concat(`<img src="/storage/${logo}" width="40" height="40">`)
+        }
+        return logos_html.concat('</div>');
+    }
+  }else{
+    return " ";
+  }
+
+}
+
+function get_logo2(funder_name){
   if (funder_name == 'American Psychological Foundation'){
     return `<div class="funder-gravatar">
               <img src="https://www.insidehighered.com/sites/default/server_files/styles/large/public/media/APA.png" width="40" height="40">

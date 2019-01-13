@@ -76,5 +76,6 @@ return [
     'captchaRequire'   => 'Captcha is required',
     'CaptchaWrong'     => 'Wrong captcha, please try again.',
     'roleRequired'     => 'User role is required.',
+    'privacy_confirm'  => 'You have to confirm this to register.',
 
 ];

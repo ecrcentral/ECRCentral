@@ -22,11 +22,21 @@ Auth::routes();
 Route::group(['middleware' => ['web', 'activity']], function () {
 
     // Static pages routes
-    Route::get('/', 'StaticController@index')->name('index');
-    Route::get('/about', 'StaticController@about')->name('about');
-    Route::get('/team', 'StaticController@team')->name('team');
-    Route::get('/privacy', 'StaticController@privacy')->name('privacy');
-    Route::get('/contact', 'StaticController@contact')->name('contact');
+    Route::get('/', 'PagesController@index')->name('index');
+    Route::get('/about', 'PagesController@about')->name('about');
+    Route::get('/team', 'PagesController@team')->name('team');
+    Route::get('/privacy', 'PagesController@privacy')->name('privacy');
+    Route::get('/terms', 'PagesController@terms')->name('terms');
+
+    Route::get('/contact', 'PagesController@contact')->name('contact');
+    Route::get('/get-involved', 'PagesController@get_involved')->name('getinvolved');
+
+    Route::get('/community', 'PagesController@community')->name('community');
+
+    // Route::get('/{slug}', [
+    //     'as'   => '{slug}',
+    //     'uses' => 'PagesController@show',
+    // ]);
 
 
     // Activation Routes
@@ -95,17 +105,45 @@ Route::group(['middleware' => ['web', 'activity']], function () {
 
     Route::post('travel-grants/create','TravelGrantsController@store')->name('travelgrants.store');
 
+
+
+     // Resources Route
+    Route::resource(
+        'resources',
+        'ResourcesController', [
+            'only' => [
+                'show',
+                //'edit',
+                //'update',
+                'create',
+            ],
+        ]
+    );
+
+    Route::get('/resources', 'ResourcesController@index')->name('resources');
+    Route::get('resources/{id}', [
+        'as'   => '{id}',
+        'uses' => 'ResourcesController@show',
+    ]);
+
+    Route::post('resources/create','ResourcesController@store')->name('resources.store');
+
+
     // Blog Route
+
     Route::get('/blog', 'PostsController@index')->name('posts');
+
+    Route::get('blog/category/{category_slug}', [
+        'as'   => '{category_slug}',
+        'uses' => 'PostsController@index_category',
+    ]);
+
     Route::get('blog/{id}', [
         'as'   => '{id}',
         'uses' => 'PostsController@show',
     ]);
 
-    Route::get('blog/category/{category_slug}', [
-        'as'   => '{category_slug}',
-        'uses' => 'PostsController@show_category',
-    ]);
+    
 
 });
 
@@ -122,7 +160,7 @@ Route::group(['middleware' => ['auth', 'activated', 'activity', 'twostep']], fun
 
     //  Homepage Route - Redirect based on user role is in controller.
     #Route::get('/home', ['as' => 'public.home',   'uses' => 'UserController@index']);
-    Route::get('/home', ['as' => 'public.home',   'uses' => 'StaticController@index']);
+    Route::get('/home', ['as' => 'public.home',   'uses' => 'PagesController@index']);
 
     // Show users profile - viewable by other users.
     Route::get('profile/{username}', [
@@ -171,7 +209,9 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser', 'activity', '
 });
 
 // Registered, activated, and is admin routes.
-Route::group(['middleware' => ['auth', 'activated', 'activity', 'twostep']], function () {
+Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity', 'twostep']], function () {
+#Route::group(['middleware' => ['role:admin']], function () {
+
     Route::resource('/users/deleted', 'SoftDeletesController', [
         'only' => [
             'index', 'show', 'update', 'destroy',
@@ -248,13 +288,13 @@ Route::group(['middleware' => ['auth', 'activated', 'activity', 'twostep']], fun
         'as'   => '{id}',
         'uses' => 'TravelGrantsController@destroy',
     ]);
-
-    
+  
 });
 
 //Route::redirect('/php', '/phpinfo', 301);
 
-
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+

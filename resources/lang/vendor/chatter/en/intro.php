@@ -31,9 +31,8 @@ return [
     |
     */
 
-    'headline'      => 'community forum',
-    'description'   => 'A unique forum for ECRs to discuss funding opportunities, share experiences and get expert feedback on applications'
-
+    'headline'      => 'ECR community forum',
+    'description'   => 'Bringing ECR community together to discuss funding opportunities, share experiences and get expert feedback on grant applications'
 
 ];
 

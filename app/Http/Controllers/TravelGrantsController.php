@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TravelGrant;
+use App\Models\TravelPurpose;
 
 use App\Traits\CaptureIpTrait;
 
@@ -62,9 +63,11 @@ class travelgrantsController extends Controller
     public function create()
     {
         $travelgrants = TravelGrant::all();
+        $purposes = TravelPurpose::all();
 
         $data = [
             'travelgrants' => $travelgrants,
+            'purposes' => $purposes,
         ];
 
         return view('travelgrants.create-travelgrant')->with($data);
@@ -84,11 +87,14 @@ class travelgrantsController extends Controller
                 'name' => 'required',
                 'funder_name' => 'required',
                 'url' => 'url|required',
+                'purposes' => 'required',
             ],
             [
                 'name.required'       => trans('travelgrants.fundingNameRequired'),
                 'funder_name.required' => trans('travelgrants.funderNameRequired'),
                 'url.required'  => trans('travelgrants.urlRequired'),
+                'purposes.required'  => trans('travelgrants.purposesRequired'),
+
             ]
         );
 
@@ -112,7 +118,6 @@ class travelgrantsController extends Controller
             'applicant_country' => $request->input('applicant_country'),
             'url' => $request->input('url'),
             'award' => $request->input('award'),
-            'purpose' => $request->input('purpose'),
             'deadline' => $request->input('deadline'),
             'comments' => $request->input('comments'),
             'membership' => $request->input('membership'),
@@ -126,8 +131,10 @@ class travelgrantsController extends Controller
          
         ]);
 
+        $purposes =  $request->input('purposes');
 
         $travelgrant->save();
+        $travelgrant->purposes()->sync($purposes);
 
         Mail::to('azez.khan@gmail.com')->send(new TravelGrantAdded($travelgrant));
 
@@ -146,7 +153,15 @@ class travelgrantsController extends Controller
         #$travelgrant = TravelGrant::find($id);
         $travelgrant = TravelGrant::where('slug', '=', $id)->orWhere('id', '=', $id)->firstOrFail();
 
-        return view('travelgrants.show-travelgrant')->withtravelgrant($travelgrant);
+        $related_travelgrants = TravelGrant::where('id', "!=", $travelgrant->id)
+             ->where('purpose', 'LIKE', '%' . $travelgrant->purpose . '%')->paginate(8);
+
+        $data = [
+            'travelgrant'        => $travelgrant,
+            'related_travelgrants' => $related_travelgrants,
+        ];
+
+        return view('travelgrants.show-travelgrant')->with($data);
     }
 
     /**

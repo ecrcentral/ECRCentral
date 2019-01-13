@@ -28,7 +28,7 @@ function hitTemplate(hit) {
             </a>
           </div>
             <div class="entry-meta clear">
-            ${get_logo(hit.funder_name)}
+            ${get_logo(hit.logos)}
             <div class="entry-funder-content">
               <div class="funder-name">
                 <i class="fas fa-user-graduate"></i> Applicant nationality: ${hit.applicant_country} | 
@@ -48,14 +48,14 @@ function hitTemplate(hit) {
     </div>`;
 }
 
-function get_logo(funder_name){
+function get_logo33(funder_name){
   if (funder_name == 'The Royal Society'){
     return `<div class="funder-gravatar">
               <img src="https://royalsociety.org/~/media/Redesign2015/rs-crest-footer.png" width="40" height="40">
           </div>`;
-  }else if(funder_name == 'National Institutes of Health'){
+  }else if(funder_name == 'Cancer Research UK'){
     return `<div class="funder-gravatar">
-              <img src="https://www.nih.gov/sites/default/files/about-nih/2012-logo.png" width="40" height="40">
+              <img src="http://commercial.cancerresearchuk.org/sites/default/files/2-Column-Image_Big-C.png" width="40" height="40">
           </div>`;
   }else if(funder_name == 'eLife'){
     return `<div class="funder-gravatar">
@@ -65,6 +65,27 @@ function get_logo(funder_name){
     return `<div class="funder-gravatar">
               <img src="https://www.wemakescholars.com/admin/uploads/providers/1521.jpg" width="40" height="40">
           </div>`;
+  }else{
+    return " ";
+  }
+
+}
+
+function get_logo(logos){
+  if (logos != null){
+    if(logos.length == 1)
+    {
+    return `<div class="funder-gravatar">
+              <img src="/storage/${logos}" width="40" height="40">
+          </div>`;
+    }else{
+        logos_html = '<div class="funder-gravatar">'
+        for(var logo in logos)
+        {
+          logos_html = logos_html.concat(`<img src="/storage/${logo}" width="40" height="40">`)
+        }
+        return logos_html.concat('</div>');
+    }
   }else{
     return " ";
   }

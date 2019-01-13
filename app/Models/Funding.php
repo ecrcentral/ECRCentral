@@ -22,6 +22,11 @@ class Funding extends Model
         return 'fundings_index';
     }
 
+    public function isPublished()
+    {
+        return $this->status !== 0;
+    }
+
     /**
      * Get the indexable data array for the model.
      *
@@ -29,13 +34,21 @@ class Funding extends Model
      */
     public function toSearchableArray()
     {
+        
+        if (! $this->isPublished()) {
+            $this->unsearchable();
+            return [];
+        }
+
         $array = $this->toArray();
 
         // Customize array...
+        $extraFields = [
+            'funders' => $this->funders->pluck('name')->toArray(),
+            'logos' => $this->funders->pluck('logo')->toArray(),
+        ];
 
-        $funders = "";
-
-        return $array;
+        return array_merge($array, $extraFields);
     }
 
 
@@ -74,7 +87,8 @@ class Funding extends Model
      */
     public function funders()
     {
-        return $this->belongsToMany(Funder::class, 'funder_funding');
+        return $this->belongsToMany(Funder::class, 'funder_funding')->where('status', '=', 1)->orderBy('name');
 
     }
+
 }

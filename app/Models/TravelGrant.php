@@ -22,6 +22,11 @@ class TravelGrant extends Model
         return 'travel_grants_index';
     }
 
+    public function isPublished()
+    {
+        return $this->status !== 0;
+    }
+
     /**
      * Get the indexable data array for the model.
      *
@@ -29,12 +34,20 @@ class TravelGrant extends Model
      */
     public function toSearchableArray()
     {
+        
+        if (! $this->isPublished()) {
+            $this->unsearchable();
+            return [];
+        }
+
         $array = $this->toArray();
 
         // Customize array...
 
         $extraFields = [
-            'travel_purpose' => $this->travelpurposes->pluck('name')->toArray(),
+            'travel_purpose' => $this->purposes->pluck('name')->toArray(),
+            'funders' => $this->funders->pluck('name')->toArray(),
+            'logos' => $this->funders->pluck('logo')->toArray(),
         ];
 
         return array_merge($array, $extraFields);
@@ -61,9 +74,9 @@ class TravelGrant extends Model
     }
 
     /**
-     * The subjects that belong to the travel grants.
+     * The purpose that belong to the travel grants.
      */
-    public function travelpurposes()
+    public function purposes()
     {
         return $this->belongsToMany(TravelPurpose::class, 'travelpurpose_travelgrant');
 
@@ -83,7 +96,7 @@ class TravelGrant extends Model
      */
     public function funders()
     {
-        return $this->belongsToMany(Funder::class, 'funder_travelgrant');
+        return $this->belongsToMany(Funder::class, 'funder_travelgrant')->where('status', '=', 1)->orderBy('name');
 
     }
 }

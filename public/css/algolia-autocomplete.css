@@ -1,19 +1,20 @@
 @import 'https://fonts.googleapis.com/css?family=Montserrat:400,700';
 .aa-input-container {
   position: relative;
-  float: right;
+  float: middle;
+  padding: 20px;
 
 }
 .aa-input-search {
-  width: 800px;
+  width: 600px;
   padding: 12px 28px 12px 12px;
   border: 2px solid #e4e4e4;
   border-radius: 4px;
   -webkit-transition: .2s;
   transition: .2s;
   font-family: "Montserrat", sans-serif;
-  box-shadow: 4px 4px 0 rgba(241, 241, 241, 0.35);
-  font-size: 11px;
+  box-shadow: 3px 3px 0 rgba(241, 241, 241, 0.35);
+  font-size: 15px;
   box-sizing: border-box;
   color: #333;
   -webkit-appearance: none;
@@ -37,7 +38,7 @@
   right: 16px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  fill: #e4e4e4;
+  fill: #19b491;
   pointer-events: none;
 }
 .aa-hint {
@@ -45,10 +46,10 @@
 }
 .aa-dropdown-menu {
   background-color: #fff;
-  border: 2px solid rgba(228, 228, 228, 0.6);
+  border: 1px solid rgba(228, 228, 228, 0.6);
   border-top-width: 0;
   font-family: "Montserrat", sans-serif;
-  width: 800px;
+  width: 600px;
   margin-top: 10px;
   box-shadow: 4px 4px 0 rgba(241, 241, 241, 0.35);
   font-size: 12px;
@@ -57,6 +58,7 @@
 }
 .aa-suggestion {
   padding: 6px 12px;
+  align-items: left;
   cursor: pointer;
   -webkit-transition: .2s;
   transition: .2s;
@@ -77,6 +79,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  align-items: left;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;

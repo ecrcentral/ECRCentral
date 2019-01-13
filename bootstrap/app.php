@@ -47,6 +47,8 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Move the various types of error messages to different log files
