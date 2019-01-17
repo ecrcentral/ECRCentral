@@ -94,7 +94,7 @@ class ProfilesController extends Controller
 
         $pagination_results = config('chatter.paginate.num_of_results');
 
-        $posts = Models::post()->with('user')->with('discussion')->where('user_id', '=', $user->id);
+        $posts = Models::post()->with('user')->with('discussion')->where('user_id', '=', $user->id)->orderBy(config('chatter.order_by.posts.order'), 'DESC');
 
   
         $funding_count = Funding::where('status', '=', 1)->where('user_id', '=', $user->id)->count();
@@ -329,6 +329,9 @@ class ProfilesController extends Controller
             // Save the public image path
             $currentUser->profile->avatar = $public_path;
             $currentUser->profile->save();
+
+            $currentUser->avatar = $public_path;
+            $currentUser->save();
 
             return response()->json(['path' => $path], 200);
         } else {

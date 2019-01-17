@@ -126,7 +126,7 @@ return [
         'namespace'                     => 'App\Models\User',
         'database_field_with_user_name' => 'name',
         'relative_url_to_profile'       => '/profile/{name}',
-        'relative_url_to_image_assets'  => '/storage/',
+        'relative_url_to_image_assets'  => '',
         'avatar_image_database_field'   => 'avatar',
     ],
 

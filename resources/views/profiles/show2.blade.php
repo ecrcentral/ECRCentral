@@ -23,9 +23,18 @@
     
     <div class="panel-body no-padding">
     	<div class="profile">
+
                     <center>
                     
-                    <img src="@if ($user->profile->avatar_status == 1)/storage/{{ $user->avatar }} @endif" alt="{{ $user->name }}" width="140" height="140" border="0" class="img-circle"><br>
+                    @if (($user->profile->avatar) && $user->profile->avatar_status == 1)
+
+                    <img src="{{ $user->profile->avatar }}" alt="{{ $user->name }}" alt="{{ $user->name }}" width="140" height="140" border="0" class="img-circle">
+
+                    @else
+                    <img class="round" width="140" height="140" avatar="@if ($user->first_name !=NULL && $user->last_name !=NULL) {{ $user->first_name }} {{ $user->last_name }} @else {{ $user->name }} @endif">
+                    @endif
+
+                    <br>
                    
                     <h3 class="media-heading">{{ $user->first_name }} {{ $user->last_name }} <small>{{ $user->profile->title }}</small></h3>
                     @if ($user->profile->organization)
@@ -58,10 +67,53 @@
 					@endif
 
                     </center>
-                    <hr>
+
                 </div>
+
         
         <div class="ibox-content profile-content">
+        	<hr>
+        	 <div class="user-button">
+                <div class="row">
+
+
+                    <div class="col-md-3">
+                    
+                    </div>
+                    <!--
+                    <div class="col-md-4">
+                    <button type="button" class="btn btn-primary btn-sm btn-block">
+                        <i class="fa fa-check"></i> Follow</button>
+                    </div>
+                -->
+
+                    <div class="col-md-6">
+                    	@if ($user->profile)
+							@if (Auth::user()->id == $user->id)
+
+								{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-sm btn-info btn-block')) !!}
+							@else
+
+							<button type="button" class="btn btn-primary btn-sm btn-block">
+                        		<i class="fa fa-envelope"></i> Message</button>
+
+							@endif
+						@else
+
+							<p>{{ trans('profile.noProfileYet') }}</p>
+							{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name.'/edit'), 'fa fa-fw fa-plus ', trans('titles.createProfile'), array('class' => 'btn btn-sm btn-info btn-block')) !!}
+
+						@endif
+                    </div>
+
+                    <div class="col-md-3">
+                    
+                    </div>
+
+                </div>
+            </div>
+
+            <hr>
            
             <h6><strong>Bio</strong></h6>
             
@@ -86,6 +138,7 @@
 						<br> <i class="fa fa-globe"> </i> <a href="{{ $user->profile->website }}" target="_blank">{{ $user->profile->website }}</a>
 						@endif
 			@endif
+
 			<hr>	
 
             <div class="row m-t-lg">
@@ -108,18 +161,7 @@
                 </div>
             </div><!-- /row m-t-lg -->
 
-            <div class="user-button">
-                <div class="row">
-                    <div class="col-md-6">
-                    <button type="button" class="btn btn-primary btn-sm btn-block">
-                        <i class="fa fa-envelope"></i> Send Message</button>
-                    </div>
-                    <div class="col-md-6">
-                    <button type="button" class="btn btn-primary btn-sm btn-block">
-                        <i class="fa fa-check"></i> Follow</button>
-                    </div>
-                </div>
-            </div>
+           
         </div><!-- /profile-content -->
     </div>
     </div>
@@ -127,7 +169,10 @@
     
     <div class="col-md-8">
     <div class="panel panel-default">
-    <div class="panel-heading"><strong>Forum Activities</strong></div>
+    <div class="panel-heading"><strong>Forum Activities</strong>
+
+   
+                </div>
     <div class="panel-body">
         
         <div class="ibox-content">
@@ -136,7 +181,7 @@
 		        @foreach($posts as $post)
 		          <div class="feed-element">
                     <a href="#" class="pull-left">
-                    <img alt="image" class="img-circle" src="@if ($user->avatar)/storage/{{ $user->avatar }} @endif">
+                    <img alt="image" class="img-circle" src="@if ($post->user->profile->avatar != NULL) {{ $post->user->profile->avatar }} @endif">
                     </a>
                     <div class="media-body ">
                         <small class="pull-right">{{ \Carbon\Carbon::createFromTimeStamp(strtotime($post->created_at))->diffForHumans() }}</small>

@@ -90,12 +90,11 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
 
-                            @if ((Auth::User()->profile) && Auth::user()->profile->avatar_status == 1)
-                                <img src="/storage/{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" class="user-avatar-nav">
+                           @if ((Auth::User()->profile) && Auth::user()->profile->avatar_status == 1)
+                                <img src="{{ Auth::user()->profile->avatar }}" alt="{{ Auth::user()->name }}" class="user-avatar-nav">
                             @else
                                 <div class="user-avatar-nav"></div>
                             @endif
-
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
