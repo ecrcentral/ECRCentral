@@ -36,7 +36,7 @@ ECR Community
 
             <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6 text-center">
                 <div class="thumbnail">
-                    <img src="@if ($member->profile->avatar_status == 1) {{ $member->profile->avatar }} @else {{ Gravatar::get($member->email) }} @endif" alt="{{ $member->name }}"  width="100" height="100" border="0" class="img-circle">
+                    <img src="@if ($member->profile->avatar_status == 1)/storage/{{ $member->avatar }} @else {{ Gravatar::get($member->email) }} @endif" alt="{{ $member->name }}"  width="100" height="100" border="0" class="img-circle">
                     <div class="caption">
                         <a href="/profile/{{ $member->name }}">@if ($member->first_name && $member->last_name) {{ $member->first_name }} {{ $member->last_name }} @else {{ $member->name }} @endif</a>
                         @if ($member->profile->organization)

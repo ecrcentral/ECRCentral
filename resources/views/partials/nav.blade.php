@@ -91,7 +91,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
 
                             @if ((Auth::User()->profile) && Auth::user()->profile->avatar_status == 1)
-                                <img src="{{ Auth::user()->profile->avatar }}" alt="{{ Auth::user()->name }}" class="user-avatar-nav">
+                                <img src="/storage/{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" class="user-avatar-nav">
                             @else
                                 <div class="user-avatar-nav"></div>
                             @endif

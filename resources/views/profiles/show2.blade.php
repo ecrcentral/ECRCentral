@@ -25,7 +25,7 @@
     	<div class="profile">
                     <center>
                     
-                    <img src="@if ($user->profile->avatar_status == 1) {{ $user->profile->avatar }} @endif" alt="{{ $user->name }}" width="140" height="140" border="0" class="img-circle"><br>
+                    <img src="@if ($user->profile->avatar_status == 1)/storage/{{ $user->avatar }} @endif" alt="{{ $user->name }}" width="140" height="140" border="0" class="img-circle"><br>
                    
                     <h3 class="media-heading">{{ $user->first_name }} {{ $user->last_name }} <small>{{ $user->profile->title }}</small></h3>
                     @if ($user->profile->organization)
@@ -136,7 +136,7 @@
 		        @foreach($posts as $post)
 		          <div class="feed-element">
                     <a href="#" class="pull-left">
-                    <img alt="image" class="img-circle" src="@if ($user->profile->avatar_status == 1) {{ $user->profile->avatar }} @endif">
+                    <img alt="image" class="img-circle" src="@if ($user->avatar)/storage/{{ $user->avatar }} @endif">
                     </a>
                     <div class="media-body ">
                         <small class="pull-right">{{ \Carbon\Carbon::createFromTimeStamp(strtotime($post->created_at))->diffForHumans() }}</small>
