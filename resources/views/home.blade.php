@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-A central platform for early career researchers
+A central platform for early career researchers community
 @endsection
 
 @section('socials_card')

@@ -50,11 +50,11 @@
                 @endforeach
                </div>
 
-               <!--
-                <div class="col-md-6">
-                  <h4 class="page-header">Travel grants</h4>
+            
+                <div class="col-md-12">
+                  <h4 class="page-header">Travel grants <small> offered by {{ $funder->name }}</small></h4>
 
-                   @foreach($funder->fundings as $travelgrant)
+                   @foreach($funder->travelgrants as $travelgrant)
                     <div class="media">
                         <div class="pull-left">
                             <span class="fa-stack fa-2x">
@@ -65,14 +65,37 @@
                         <div class="media-body">
                             <strong><a href="{{ route('travelgrants') }}/@if($travelgrant->slug){{$travelgrant->slug}}@else{{$travelgrant->id}}@endif">{{$travelgrant->name}}</a></strong>
                             <p>
-                            <small><b>Funder</b>: {{$travelgrant->funder_name}} | <b>Subject</b>: {{$travelgrant->subjects}}</small>
+                            <small><b>Funder</b>: {{$travelgrant->funder_name}} | <b>Subject</b>: @if($travelgrant->subjects()->exists())
+                              @foreach ($travelgrant->subjects as $subject)
+                              {{ $loop->first ? '' : ', ' }}
+                               <a href="#">{{ $subject->name }}</a>
+                              @endforeach
+                            @elseif($travelgrant->fields)
+                                {{ $travelgrant->fields }}
+                            
+                            @else
+                                Please check the website
+                            @endif
+
+                             | <b>Travel purpose</b>: 
+                            @if($travelgrant->purposes)
+                                  @foreach ($travelgrant->purposes as $purpose)
+                                  {{ $loop->first ? '' : ', ' }}
+                                   <a href="#">{{ $purpose->name }}</a>
+                                  @endforeach
+                            @elseif($travelgrant->fileds)
+                                {{ $travelgrant->purpose }}
+                            @else
+                                Please check the <a href="{{ $travelgrant->url}}" target="_blank">website</a>
+                            @endif
+                           </small>
                             </p>
 
                         </div>
                     </div>
                     @endforeach
                 </div>
-              -->
+          
           </div>
 
     <div class="row">

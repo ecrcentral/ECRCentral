@@ -17,6 +17,14 @@ use jeremykenedy\Uuid\Uuid;
 use Validator;
 use View;
 
+use DevDojo\Chatter\Helpers\ChatterHelper as Helper;
+use DevDojo\Chatter\Models\Models;
+
+use App\Models\Funding;
+use App\Models\TravelGrant;
+use App\Models\Resource;
+
+
 class ProfilesController extends Controller
 {
     protected $idMultiKey = '618423'; //int
@@ -84,12 +92,41 @@ class ProfilesController extends Controller
 
         $currentTheme = Theme::find($user->profile->theme_id);
 
+        $pagination_results = config('chatter.paginate.num_of_results');
+
+        $posts = Models::post()->with('user')->with('discussion')->where('user_id', '=', $user->id);
+
+  
+        $funding_count = Funding::where('status', '=', 1)->where('user_id', '=', $user->id)->count();
+        $travelgrants_count = TravelGrant::where('status', '=', 1)->where('user_id', '=', $user->id)->count();
+        $resources_count = Resource::where('status', '=', 1)->where('user_id', '=', $user->id)->count();
+
+        $discussions = Models::discussion()->with('user')->with('post')->with('postsCount')->with('category')->orderBy(config('chatter.order_by.discussions.order'), config('chatter.order_by.discussions.by'));
+        if (isset($slug)) {
+            $category = Models::category()->where('slug', '=', $slug)->first();
+            
+            if (isset($category->id)) {
+                $current_category_id = $category->id;
+                $discussions = $discussions->where('chatter_category_id', '=', $category->id);
+            } else {
+                $current_category_id = null;
+            }
+        }
+        
+        $discussions = $discussions->paginate($pagination_results);
+        $posts = $posts->paginate($pagination_results);
+
         $data = [
             'user'         => $user,
             'currentTheme' => $currentTheme,
+            'discussions' => $discussions,
+            'posts' => $posts,
+            'funding_count' => $funding_count,
+            'travelgrants_count' => $travelgrants_count,
+            'resources_count' => $resources_count,
         ];
 
-        return view('profiles.show')->with($data);
+        return view('profiles.show2')->with($data);
     }
 
     /**

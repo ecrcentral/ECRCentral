@@ -32,6 +32,7 @@ Route::group(['middleware' => ['web', 'activity']], function () {
     Route::get('/get-involved', 'PagesController@get_involved')->name('getinvolved');
 
     Route::get('/community', 'PagesController@community')->name('community');
+    Route::get('/moderators', 'PagesController@moderators')->name('moderators');
 
     // Route::get('/{slug}', [
     //     'as'   => '{slug}',

@@ -104,7 +104,7 @@
 
                                     @foreach($funders as $funder)
                                         <tr>
-                                            <td><strong><a href="{{ route('funders') }}/{{$funder->id}}">{{$funder->name}}</a></strong><br>
+                                            <td><strong><a href="{{ route('funders') }}/{{$funder->slug}}">{{$funder->name}}</a></strong><br>
                                             {{$funder->country}}</td>
                                             <td><a href="http://dx.doi.org/10.13039/{{$funder->funder_id}}" target="_blank">http://dx.doi.org/10.13039/{{$funder->funder_id}}</a></td>
                                            <!--

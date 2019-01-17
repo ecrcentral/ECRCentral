@@ -73,12 +73,9 @@
 
                     @if ($user->profile)
 	                    @if ($user->profile->bio)
-										
 						{{ $user->profile->bio }}
-						
 						<hr>				
 						@endif
-
 						<center>
 						@if ($user->email)
 						 <i class="fa fa-envelope"> </i>
@@ -98,28 +95,21 @@
 						 </center>
 						 <br><br>
 					@endif
-						
                 </div>
 			</div>
 		</div>
-		  
 	</div>
+	<!--
 	<div style="background-color: #edf0f1;">
        <div class="container">
         <div class="row">
             <div class="col-lg-12">
-            	<br>
-            	<br>
-            	<!--
-                <h4 class="page-header">Curation activities</h4>
-            -->
+                <h4 class="page-header">Activity</h4>
             </div>
-            
         </div>
-
       </div>
-
     </div>
+-->
 
     @if ($user->profile->location)
     <div class="container">

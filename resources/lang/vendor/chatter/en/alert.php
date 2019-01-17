@@ -31,7 +31,7 @@ return [
         	'title_max'		    => 'The title has to have no more than :max characters.',
         	'content_required'  => 'Please write some content',
         	'content_min'  		=> 'The content has to have at least :min characters',
-        	'category_required' => 'Please choose a category',
+        	'category_required' => 'Please choose a channel',
 
        
        

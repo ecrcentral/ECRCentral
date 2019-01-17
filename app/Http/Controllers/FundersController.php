@@ -133,7 +133,7 @@ class FundersController extends Controller
      */
     public function show($id)
     {
-        $funder = Funder::find($id);
+        $funder = Funder::where('id', '=', $id)->orWhere('slug', '=', $id)->firstOrFail();
 
         $fundings = Funding::where('funder_name', $funder['name']);
         $travelgrants = TravelGrant::where('funder_name', $funder['name']);

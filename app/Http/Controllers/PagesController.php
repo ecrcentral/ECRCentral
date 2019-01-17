@@ -12,6 +12,7 @@ use App\Models\Funding;
 use App\Models\Subject;
 use TCG\Voyager\Models\Post;
 use App\Models\TravelGrant;
+use App\Models\Resource;
 
 
 
@@ -33,14 +34,16 @@ class PagesController extends Controller
         $featured_travelgrants = TravelGrant::where('featured', 1)->orderBy('updated_at', 'desc')->paginate(5);
         $posts = Post::orderBy('id', 'asc')->paginate(5);
 
-        $total_fundings = Funding::count();
-        $total_travelgrants = TravelGrant::count();
+        $total_fundings = Funding::where('status', '=', 1)->count();
+        $total_travelgrants = TravelGrant::where('status', '=', 1)->count();
+        $total_resources = Resource::where('status', '=', 1)->count();
 
         $data = [
             'fundings' => $fundings,
             'posts' => $posts,
             'total_fundings' => $total_fundings,
             'total_travelgrants' => $total_travelgrants,
+            'total_resources' => $total_resources,
             'featured_fundings' => $featured_fundings,
             'featured_travelgrants' => $featured_travelgrants,
             'host_countries' => Funding::select('host_country')->distinct()->get(),
@@ -61,10 +64,18 @@ class PagesController extends Controller
 
     public function community(Request $request)
     {
-        $users = User::with('profile')->where('activated', 1)->paginate(env('USER_LIST_PAGINATION_SIZE'));
+        $members = User::with('profile')->where('activated', 1)->paginate(env('USER_LIST_PAGINATION_SIZE'));
 
 
-        return View('community', compact('users'));
+        return View('community', compact('members'));
+    }
+
+    public function moderators(Request $request)
+    {
+        $moderators = User::with('profile')->where('role_id', 4)->paginate(env('USER_LIST_PAGINATION_SIZE'));
+
+
+        return View('moderators', compact('moderators'));
     }
 
 

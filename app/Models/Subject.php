@@ -41,7 +41,7 @@ class Subject extends Model
         return $this->belongsToMany(Funding::class, 'subject_funding');
     }
 
-     /**
+    /**
      * The subjects that belong to the travel grant.
      */
     public function travelgrants()

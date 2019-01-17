@@ -66,6 +66,8 @@
 	    		<div class="chatter_sidebar">
 					<button class="btn btn-primary" id="new_discussion_btn"><i class="chatter-new"></i> @lang('chatter::messages.discussion.new')</button>
 					<a href="/{{ Config::get('chatter.routes.home') }}"><i class="chatter-bubble"></i> @lang('chatter::messages.discussion.all')</a>
+					<h6>Channels</h6>
+					<div class="border-bottom"></div>
           {!! $categoriesMenu !!}
 				</div>
 				<!-- END SIDEBAR -->
@@ -77,13 +79,13 @@
 	        		@if( Route::current()->getName() == 'chatter.home')
 
 	        		<p>	<b>Welcome to the early career researchers community forum!</b>
-	        			Introduce yourself and tell us why you're here. Here, you can ask questions about fellowship and grant applications, and share your experience with the community.</p>
+	        			Introduce yourself and tell us why you're here. Here, you can ask questions about fellowships and grant applications, and share your experience with the community.</p>
 	        		@endif
 
 	        		<!-- Message about each category -->
 	        		@if( Route::current()->getName() == 'chatter.category.show')
 	        			@if( Request::path() == 'forums/category/introductions')
-	        			Are you new here? Stop in and introduce yourself. Who you are and what is research background, etc.
+	        			Are you new here? Stop in and introduce yourself. Who you are and what is your research area, etc.
 	        			@endif
 	        		
 	        		@endif
@@ -242,7 +244,7 @@
 	$('document').ready(function(){
 
 		$('.chatter-close, #cancel_discussion').click(function(){
-			$('#new_discussion').slideUp();
+			$('#s_discussion').slideUp();
 		});
 		$('#new_discussion_btn').click(function(){
 			@if(Auth::guest())

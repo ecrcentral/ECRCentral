@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-  Team members
+Team members
 @endsection
 
 @section('template_linked_css')
@@ -18,7 +18,6 @@
                 <h3 class="page-header">Team
                     <small>ECRCentral</small>
                 </h3>
-                
             </div>
         </div>
         <!-- /.row -->
@@ -30,7 +29,7 @@
             </div>
             <div class="col-md-10">
                 <blockquote>
-                    ECRCentral initiative is part of eLife Ambassadors program for 2018-2019. The eLife Ambassador program support the development and reach of initiatives ranging from preprints, reproducibility and funding, by facilitating local discussions and connecting communities with international developments. In the funding initiative of the eLife Ambassador program, Aziz Khan worked with other eLife Ambassadors to develop a resource for early-career researchers to find research funding schemes and travel grants. We made the initial searchable <a target="_blank" href="https://asntech.github.io/postdoc-funding-schemes">HTML version</a> available through GitHub in February 2018 and received over 2,500 tweets/retweets and 81,000 page views by 48,000 users from 184 countries.
+                    ECRCentral initiative is part of eLife Ambassadors program for 2018-2019. The eLife Ambassador program support the development and reach of initiatives ranging from preprints, reproducibility and funding, by facilitating local discussions and connecting communities with international developments. In the funding initiative of the eLife Ambassador program, Aziz worked with other eLife Ambassadors to develop ECRcentral, a resource for early-career researchers to find research funding opportunities, travel grants and resources. We made the initial searchable <a target="_blank" href="https://asntech.github.io/postdoc-funding-schemes">HTML version</a> available through GitHub in February 2018 and received over 2,500 tweets/retweets and 81,000 page views by 48,000 users from 184 countries.
                 </blockquote>
             </div>
         </div>
@@ -41,19 +40,15 @@
 
             <div class="col-md-3 text-center">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="https://pbs.twimg.com/profile_images/923604836389617665/ovO6lXHJ_400x400.jpg" alt="">
+                    <img class="img-responsive img-circle" src="https://pbs.twimg.com/profile_images/923604836389617665/ovO6lXHJ_400x400.jpg" alt="">
                     <div class="caption">
                         <h6>Aziz Khan<br>
                             <small>PhD</small>
                         </h6>
                         <p>Aziz is a postdoctoral scientist at NCMM, University of Oslo, Norway, and leading the development of the ECRCentral project.</p>
                         <ul class="list-inline">
-                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
-                            </li>
+                            <li><a href="/profile/admin"><i class="fa fa-2x fa-globe"></i></a></li>
+                            <li><a href="https://twitter.com/khanaziz84" target="_blank"><i class="fa fa-2x fa-twitter"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -61,19 +56,15 @@
 
             <div class="col-md-3 text-center">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="https://pbs.twimg.com/profile_images/843770023856488449/4LtasiD4_400x400.jpg" alt="">
+                    <img class="img-responsive img-circle" src="https://pbs.twimg.com/profile_images/843770023856488449/4LtasiD4_400x400.jpg" alt="">
                     <div class="caption">
                         <h6>Cristiana Cruceanu<br>
                             <small>PhD</small>
                         </h6>
                         <p>Cristiana is a postdoctoral scientist at the Max Planck Institute of Psychiatry, Germany. She is managing the forums.</p>
                         <ul class="list-inline">
-                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
-                            </li>
+                            <li><a href="#"><i class="fa fa-2x fa-globe"></i></a></li>
+                            <li><a href="https://twitter.com/DrCriCru" target="_blank"><i class="fa fa-2x fa-twitter"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -81,19 +72,15 @@
 
             <div class="col-md-3 text-center">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="https://pbs.twimg.com/profile_images/2442109359/64mq6gdm9ejpnwg1328s_400x400.jpeg" alt="">
+                    <img class="img-responsive img-circle" src="{{ asset('images/team/juan.png') }}" alt="">
                     <div class="caption">
                         <h6>Juan Quintana<br>
                             <small>PhD</small>
                         </h6>
                         <p>Juan is postdoctoral scientist at the Wellcome Centre for Anti-Infectives Research, University of Dundee, UK. Juan is curating funding list.</p>
                         <ul class="list-inline">
-                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
-                            </li>
+                            <li><a href="#"><i class="fa fa-2x fa-globe"></i></a></li>
+                            <li><a href="https://twitter.com/Jquintanalcala" target="_blank"><i class="fa fa-2x fa-twitter"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -101,19 +88,15 @@
 
             <div class="col-md-3 text-center">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="https://pbs.twimg.com/profile_images/862415239652020225/Pk7ozf8n_400x400.jpg" alt="">
+                    <img class="img-responsive img-circle" src="https://pbs.twimg.com/profile_images/862415239652020225/Pk7ozf8n_400x400.jpg" alt="">
                     <div class="caption">
                         <h6>Lotte de Winde<br>
                             <small>PhD</small>
                         </h6>
                         <p>Lotte is a postdoctoral scientist at the MRC Laboratory for Molecular Cell Biology at UCL, UK. She is curating travel grants.</p>
                         <ul class="list-inline">
-                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
-                            </li>
+                            <li><a href="#"><i class="fa fa-2x fa-globe"></i></a></li>
+                            <li><a href="https://twitter.com/lotte_dewinde" target="_blank"><i class="fa fa-2x fa-twitter"></i></a></li>
                         </ul>
                     </div>
                 </div>

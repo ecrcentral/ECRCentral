@@ -29,8 +29,19 @@
           Note: This resource is not published/active.
       </div>
       @endif
-    
-      <p><i>{!! $resource->description !!}</i></p>
+  
+      <div class="panel panel-default">
+            <div class="panel-heading">
+              <a href="/resources/" class="btn btn-primary btn-xs pull-right">
+                <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
+                <span class="hidden-xs">Back to resources</span>
+              </a>
+             Short description
+            </div>
+            <div class="panel-body">
+              <p><i>{!! $resource->description !!}</i></p>
+            </div>
+          </div>
 
       <p>
         <a href="{{ $resource->url }}" target="_blank"><button type="button" class="btn btn-success">Resource website</button></a>
@@ -52,6 +63,7 @@
       </div>
 
       <div class="col-md-4">
+        <small>Share this resource</small><br>
         <a href="https://twitter.com/intent/tweet?text={{$resource->name}}&amp;url={{ urlencode(Request::fullUrl()) }}&amp;via=ecrcentral" target="_blank" title="Tweet" class="btn btn-social-icon btn-sm margin-half btn-twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
         <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::fullUrl()) }}" target="_blank" title="Share on Facebook" class="btn btn-social-icon btn-sm margin-half btn-facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
         <a href="https://plus.google.com/share?url={{ urlencode(Request::fullUrl()) }}" target="_blank" title="Share on Google+" class="btn btn-social-icon btn-sm margin-half btn-google"><i class="fa fa-google" aria-hidden="true"></i></a>
@@ -63,7 +75,7 @@
       <div class="col-md-4">
 
         
-        <a href="/forums/category/resources"><button type="button" class="btn btn-primary"><b>Ask questions about this resource</b></button></a>
+        <a href="/forums/category/resources"><button type="button" class="btn btn-primary btn-large btn-block"><b>Ask questions about this resource</b></button></a>
 
         <div class="border-bottom"></div>
         

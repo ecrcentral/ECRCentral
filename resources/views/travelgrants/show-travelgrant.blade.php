@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
 @section('template_title')
-  Showing travelgrant {{ $travelgrant->name }}
+{{ $travelgrant->name }}
 @endsection
-
 
 @section('content')
   <div class="container">
@@ -13,7 +12,7 @@
                 <small>
                     @if($travelgrant->funders()->exists())
                       @foreach ($travelgrant->funders as $funder)
-                        {{ $funder->name }}
+                        <a href="/funders/{{ $funder->slug }}">{{ $funder->name }}</a>
                       @endforeach
                     @else
                       {{ $travelgrant->funder_name }}
@@ -105,6 +104,7 @@
       </div>
 
       <div class="col-md-4">
+        <small>Share this travel grant</small><br>
         <a href="https://twitter.com/intent/tweet?text={{$travelgrant->name}}&amp;url={{ urlencode(Request::fullUrl()) }}&amp;via=ecrcentral" target="_blank" title="Tweet" class="btn btn-social-icon btn-sm margin-half btn-twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
         <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::fullUrl()) }}" target="_blank" title="Share on Facebook" class="btn btn-social-icon btn-sm margin-half btn-facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
         <a href="https://plus.google.com/share?url={{ urlencode(Request::fullUrl()) }}" target="_blank" title="Share on Google+" class="btn btn-social-icon btn-sm margin-half btn-google"><i class="fa fa-google" aria-hidden="true"></i></a>
@@ -115,7 +115,7 @@
 
       <div class="col-md-4">
         
-        <a href="/forums/category/travel-grants"><button type="button" class="btn btn-primary"><b>Ask questions about this travelgrant</b></button></a>
+        <a href="/forums/category/travel-grants"><button type="button" class="btn btn-primary btn-large btn-block"><b>Ask questions about this travelgrant</b></button></a>
         <div class="border-bottom"></div>
       </div>
 

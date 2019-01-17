@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-  Community
+ECR Community
 @endsection
 
 @section('template_linked_css')
@@ -13,7 +13,6 @@
 }
 .joined_date {
     font-size: 10px;
-    color: #edf0f1;
 }
 .organization {
     font-size: 11px;
@@ -33,41 +32,36 @@
         <!-- /.row -->
         <div class="row">
             
-            @foreach($users as $user)
+            @foreach($members as $member)
 
-               <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6 text-center">
+            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6 text-center">
                 <div class="thumbnail">
-                    <img src="@if ($user->profile->avatar_status == 1) /storage/{{ $user->profile->avatar }} @else {{ Gravatar::get($user->email) }} @endif" alt="{{ $user->name }}"  width="100" height="100" border="0" class="img-circle">
+                    <img src="@if ($member->profile->avatar_status == 1) {{ $member->profile->avatar }} @else {{ Gravatar::get($member->email) }} @endif" alt="{{ $member->name }}"  width="100" height="100" border="0" class="img-circle">
                     <div class="caption">
-                        <b><a href="/profile/{{ $user->name }}">{{ $user->name }}</a> </b>
-                       
-                        @if ($user->profile->organization)
-                        <div class="organization">{{ $user->profile->organization }}</div>
+                        <a href="/profile/{{ $member->name }}">@if ($member->first_name && $member->last_name) {{ $member->first_name }} {{ $member->last_name }} @else {{ $member->name }} @endif</a>
+                        @if ($member->profile->organization)
+                        <div class="organization">{{ $member->profile->organization }}</div>
                         @endif
-                        <div class="joined_date">Joined: {{ $user->created_at->format('M d, Y') }}</div>
+                        <div class="joined_date">Joined: {{ $member->created_at->format('M d, Y') }}</div>
                         <ul class="list-inline">
-                            @if ($user->profile->orcid)
-                             <a href="https://orcid.org/{{ $user->profile->orcid }}" target="_blank">
-                                <i class="ai ai-orcid"></i>
-                             </a></li>
+                            @if ($member->profile->orcid)
+                             <a href="https://orcid.org/{{ $member->profile->orcid }}" target="_blank">
+                                <i class="ai ai-orcid"></i></a></li>
                             @endif
                             
-                             @if ($user->profile->twitter_username)
-                             <li><a href="https://twitter.com/{{ $user->profile->twitter_username }}" target="_blank">
-                                <i class="fa fa-twitter"> </i>
-                             </a></li>
+                             @if ($member->profile->twitter_username)
+                             <li><a href="https://twitter.com/{{ $member->profile->twitter_username }}" target="_blank">
+                                <i class="fa fa-twitter"> </i></a></li>
                             @endif
 
-                            @if ($user->profile->github_username)
-                             <li><a href="https://github.com/{{ $user->profile->github_username }}" target="_blank">
-                                <i class="fa fa-github"> </i>
-                             </a></li>
+                            @if ($member->profile->github_username)
+                             <li><a href="https://github.com/{{ $member->profile->github_username }}" target="_blank">
+                                <i class="fa fa-github"> </i></a></li>
                             @endif
 
-                            @if ($user->profile->linkedin_username)
-                             <li><a href="{{ $user->profile->linkedin_username }}" target="_blank">
-                                <i class="fa fa-linkedin"> </i>
-                             </a></li>
+                            @if ($member->profile->linkedin_username)
+                             <li><a href="{{ $member->profile->linkedin_username }}" target="_blank">
+                                <i class="fa fa-linkedin"> </i></a></li>
                             @endif
                         </ul>
                     </div>
@@ -77,7 +71,7 @@
             @endforeach             
         
         </div>
-         {{ $users->links() }}
+         {{ $members->links() }}
         <br><br>     
 </div>
 

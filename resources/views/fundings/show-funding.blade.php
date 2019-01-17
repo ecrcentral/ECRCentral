@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-  Showing funding {{ $funding->name }}
+Funding - {{ $funding->name }}
 @endsection
 
 
@@ -14,7 +14,7 @@
                     @if($funding->funders()->exists())
                       @foreach ($funding->funders as $funder)
                         {{ $loop->first ? '' : ', ' }}
-                        {{ $funder->name }}
+                        <a href="/funders/{{ $funder->slug }}">{{ $funder->name }}</a>
                       @endforeach
                     @else
                       {{ $funding->funder_name }}
@@ -93,6 +93,7 @@
        <hr>
       </div>
       <div class="col-md-4">
+        <small>Share this funding</small><br>
         <a href="https://twitter.com/intent/tweet?text={{$funding->name}}&amp;url={{ urlencode(Request::fullUrl()) }}&amp;via=ecrcentral" target="_blank" title="Tweet" class="btn btn-social-icon btn-sm margin-half btn-twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
         <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::fullUrl()) }}" target="_blank" title="Share on Facebook" class="btn btn-social-icon btn-sm margin-half btn-facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
         <a href="https://plus.google.com/share?url={{ urlencode(Request::fullUrl()) }}" target="_blank" title="Share on Google+" class="btn btn-social-icon btn-sm margin-half btn-google"><i class="fa fa-google" aria-hidden="true"></i></a>
@@ -102,7 +103,7 @@
       </div>
 
       <div class="col-md-4">
-        <a href="/forums/category/funding-schemes"><button type="button" class="btn btn-primary"><b>Ask questions about this funding</b></button></a>
+        <a href="/forums/category/funding-schemes"><button type="button" class="btn btn-primary btn-large btn-block"><b>Ask questions about this funding</b></button></a>
         <div class="border-bottom"></div>
       </div>
 

@@ -31,7 +31,7 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Funding <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li {{ Route::is('fundings') ? 'class=active' : null }}><a href="{{ route('fundings') }}">Funding schemes and fellowships</a></li>
+                    <li {{ Route::is('fundings') ? 'class=active' : null }}><a href="{{ route('fundings') }}">Funding Schemes</a></li>
                     <li role="separator" class="divider"></li>
                     <li {{ Request::is('travel-grants') ? 'class=active' : null }}><a href="{{ route('travelgrants') }}">Travel Grants</a></li> 
                   </ul>
@@ -42,15 +42,14 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-
                     
                     <li {{ Request::is('forums') ? 'class=active' : null }}><a href="/forums">Community Forum</a></li>
                      <li {{ Request::is('blog') ? 'class=active' : null }}> <a href="/blog">Community Blog</a></li>
 
                     <li role="separator" class="divider"></li>
-                    <li {{ Request::is('community') ? 'class=active' : null }}><a href="{{ route('community') }}">Community members</a></li>
+                    <li {{ Request::is('community') ? 'class=active' : null }}><a href="{{ route('community') }}">Community Members</a></li>
 
-                    <li><a href="#">Contributers</a></li>
+                    <li {{ Request::is('moderators') ? 'class=active' : null }}><a href="{{ route('moderators') }}">Moderators</a></li>
                     <li><a href="#">Mentors</a></li>
                     <!--
                     <li role="separator" class="divider"></li>
@@ -70,7 +69,7 @@
                   <span class="dropdown-arrow"></span>
                   <ul class="dropdown-menu">
                     <li {{ Route::is('about') ? 'class=active' : null }}><a href="{{ route('about') }}">About ECRcentral</a></li>
-                    <li {{ Route::is('team') ? 'class=active' : null }}><a href="{{ route('team') }}">Our team</a></li>
+                    <li {{ Route::is('team') ? 'class=active' : null }}><a href="{{ route('team') }}">Our Team</a></li>
                     <li {{ Route::is('getinvolved') ? 'class=active' : null }}><a  href="{{ route('getinvolved') }}">Get Involved</a></li>
                     
                     <li {{ Route::is('terms') ? 'class=active' : null }}><a  href="{{ route('terms') }}">Terms of Use</a></li>
@@ -113,7 +112,6 @@
                             @if(Auth::user() && Auth::user()->role->name == 'admin')
 
                                 <li {{ Request::is('users', 'users/' . Auth::user()->id, 'users/' . Auth::user()->id . '/edit') ? 'class=active' : null }}>{!! HTML::link(url('/users'), Lang::get('titles.adminUserList')) !!}</li>
-
 
                                 <li {{ Request::is('users/create') ? 'class=active' : null }}>{!! HTML::link(url('users/create'), Lang::get('titles.adminNewUser')) !!}</li>
                                 <li {{ Request::is('themes','themes/create') ? 'class=active' : null }}>{!! HTML::link(url('/themes'), Lang::get('titles.adminThemesList')) !!}</li>

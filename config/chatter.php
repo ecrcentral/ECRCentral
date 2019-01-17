@@ -15,7 +15,7 @@ return [
     'routes' => [
         'home'       => 'forums',
         'discussion' => 'discussion',
-        'category'   => 'category',
+        'category'   => 'channel',
         'post'       => 'posts',
         'register'   => 'register',
         'login'      => 'login',

@@ -19,11 +19,9 @@
                     <li>
                         <a href="https://twitter.com/ECRcentral" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
                     </li>
-
                     <li>
                         <a href="https://fb.me/ECRcentral" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
                     </li>
-
                     <li>
                         <a href="https://github.com/ecrcentral" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
                     </li>
@@ -48,14 +46,8 @@
               <ul>
               <li {{ Route::is('about') ? 'class=active' : null }}><a href="{{ route('about') }}">About</a></li>
               
-              <li><a class="nav-link" href="#">Our team</a></li>
-              <!--
-              <li {{ Route::is('team') ? 'class=active' : null }}><a href="{{ route('team') }}">Our team</a></li>
-            -->
-
-              <li {{ Request::is('resources') ? 'class=active' : null }}><a href="{{ route('resources') }}">Resources</a></li>
+              <li {{ Route::is('team') ? 'class=active' : null }}><a href="{{ route('team') }}">Our Team</a></li>
               <li {{ Request::is('funders') ? 'class=active' : null }}><a href="{{ route('funders') }}">Funders</a></li>
-
               <li {{ Route::is('terms') ? 'class=active' : null }}><a  href="{{ route('terms') }}">Terms of Use</a></li>
               <li {{ Route::is('privacy') ? 'class=active' : null }}><a href="{{ route('privacy') }}">Privacy Policy</a></li>
               <li {{ Route::is('contact') ? 'class=active' : null }}><a href="{{ route('contact') }}">Contact us</a></li>
