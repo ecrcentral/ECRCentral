@@ -61,8 +61,8 @@ class Kernel extends HttpKernel
         'throttle'    => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'activated'   => CheckIsUserActivated::class,
         'role'        => \App\Http\Middleware\VerifyRole::class,
-        'permission'  => \App\Http\Middleware\VerifyPermission::class,
-        'level'       => \App\Http\Middleware\VerifyLevel::class,
+        #'permission'  => \App\Http\Middleware\VerifyPermission::class,
+        #'level'       => \App\Http\Middleware\VerifyLevel::class,
         'currentUser' => \App\Http\Middleware\CheckCurrentUser::class,
     ];
 }

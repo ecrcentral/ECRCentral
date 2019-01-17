@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Traits\HasRoleAndPermission;
+#use App\Traits\HasRoleAndPermission;
 use TCG\Voyager\Models\Role;
 
 class User extends \TCG\Voyager\Models\User
