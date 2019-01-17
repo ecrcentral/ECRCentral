@@ -79,6 +79,5 @@
 @section('js')
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.0/dist/instantsearch.min.js"></script>
 <script src="{{ asset('js/algolia.js') }}"></script>
-
 @endsection
 

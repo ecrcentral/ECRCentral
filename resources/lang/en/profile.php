@@ -52,7 +52,7 @@ return [
     'label-organization' => 'Your affliation/organization:',
     'ph-organization'    => 'Enter your affliation/organization',
 
-    'label-bio' => 'Your bio:',
+    'label-bio' => 'Your short bio:',
     'ph-bio'    => 'Enter your bio',
 
     'label-github_username' => 'Your GitHub username:',

@@ -111,7 +111,7 @@
 											<div class="form-group has-feedback {{ $errors->has('bio') ? ' has-error ' : '' }}">
 												{!! Form::label('bio', trans('profile.label-bio') , array('class' => 'col-sm-4 control-label')); !!}
 												<div class="col-sm-6">
-													{!! Form::textarea('bio', old('bio'), array('id' => 'bio', 'class' => 'form-control', 'placeholder' => trans('profile.ph-bio'))) !!}
+													{!! Form::textarea('bio', old('bio'), array('id' => 'bio', 'class' => 'form-control', 'maxlength'=> '499', 'placeholder' => trans('profile.ph-bio'))) !!}
 													<span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
 											        @if ($errors->has('bio'))
 											            <span class="help-block">

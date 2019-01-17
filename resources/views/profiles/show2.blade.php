@@ -76,40 +76,48 @@
         	 <div class="user-button">
                 <div class="row">
 
-
-                    <div class="col-md-3">
-                    
-                    </div>
-                    <!--
-                    <div class="col-md-4">
-                    <button type="button" class="btn btn-primary btn-sm btn-block">
-                        <i class="fa fa-check"></i> Follow</button>
-                    </div>
-                -->
-
-                    <div class="col-md-6">
                     	@if ($user->profile)
 							@if (Auth::user()->id == $user->id)
 
+								<div class="col-md-6">
+                                <a href="{{ route('logout') }}" class="btn btn-danger btn-sm btn-block"
+                                    onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                    <i class="fa fa-sign-out"></i> {!! trans('titles.logout') !!}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+	                            </div>
+
+								<div class="col-md-6">
+
 								{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-sm btn-info btn-block')) !!}
+							    </div>
+								
 							@else
 
-							<button type="button" class="btn btn-primary btn-sm btn-block">
-                        		<i class="fa fa-envelope"></i> Message</button>
+								<div class="col-md-6">
+								<button type="button" class="btn btn-primary btn-sm btn-block">
+	                        		<i class="fa fa-envelope"></i> Message</button>
+	                        	</div>
+
+	                        	<div class="col-md-6">
+			                    <button type="button" class="btn btn-primary btn-sm btn-block">
+			                        <i class="fa fa-check"></i> Follow</button>
+			                    </div>
 
 							@endif
 						@else
-
+							<div class="col-md-12">
 							<p>{{ trans('profile.noProfileYet') }}</p>
 							{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name.'/edit'), 'fa fa-fw fa-plus ', trans('titles.createProfile'), array('class' => 'btn btn-sm btn-info btn-block')) !!}
 
+							</div>
+
 						@endif
-                    </div>
-
-                    <div class="col-md-3">
-                    
-                    </div>
-
+                   
                 </div>
             </div>
 
@@ -141,25 +149,27 @@
 
 			<hr>	
 
+			<!--
             <div class="row m-t-lg">
                 <div class="stats">                        
                     <div class="statis">
                     <p><span class="badge badge-primary"><strong>{{ $posts->count() }}</strong></span><br> Posts</p>
-                    </div><!-- /statis -->
+                    </div>
                     
                     <div class="statis">
                     <p><span class="badge badge-primary"><strong>{{ $funding_count }}</strong></span><br>Funding</p>
-                    </div> <!-- /statis -->
+                    </div> 
                     
                     <div class="statis">
                     <p><span class="badge badge-primary"><strong>{{ $travelgrants_count }}</strong></span><br>Grants</p>
-                    </div> <!-- /statis --> 
+                    </div> 
 
                     <div class="statis">
                     <p><span class="badge badge-primary"><strong>{{ $resources_count }}</strong></span><br>Resources</p>
-                    </div> <!-- /statis --> 
+                    </div> 
                 </div>
-            </div><!-- /row m-t-lg -->
+            </div>
+        -->
 
            
         </div><!-- /profile-content -->
@@ -227,4 +237,7 @@
 		@include('scripts.google-maps-geocode-and-map')
 	@endif
 
+@endsection
+@section('js')
+<script src="{{ asset('js/avatar-initial.js') }}"></script>
 @endsection

@@ -81,6 +81,7 @@ class resourcesController extends Controller
                 'source_name' => 'required',
                 'url' => 'url|required',
                 'categories' => 'required',
+                'published_at' => 'nullable|date',
             ],
             [
                 'name.required'       => trans('resources.resourceNameRequired'),

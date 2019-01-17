@@ -56,8 +56,8 @@ class ProfilesController extends Controller
             'twitter_username' => 'max:50',
             'github_username'  => 'max:50',
             'avatar'           => '',
-            'website'           => 'url',
-            'linkedin_username' => 'url',
+            'website'           => 'nullable|url',
+            'linkedin_username' => 'nullable|url',
             'avatar_status'    => '',
         ]);
     }

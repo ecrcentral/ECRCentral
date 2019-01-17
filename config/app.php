@@ -192,7 +192,7 @@ return [
 
         Laravel\Scout\ScoutServiceProvider::class,
 
-        Laravolt\Avatar\ServiceProvider::class,
+        #Laravolt\Avatar\ServiceProvider::class,
 
     ],
 
@@ -249,7 +249,7 @@ return [
         'Gravatar'     => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Image'        => Intervention\Image\Facades\Image::class,
         'Uuid'         => Webpatser\Uuid\Uuid::class,
-        'Avatar'       => Laravolt\Avatar\Facade::class,
+        #'Avatar'       => Laravolt\Avatar\Facade::class,
     ],
 
 ];

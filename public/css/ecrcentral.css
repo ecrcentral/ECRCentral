@@ -437,3 +437,15 @@ font-size: 12px;
         margin-bottom: 10px;
         }
 }
+
+
+/* avatar */
+
+
+pre {
+  margin: 20px 0;
+  padding: 20px;
+  background: #fafafa;
+}
+
+.round { border-radius: 50%; }
