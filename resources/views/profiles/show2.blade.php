@@ -7,135 +7,7 @@
 @section('template_fastload_css')
 
 <style type="text/css">
-	.img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-/*panel heading*/
-.panel-heading {
-    padding: 15px 10px 15px 10px;
-    border-bottom: 0px solid transparent;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-}
-
-.panel-default > .panel-heading {
-    color: #333;
-    background-color: #f5f6f8;
-    border-color: none!important;
-}
-
-
-.btn-white:hover {
-    background-color: #969ca5!important;
-}
-
-.profile-content h3{
-    margin:15px 0 10px 0!important;
-	}
-
-.stats {
-    width: 100%;
-    margin: 30px auto;
-    text-align: center;
-    display: table;
-    }
-
-.stats .statis {
-    display: table-cell;    
-    width: 25%;
-    vertical-align: top;
-    }
-
-.ibox-content {
-	background-color: #FFFFFF;
-	color: inherit;
-	padding: 0px 20px 20px 20px;
-	}
-
-.feed-activity-list .feed-element {
-	border-bottom: 1px solid #E7EAEC;
-	}
-
-.feed-element {
-	padding: 15px 0 15px 0;
-	}
-
-.feed-element img.img-circle, .dropdown-messages-box img.img-circle {
-	width: 38px;
-	height: 38px;
-	}
-
-.feed-element > .pull-left {
-	margin-right: 10px;
-	}
-
-.feed-element .well {
-	border: 1px solid #E7EAEC;
-	box-shadow: none;
-	margin-top: 10px;
-	margin-bottom: 5px;
-	padding: 10px 20px;
-	font-size: 12px;
-	line-height: 16px;
-	}
-.well p{
-font-size: 12px;
-}
-.img-circle {
-	border-radius: 50%;
-	}
-
-.text-navy {
-	color: #1AB394;
-	}
-
-.feed-element .actions {
-	margin-top: 10px;
-	}
-
-.feed-photo {
-	height: 180px;
-	border-radius: 4px;
-	overflow: hidden;
-	margin-right: 10px;
-	margin-bottom: 10px;
-	}
-
-
-@media(min-width: 768px) and (max-width: 991px) {
-		.feed-photo {
-			width: 100%;
-			height: 350px!important;
-			border-radius: 4px;
-			overflow: hidden;
-			margin-right: 10px;
-			margin-bottom: 10px;
-			}
-}
-
-@media(min-width: 480px) and (max-width: 767px) {
-		.feed-photo {
-			width: 100%;
-			height: 300px!important;
-			border-radius: 4px;
-			overflow: hidden;
-			margin-right: 10px;
-			margin-bottom: 10px;
-			}
-}
-
-@media(max-width:480px) { 
-		.feed-photo {
-		width: 100%;
-		border-radius: 4px;
-		overflow: hidden;
-		margin-right: 10px;
-		margin-bottom: 10px;
-		}
-}
+	
 </style>
 
 @endsection
@@ -153,7 +25,7 @@ font-size: 12px;
     	<div class="profile">
                     <center>
                     
-                    <img src="@if ($user->profile->avatar_status == 1) {{ $user->profile->avatar }} @endif" alt="{{ $user->name }}"  width="140" height="140" border="0" class="img-circle"><br>
+                    <img src="@if ($user->profile->avatar_status == 1) {{ $user->profile->avatar }} @endif" alt="{{ $user->name }}" width="140" height="140" border="0" class="img-circle"><br>
                    
                     <h3 class="media-heading">{{ $user->first_name }} {{ $user->last_name }} <small>{{ $user->profile->title }}</small></h3>
                     @if ($user->profile->organization)
