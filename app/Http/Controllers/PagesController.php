@@ -14,12 +14,25 @@ use TCG\Voyager\Models\Post;
 use App\Models\TravelGrant;
 use App\Models\Resource;
 
-
+use Image;
 
 use App\Models\Funder;
 
 class PagesController extends Controller
 {
+    /**
+     * Show user avatar.
+     *
+     * @param $id
+     * @param $image
+     *
+     * @return string
+     */
+    public function userProfileAvatar($id, $image)
+    {
+        return Image::make(storage_path().'/users/id/'.$id.'/uploads/images/avatar/'.$image)->response();
+    }
+
     /**
      * Show the application dashboard.
      *

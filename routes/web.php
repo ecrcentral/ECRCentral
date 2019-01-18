@@ -147,10 +147,14 @@ Route::group(['middleware' => ['web', 'activity']], function () {
 
     // Route to show user avatar
     Route::get('images/profile/{id}/avatar/{image}', [
-        'uses' => 'ProfilesController@userProfileAvatar',
+        #'uses' => 'ProfilesController@userProfileAvatar',
+        'uses' => 'PagesController@userProfileAvatar',
     ]);
 
-    
+    Route::get('storage/images/profile/{id}/avatar/{image}', [
+        #'uses' => 'ProfilesController@userProfileAvatar',
+        'uses' => 'PagesController@userProfileAvatar',
+    ]);
 
 });
 

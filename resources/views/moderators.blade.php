@@ -36,7 +36,13 @@ ECR Community moderators
 
             <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6 text-center">
                 <div class="thumbnail">
-                    <img src="@if ($moderator->profile->avatar_status == 1) {{ $moderator->profile->avatar }} @else {{ Gravatar::get($moderator->email) }} @endif" alt="{{ $moderator->name }}"  width="100" height="100" border="0" class="img-circle">
+                    
+                    @if (($moderator->profile) && $moderator->profile->avatar_status == 1)
+                        <img src="{{ $moderator->profile->avatar }}" alt="{{ $moderator->name }}" width="100" height="100" border="0" class="img-circle">
+                    @else
+                        <img class="round" width="100" height="100" avatar="@if ($moderator->first_name !=NULL && $moderator->last_name !=NULL) {{ $moderator->first_name }}&nbsp;{{ $moderator->last_name }} @else {{ $moderator->name }} @endif">
+                    @endif
+
                     <div class="caption">
                         <a href="/profile/{{ $moderator->name }}">@if ($moderator->first_name && $moderator->last_name) {{ $moderator->first_name }} {{ $moderator->last_name }} @else {{ $moderator->name }} @endif</a>
                         @if ($moderator->profile->organization)
@@ -75,5 +81,9 @@ ECR Community moderators
         <br><br>     
 </div>
 
+@endsection
+
+@section('js')
+<script src="{{ asset('js/avatar-initial.js') }}"></script>
 @endsection
 
