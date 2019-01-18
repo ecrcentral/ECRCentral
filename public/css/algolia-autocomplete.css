@@ -1,4 +1,32 @@
 @import 'https://fonts.googleapis.com/css?family=Montserrat:400,700';
+
+.algolia-autocomplete {
+  width: 100%;
+}
+.algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
+  width: 100%;
+}
+.algolia-autocomplete .aa-hint {
+  color: #999;
+}
+.algolia-autocomplete .aa-dropdown-menu {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #999;
+  border-top: none;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
+  cursor: pointer;
+  padding: 5px 4px;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+  background-color: #B2D7FF;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
+  font-weight: bold;
+  font-style: normal;
+}
+
 .aa-input-container {
   position: relative;
   float: middle;
@@ -6,7 +34,7 @@
 
 }
 .aa-input-search {
-  width: 600px;
+  width: 100%;
   padding: 12px 28px 12px 12px;
   border: 2px solid #e4e4e4;
   border-radius: 4px;
@@ -49,7 +77,7 @@
   border: 1px solid rgba(228, 228, 228, 0.6);
   border-top-width: 0;
   font-family: "Montserrat", sans-serif;
-  width: 600px;
+  width: 100%;
   margin-top: 10px;
   box-shadow: 4px 4px 0 rgba(241, 241, 241, 0.35);
   font-size: 12px;
