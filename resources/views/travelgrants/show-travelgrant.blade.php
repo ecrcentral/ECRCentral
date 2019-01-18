@@ -115,7 +115,7 @@
 
       <div class="col-md-4">
         
-        <a href="/forums/category/travel-grants"><button type="button" class="btn btn-primary btn-large btn-block"><b>Ask questions about this travelgrant</b></button></a>
+        <a href="/forums/channel/travel-grants"><button type="button" class="btn btn-primary btn-large btn-block"><b>Ask questions about this travelgrant</b></button></a>
         <div class="border-bottom"></div>
       </div>
 

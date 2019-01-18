@@ -103,7 +103,7 @@ Funding - {{ $funding->name }}
       </div>
 
       <div class="col-md-4">
-        <a href="/forums/category/funding-schemes"><button type="button" class="btn btn-primary btn-large btn-block"><b>Ask questions about this funding</b></button></a>
+        <a href="/forums/channel/funding-schemes"><button type="button" class="btn btn-primary btn-large btn-block"><b>Ask questions about this funding</b></button></a>
         <div class="border-bottom"></div>
       </div>
 
