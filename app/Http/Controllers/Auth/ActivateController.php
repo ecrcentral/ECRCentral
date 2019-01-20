@@ -158,8 +158,11 @@ class ActivateController extends Controller
         }
 
         $user->activated = true;
-        $user->detachAllRoles();
-        $user->attachRole($role);
+        
+        #deactivated this, need to lookin to this
+        #$user->detachAllRoles();
+        #$user->attachRole($role);
+        
         $user->signup_confirmation_ip_address = $ipAddress->getClientIp();
         $user->profile()->save($profile);
         $user->save();
