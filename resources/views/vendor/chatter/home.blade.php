@@ -95,7 +95,7 @@
 				        	<li>
 				        		<a class="discussion_list" href="/{{ Config::get('chatter.routes.home') }}/{{ Config::get('chatter.routes.discussion') }}/{{ $discussion->category->slug }}/{{ $discussion->slug }}">
 					        		<div class="chatter_avatar">
-					        			@if(Config::get('chatter.user.avatar_image_database_field'))
+					        			@if(Config::get('chatter.user.avatar_image_database_field') && $discussion->user->profile->avatar_status == 1)
 
 					        				<?php $db_field = Config::get('chatter.user.avatar_image_database_field'); ?>
 
@@ -107,10 +107,12 @@
 					        				@endif
 
 					        			@else
-
-					        				<span class="chatter_avatar_circle" style="background-color:#<?= \DevDojo\Chatter\Helpers\ChatterHelper::stringToColorCode($discussion->user->{Config::get('chatter.user.database_field_with_user_name')}) ?>">
-					        					{{ strtoupper(substr($discussion->user->{Config::get('chatter.user.database_field_with_user_name')}, 0, 1)) }}
-					        				</span>
+					        				
+						        			@if ($discussion->user->first_name && $discussion->user->last_name)
+				                            <img class="round" width="50" height="50" avatar="{{ $discussion->user->first_name }} {{ $discussion->user->last_name }}">
+				                            @else
+				                            <img class="round" width="50" height="50" avatar="{{ $discussion->user->name }}">
+				                            @endif
 
 					        			@endif
 					        		</div>

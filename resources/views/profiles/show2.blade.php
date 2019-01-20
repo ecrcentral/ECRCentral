@@ -6,10 +6,6 @@
 
 @section('template_fastload_css')
 
-<style type="text/css">
-	
-</style>
-
 @endsection
 
 @section('content')
@@ -27,15 +23,18 @@
                     <center>
                     
                     @if (($user->profile->avatar) && $user->profile->avatar_status == 1)
-
                     <img src="{{ $user->profile->avatar }}" alt="{{ $user->name }}" alt="{{ $user->name }}" width="140" height="140" border="0" class="img-circle">
 
                     @else
-                    <img class="round" width="140" height="140" avatar="@if ($user->first_name !=NULL && $user->last_name !=NULL) {{ $user->first_name }} {{ $user->last_name }} @else {{ $user->name }} @endif">
+                    	@if ($user->first_name && $user->last_name)
+                    	<img class="round" width="140" height="140" avatar="{{ $user->first_name }} {{ $user->last_name }}">
+                    	@else
+                    	<img class="round" width="140" height="140" avatar="{{ $user->name }}">
+                    	@endif
+                    
                     @endif
 
-                    <br>
-                   
+                    <br>                   
                     <h4 class="media-heading">{{ $user->first_name }} {{ $user->last_name }} <small>{{ $user->profile->title }}</small></h4>
                     @if ($user->profile->organization)
                     {{ $user->profile->organization }}
@@ -69,8 +68,7 @@
                 </div>
         
         <div class="ibox-content profile-content">
-        	
-
+        
             <hr>
            
             <h6><strong>Short biography</strong></h6>
@@ -205,8 +203,17 @@
 
 		        @foreach($posts as $post)
 		          <div class="feed-element">
-                    <a href="#" class="pull-left">
-                    <img alt="image" class="img-circle" src="@if ($post->user->profile->avatar != NULL) {{ $post->user->profile->avatar }} @endif">
+                    <a href="/profile/{{ $post->user->name }}" class="pull-left">
+                    @if (($post->user->profile->avatar) && $post->user->profile->avatar_status == 1)
+                    <img src="{{ $post->user->profile->avatar }}" alt="{{ $post->user->name }}" width="50" height="50" border="0" class="img-circle">
+
+                    @else
+                    	@if ($post->user->first_name && $post->user->last_name)
+                    	<img class="round" width="50" height="50" avatar="{{ $post->user->first_name }} {{ $post->user->last_name }}">
+                    	@else
+                    	<img class="round" width="50" height="50" avatar="{{ $post->user->name }}">
+                    	@endif
+                    @endif
                     </a>
                     <div class="media-body ">
                         <small class="pull-right">{{ \Carbon\Carbon::createFromTimeStamp(strtotime($post->created_at))->diffForHumans() }}</small>
@@ -263,7 +270,4 @@
 		@include('scripts.google-maps-geocode-and-map')
 	@endif
 
-@endsection
-@section('js')
-<script src="{{ asset('js/avatar-initial.js') }}"></script>
 @endsection

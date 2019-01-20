@@ -66,7 +66,14 @@
 												<div id="avatar_container">
 													<div class="collapseOne panel-collapse collapse @if($user->profile->avatar_status == 0) in @endif">
 														<div class="panel-body">
+															<!--
 															<img src="{{  Gravatar::get($user->email) }}" alt="{{ $user->name }}" class="user-avatar">
+														   -->
+														   @if ($user->first_name && $user->last_name)
+									                        <img class="round user-avatar" width="100" height="100" avatar="{{ $user->first_name }} {{ $user->last_name }}">
+									                        @else
+									                        <img class="round user-avatar" width="100" height="100" avatar="{{ $user->name }}">
+									                        @endif
 														</div>
 													</div>
 													<div class="collapseTwo panel-collapse collapse @if($user->profile->avatar_status == 1) in @endif">
@@ -605,3 +612,4 @@
 	</script>
 
 @endsection
+

@@ -245,12 +245,18 @@ A central platform for early career researchers community
                           <?php $db_field = Config::get('chatter.user.avatar_image_database_field'); ?>
 
                           <!-- If the user db field contains http:// or https:// we don't need to use the relative path to the image assets -->
-                          @if( (substr($discussion->user->{$db_field}, 0, 7) == 'http://') || (substr($discussion->user->{$db_field}, 0, 8) == 'https://') )
-                            <img src="{{ $discussion->user->{$db_field}  }}" alt="image" class="img-circle">
+                          @if (($discussion->user->profile->avatar) && $discussion->user->profile->avatar_status == 1)
+                          <img src="{{ $discussion->user->profile->avatar }}" alt="{{ $discussion->user->name }}" width="50" height="50" border="0" class="img-circle">
+
                           @else
-                            <img src="{{ Config::get('chatter.user.relative_url_to_image_assets') . $discussion->user->{$db_field}  }}" alt="image" class="img-circle">
+                            @if ($discussion->user->first_name && $discussion->user->last_name)
+                            <img class="round" width="50" height="50" avatar="{{ $discussion->user->first_name }} {{ $discussion->user->last_name }}">
+                            @else
+                            <img class="round" width="50" height="50" avatar="{{ $discussion->user->name }}">
+                            @endif
                           @endif
 
+                        
                         @endif
                         </a>
                         <div class="media-body ">

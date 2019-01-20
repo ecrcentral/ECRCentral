@@ -40,7 +40,11 @@ ECR Community
                     @if (($member->profile) && $member->profile->avatar_status == 1)
                         <img src="{{ $member->profile->avatar }}" alt="{{ $member->name }}" width="100" height="100" border="0" class="img-circle">
                     @else
-                        <img class="round" width="100" height="100" avatar="@if ($member->first_name !=NULL && $member->last_name !=NULL) {{ $member->first_name }}&nbsp;{{ $member->last_name }} @else {{ $member->name }} @endif">
+                        @if ($member->first_name && $member->last_name)
+                        <img class="round" width="140" height="140" avatar="{{ $member->first_name }} {{ $member->last_name }}">
+                        @else
+                        <img class="round" width="140" height="140" avatar="{{ $member->name }}">
+                        @endif
                     @endif
 
                     <div class="caption">
@@ -89,9 +93,5 @@ ECR Community
         <br><br>     
 </div>
 
-@endsection
-
-@section('js')
-<script src="{{ asset('js/avatar-initial.js') }}"></script>
 @endsection
 

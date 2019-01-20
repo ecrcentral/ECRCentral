@@ -100,7 +100,7 @@
 			                			</div>
 			                		@endif
 			                		<div class="chatter_avatar">
-					        			@if(Config::get('chatter.user.avatar_image_database_field'))
+					        			@if(Config::get('chatter.user.avatar_image_database_field') && $post->user->profile->avatar_status == 1)
 
 					        				<?php $db_field = Config::get('chatter.user.avatar_image_database_field'); ?>
 
@@ -112,9 +112,11 @@
 					        				@endif
 
 					        			@else
-					        				<span class="chatter_avatar_circle" style="background-color:#<?= \DevDojo\Chatter\Helpers\ChatterHelper::stringToColorCode($post->user->{Config::get('chatter.user.database_field_with_user_name')}) ?>">
-					        					{{ ucfirst(substr($post->user->{Config::get('chatter.user.database_field_with_user_name')}, 0, 1)) }}
-					        				</span>
+					        				@if ($post->user->first_name && $post->user->last_name)
+				                            <img class="round" width="50" height="50" avatar="{{ $post->user->first_name }} {{ $post->user->last_name }}">
+				                            @else
+				                            <img class="round" width="50" height="50" avatar="{{ $post->user->name }}">
+				                            @endif
 					        			@endif
 					        		</div>
 
@@ -149,7 +151,7 @@
 	            	<div id="new_response">
 
 	            		<div class="chatter_avatar">
-		        			@if(Config::get('chatter.user.avatar_image_database_field'))
+		        			@if(Config::get('chatter.user.avatar_image_database_field') && Auth::user()->profile->avatar_status == 1)
 
 		        				<?php $db_field = Config::get('chatter.user.avatar_image_database_field'); ?>
 
@@ -161,9 +163,11 @@
 		        				@endif
 
 		        			@else
-		        				<span class="chatter_avatar_circle" style="background-color:#<?= \DevDojo\Chatter\Helpers\ChatterHelper::stringToColorCode(Auth::user()->{Config::get('chatter.user.database_field_with_user_name')}) ?>">
-		        					{{ strtoupper(substr(Auth::user()->{Config::get('chatter.user.database_field_with_user_name')}, 0, 1)) }}
-		        				</span>
+		        				@if (Auth::user()->first_name && Auth::user()->last_name)
+				                  <img class="round" width="50" height="50" avatar="{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}">
+				                @else
+				                  <img class="round" width="50" height="50" avatar="{{ Auth::user()->name }}">
+				                @endif
 		        			@endif
 		        		</div>
 

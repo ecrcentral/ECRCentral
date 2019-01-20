@@ -92,7 +92,14 @@
                            @if ((Auth::User()->profile) && Auth::user()->profile->avatar_status == 1)
                                 <img src="{{ Auth::user()->profile->avatar }}" alt="{{ Auth::user()->name }}" class="user-avatar-nav">
                             @else
+                                @if (Auth::User()->first_name && Auth::User()->last_name)
+                                <img class="round user-avatar-nav" width="50" height="50" avatar="{{ Auth::User()->first_name }} {{ Auth::User()->last_name }}">
+                                @else
+                                <img class="round user-avatar-nav" width="50" height="50" avatar="{{ Auth::User()->name }}">
+                                @endif
+                            <!--
                                 <div class="user-avatar-nav"></div>
+                            -->
                             @endif
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
