@@ -41,11 +41,11 @@ return [
         'redirect'      => env('FB_REDIRECT'),
     ],
 
-    // 'twitter' => [
-    //     'client_id'     => env('TW_ID'),
-    //     'client_secret' => env('TW_SECRET'),
-    //     'redirect'      => env('TW_REDIRECT'),
-    // ],
+    'twitter' => [
+         'client_id'     => env('TW_ID'),
+         'client_secret' => env('TW_SECRET'),
+         'redirect'      => env('TW_REDIRECT'),
+     ],
 
     'google' => [
         'client_id'     => env('GOOGLE_ID'),

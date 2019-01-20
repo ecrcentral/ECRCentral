@@ -17,6 +17,7 @@ use App\Models\Resource;
 use Image;
 
 use App\Models\Funder;
+use DevDojo\Chatter\Models\Models;
 
 class PagesController extends Controller
 {
@@ -45,15 +46,34 @@ class PagesController extends Controller
         $fundings = Funding::where('deadline', 'LIKE', '%' . $month . '%')->paginate(5);
         $featured_fundings = Funding::where('featured', 1)->orderBy('updated_at', 'desc')->paginate(5);
         $featured_travelgrants = TravelGrant::where('featured', 1)->orderBy('updated_at', 'desc')->paginate(5);
-        $posts = Post::orderBy('id', 'asc')->paginate(5);
+        $featured_resources = Resource::where('featured', 1)->orderBy('updated_at', 'desc')->paginate(5);
+        //$posts = Post::orderBy('id', 'asc')->paginate(5);
 
         $total_fundings = Funding::where('status', '=', 1)->count();
         $total_travelgrants = TravelGrant::where('status', '=', 1)->count();
         $total_resources = Resource::where('status', '=', 1)->count();
 
+
+        $pagination_results = config('chatter.paginate.num_of_results');
+
+    
+        $discussions = Models::discussion()->with('user')->with('post')->with('postsCount')->with('category')->orderBy(config('chatter.order_by.discussions.order'), config('chatter.order_by.discussions.by'));
+        if (isset($slug)) {
+            $category = Models::category()->where('slug', '=', $slug)->first();
+            
+            if (isset($category->id)) {
+                $current_category_id = $category->id;
+                $discussions = $discussions->where('chatter_category_id', '=', $category->id);
+            } else {
+                $current_category_id = null;
+            }
+        }
+        
+        $discussions = $discussions->paginate($pagination_results);
+
         $data = [
             'fundings' => $fundings,
-            'posts' => $posts,
+            //'posts' => $posts,
             'total_fundings' => $total_fundings,
             'total_travelgrants' => $total_travelgrants,
             'total_resources' => $total_resources,
@@ -61,6 +81,9 @@ class PagesController extends Controller
             'featured_travelgrants' => $featured_travelgrants,
             'host_countries' => Funding::select('host_country')->distinct()->get(),
             'applicant_countries' => Funding::select('applicant_country')->distinct()->get(),
+            //'posts' => $posts,
+            'discussions' => $discussions,
+            'featured_resources' => $featured_resources,
             #'subjects' => Subject::all(),
         ];
 

@@ -10,13 +10,11 @@ A central platform for early career researchers community
 
 @section('template_linked_css')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/algolia-autocomplete.css') }}">
-
 @endsection
 
 @section('content')
 <div id="headerwrap">
     <div class="container">
-
 
         <div class="row">
             <div class="col-lg-12">
@@ -188,7 +186,6 @@ A central platform for early career researchers community
 
     <div class="container">
         <div class="row">
-            
             <div class="col-md-6">
               <h4 class="page-header">Upcomming funding opportunities</h4>
 
@@ -212,33 +209,84 @@ A central platform for early career researchers community
             </div>
 
             <div class="col-md-6">
-                  <h4 class="page-header">Blog: recent posts</h4>
+                  <h4 class="page-header">Featured resources</h4>
 
-                   @foreach($posts as $post)
+                   @foreach($featured_resources as $resource)
                     <div class="media">
                         <div class="pull-left">
                             <span class="fa-stack fa-2x">
                                   <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                                  <i class="fa fa-file fa-stack-1x fa-inverse"></i>
+                                  <i class="fa fa-book fa-stack-1x fa-inverse"></i>
                             </span> 
                         </div>
                         <div class="media-body">
-                            <strong><a href="{{ route('posts') }}/@if($post->slug){{$post->slug}}@else{{$post->id}}@endif">{{$post->title}}</a></strong>
-                            <p>{{$post->excerpt}} <br>
-                            <small><i class="fa fa-clock-o"></i> Posted on <b> {{$post->created_at->format('F d, Y')}} </b> by <a href="profile/{{$post->authorId['name']}}"> <b>{{$post->authorId['name']}}</b></a> | <a href="blog/{{$post->slug}}">Read more <i class="fa fa-angle-right"></i></a>
-                            </small>
-                            </p>
-
+                            <strong><a href="{{ route('resources') }}/@if($resource->slug){{$resource->slug}}@else{{$resource->id}}@endif">{{$resource->name}}</a></strong> <small class="text-muted">  by {{$resource->source_name}} </small>
+                            <p>{{ substr(strip_tags($resource->description), 0, 115) }}@if(strlen(strip_tags($resource->description)) > 115){{ '...' }}@endif</p>
                         </div>
                     </div>
                     @endforeach
             </div>
 
-        </div>
+          </div>
+    </div>
 
+           
+ <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="page-header">Recent discussions from ECR community forum</h4>
+            <div class="ibox-content">
+               <div class="feed-activity-list">
+                 @foreach($discussions as $discussion)
+                  <div class="feed-element">
+                        <a href="/{{ Config::get('chatter.routes.home') }}/{{ Config::get('chatter.routes.discussion') }}/{{ $discussion->category->slug }}/{{ $discussion->slug }}" class="pull-left">
+                        @if(Config::get('chatter.user.avatar_image_database_field'))
+
+                          <?php $db_field = Config::get('chatter.user.avatar_image_database_field'); ?>
+
+                          <!-- If the user db field contains http:// or https:// we don't need to use the relative path to the image assets -->
+                          @if( (substr($discussion->user->{$db_field}, 0, 7) == 'http://') || (substr($discussion->user->{$db_field}, 0, 8) == 'https://') )
+                            <img src="{{ $discussion->user->{$db_field}  }}" alt="image" class="img-circle">
+                          @else
+                            <img src="{{ Config::get('chatter.user.relative_url_to_image_assets') . $discussion->user->{$db_field}  }}" alt="image" class="img-circle">
+                          @endif
+
+                        @endif
+                        </a>
+                        <div class="media-body ">
+                            <small class="pull-right">{{ \Carbon\Carbon::createFromTimeStamp(strtotime($discussion->created_at))->diffForHumans() }}</small>
+                             <strong><a href="/{{ Config::get('chatter.routes.home') }}/{{ Config::get('chatter.routes.discussion') }}/{{ $discussion->category->slug }}/{{ $discussion->slug }}"> {{ $discussion->title }} </a></strong> in <span class="badge badge-secondary" style="background-color:{{ $discussion->category->color }}">{{ $discussion->category->name }}</span> channel
+                            <small class="text-muted"> by <a href="/profile/{{ $discussion->user->name }}"> {{ ucfirst($discussion->user->name) }}</a></small>
+                                <div class="well">
+                                   @if($discussion->post[0]->markdown)
+                                    <?php $discussion_body = GrahamCampbell\Markdown\Facades\Markdown::convertToHtml( $discussion->post[0]->body ); ?>
+                                  @else
+                                    <?php $discussion_body = $discussion->post[0]->body; ?>
+                                  @endif
+                                  <p>{{ substr(strip_tags($discussion_body), 0, 200) }}@if(strlen(strip_tags($discussion_body)) > 200){{ '...' }}@endif</p>
+                                </div>
+                                <div class="pull-right">
+                                    
+                                    <a class="btn btn-xs btn-white" title="Total replies"><i class="fa fa-pencil"></i> {{ $discussion->postsCount[0]->total }} </a>
+                                    <a class="btn btn-xs btn-white" title="Total views"><i class="fa fa-eye"></i> {{ $discussion->views }} </a>
+                                  
+                                    <a class="btn btn-xs btn-primary" href="/{{ Config::get('chatter.routes.home') }}/{{ Config::get('chatter.routes.discussion') }}/{{ $discussion->category->slug }}/{{ $discussion->slug }}"><i class="fa fa-reply"></i> Reply</a>
+                                </div>
+                        </div>
+                    </div>
+              @endforeach
+
+                </div>
+                {{ $discussions->links() }}
+        </div>
+    </div>
+
+
+  </div>
 </div>
 
-  <div id="intro2">
+<br><br>
+<div id="intro2">
   <div class="container">
           <div class="row centered">
               <p class="lead" align="center">
@@ -246,7 +294,7 @@ A central platform for early career researchers community
                   <button class="btn btn-danger"><b>Get involved and create impact</b></button></a></p>
         </div>
   </div>
-  </div>
+</div>
 
 @endsection
 
@@ -255,7 +303,6 @@ A central platform for early career researchers community
 <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
 <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
 <script src="{{ asset('js/algolia-autocomplete.js') }}"></script>
-
 @endsection
 
 

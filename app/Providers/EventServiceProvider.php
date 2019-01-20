@@ -12,15 +12,27 @@ class EventServiceProvider extends ServiceProvider
      *
      * @var array
      */
+    
+    // protected $listen = [
+    //     'App\Events\SomeEvent' => [
+    //         'App\Listeners\EventListener',
+    //     ],
+    //     \SocialiteProviders\Manager\SocialiteWasCalled::class => [
+    //         'SocialiteProviders\YouTube\YouTubeExtendSocialite@handle',
+    //         #'SocialiteProviders\Twitch\TwitchExtendSocialite@handle',
+    //         #'SocialiteProviders\Instagram\InstagramExtendSocialite@handle',
+    //         #'SocialiteProviders\ThirtySevenSignals\ThirtySevenSignalsExtendSocialite@handle',
+    //     ],
+    // ];
+
+    /**
+     * The event listener mappings for the application.
+     *
+     * @var array
+     */
     protected $listen = [
-        'App\Events\SomeEvent' => [
-            'App\Listeners\EventListener',
-        ],
-        \SocialiteProviders\Manager\SocialiteWasCalled::class => [
-            'SocialiteProviders\YouTube\YouTubeExtendSocialite@handle',
-            'SocialiteProviders\Twitch\TwitchExtendSocialite@handle',
-            'SocialiteProviders\Instagram\InstagramExtendSocialite@handle',
-            'SocialiteProviders\ThirtySevenSignals\ThirtySevenSignalsExtendSocialite@handle',
+        'Illuminate\Auth\Events\Login' => [
+            'App\Listeners\LogSuccessfulLogin',
         ],
     ];
 

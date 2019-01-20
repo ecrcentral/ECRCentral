@@ -36,7 +36,7 @@
 
                     <br>
                    
-                    <h3 class="media-heading">{{ $user->first_name }} {{ $user->last_name }} <small>{{ $user->profile->title }}</small></h3>
+                    <h4 class="media-heading">{{ $user->first_name }} {{ $user->last_name }} <small>{{ $user->profile->title }}</small></h4>
                     @if ($user->profile->organization)
                     {{ $user->profile->organization }}
                     <br>
@@ -65,14 +65,77 @@
                      	<i class="fa fa-linkedin fa-2x"> </i>
                      </a>
 					@endif
-
                     </center>
-
                 </div>
-
         
         <div class="ibox-content profile-content">
-        	<hr>
+        	
+
+            <hr>
+           
+            <h6><strong>Short biography</strong></h6>
+            
+            @if ($user->profile)
+	                @if ($user->profile->bio)
+						{{ $user->profile->bio }}
+						
+					@else
+					No biography added.
+					@endif
+					<hr>
+
+						 <i class="fa fa-user"> </i> Joined on: 
+						 {{ $user->created_at->format('M d, Y') }}</br>
+						 <i class="fa fa-user"> </i> Last seen:
+						 @if ($user->last_login_at) 
+						 {{ \Carbon\Carbon::createFromTimeStamp(strtotime($user->last_login_at))->diffForHumans() }}
+						 @else
+						 {{ \Carbon\Carbon::createFromTimeStamp(strtotime($user->created_at))->diffForHumans() }}
+						 @endif
+						</br>
+
+						@if ($user->email)
+						 <i class="fa fa-envelope"> </i>
+						 	@if (Auth::user()->id == $user->id)
+						 		{{ $user->email }}
+						 	@else
+						 		{{ $user->mask_email($user->email) }}
+						 	@endif
+						@endif
+						@if ($user->profile->organization)
+							<br><i class="fa fa-bank"> </i> {{ $user->profile->organization }}
+						@endif
+						
+						@if ($user->profile->website)
+						<br> <i class="fa fa-globe"> </i> <a href="{{ $user->profile->website }}" target="_blank">{{ $user->profile->website }}</a>
+						@endif
+			@endif
+
+				
+            <hr>
+
+            <div class="m-t-lg">
+            	<h6><strong>Contribution stats</strong></h6>
+                <div class="stats">
+                    <div class="statis">
+                    <p><span class="badge badge-primary"><strong>{{ $posts->count() }}</strong></span><br> Posts</p>
+                    </div>
+                    
+                    <div class="statis">
+                    <p><span class="badge badge-primary"><strong>{{ $funding_count }}</strong></span><br>Funding</p>
+                    </div> 
+                    
+                    <div class="statis">
+                    <p><span class="badge badge-primary"><strong>{{ $travelgrants_count }}</strong></span><br>Grants</p>
+                    </div> 
+
+                    <div class="statis">
+                    <p><span class="badge badge-primary"><strong>{{ $resources_count }}</strong></span><br>Resources</p>
+                    </div> 
+                </div>
+            </div>
+
+            <hr>
         	 <div class="user-button">
                 <div class="row">
 
@@ -98,6 +161,11 @@
 								
 							@else
 
+								<!--
+									This feature will be added in the future
+								-->
+
+								<!--
 								<div class="col-md-6">
 								<button type="button" class="btn btn-primary btn-sm btn-block">
 	                        		<i class="fa fa-envelope"></i> Message</button>
@@ -107,6 +175,8 @@
 			                    <button type="button" class="btn btn-primary btn-sm btn-block">
 			                        <i class="fa fa-check"></i> Follow</button>
 			                    </div>
+
+			                -->
 
 							@endif
 						@else
@@ -120,58 +190,6 @@
                    
                 </div>
             </div>
-
-            <hr>
-           
-            <h6><strong>Bio</strong></h6>
-            
-            @if ($user->profile)
-	                @if ($user->profile->bio)
-						{{ $user->profile->bio }}
-						<hr>				
-						@endif
-						@if ($user->email)
-						 <i class="fa fa-envelope"> </i>
-						 	@if (Auth::user()->id == $user->id)
-						 		{{ $user->email }}
-						 	@else
-						 		{{ $user->mask_email($user->email) }}
-						 	@endif
-						@endif
-						 @if ($user->profile->organization)
-							<br><i class="fa fa-bank"> </i> {{ $user->profile->organization }}
-						@endif
-						
-						@if ($user->profile->website)
-						<br> <i class="fa fa-globe"> </i> <a href="{{ $user->profile->website }}" target="_blank">{{ $user->profile->website }}</a>
-						@endif
-			@endif
-
-			<hr>	
-
-			<!--
-            <div class="row m-t-lg">
-                <div class="stats">                        
-                    <div class="statis">
-                    <p><span class="badge badge-primary"><strong>{{ $posts->count() }}</strong></span><br> Posts</p>
-                    </div>
-                    
-                    <div class="statis">
-                    <p><span class="badge badge-primary"><strong>{{ $funding_count }}</strong></span><br>Funding</p>
-                    </div> 
-                    
-                    <div class="statis">
-                    <p><span class="badge badge-primary"><strong>{{ $travelgrants_count }}</strong></span><br>Grants</p>
-                    </div> 
-
-                    <div class="statis">
-                    <p><span class="badge badge-primary"><strong>{{ $resources_count }}</strong></span><br>Resources</p>
-                    </div> 
-                </div>
-            </div>
-        -->
-
-           
         </div><!-- /profile-content -->
     </div>
     </div>
@@ -179,10 +197,7 @@
     
     <div class="col-md-8">
     <div class="panel panel-default">
-    <div class="panel-heading"><strong>Forum Activities</strong>
-
-   
-                </div>
+    <div class="panel-heading">{{ ucfirst($user->name) }}'s <strong>Activity</strong></div>
     <div class="panel-body">
         
         <div class="ibox-content">
@@ -195,19 +210,30 @@
                     </a>
                     <div class="media-body ">
                         <small class="pull-right">{{ \Carbon\Carbon::createFromTimeStamp(strtotime($post->created_at))->diffForHumans() }}</small>
-                        <strong>@if ($post->user->first_name){{ $post->user->first_name }} @else {{ $post->user->name }} @endif</strong> left a reply on <strong><a href="/{{ Config::get('chatter.routes.home') }}/{{ Config::get('chatter.routes.discussion') }}/{{ $post->discussion->category->slug }}/{{ $post->discussion->slug }}"> {{ $post->discussion->title }}</a></strong><br>
+                        <a href="/profile/{{ $post->user->name }}"><strong>{{ ucfirst($post->user->name) }}</strong></a> left a message on <strong><a href="/{{ Config::get('chatter.routes.home') }}/{{ Config::get('chatter.routes.discussion') }}/{{ $post->discussion->category->slug }}/{{ $post->discussion->slug }}"> {{ $post->discussion->title }}</a></strong><br>
                         <small class="text-muted">{{ $post->created_at }}</small>
                             <div class="well">
-                            <small>{!! $post->body !!}</small>
+                            @if($post->markdown)
+                                    <?php $post_body = GrahamCampbell\Markdown\Facades\Markdown::convertToHtml( $post->body ); ?>
+                                  @else
+                                    <?php $post_body = $post->body; ?>
+                                  @endif
+                                  <p>{{ substr(strip_tags($post_body), 0, 200) }}@if(strlen(strip_tags($post_body)) > 200){{ '...' }}@endif</p>
+
                             </div>
                             <div class="pull-right">
-                                <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
-                                <a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> Love</a>
+                            	<a class="btn btn-xs btn-white" title="Total replies"><i class="fa fa-pencil"></i> {{ $post->discussion->postsCount[0]->total }} </a>
+                                    <a class="btn btn-xs btn-white" title="Total views"><i class="fa fa-eye"></i> {{ $post->discussion->views }} </a>
                                 <a class="btn btn-xs btn-primary" href="/{{ Config::get('chatter.routes.home') }}/{{ Config::get('chatter.routes.discussion') }}/{{ $post->discussion->category->slug }}/{{ $post->discussion->slug }}"><i class="fa fa-pencil"></i> Reply</a>
                             </div>
                     </div>
                 </div><!-- feed-element-->
 			    @endforeach
+
+			    @if ($posts->count() == 0)
+			    	{{ ucfirst($user->name) }} is not active enough yet. 
+
+			    @endif
 
                                 
             </div><!--feed-activity-list-->

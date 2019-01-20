@@ -40,6 +40,8 @@ class LoginController extends Controller
         $this->middleware('guest', ['except' => 'logout']);
     }
 
+
+
     /**
      * Logout, Clear Session, and Return.
      *
