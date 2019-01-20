@@ -48,7 +48,15 @@ ECR Community
                         @if ($member->profile->organization)
                         <div class="organization">{{ $member->profile->organization }}</div>
                         @endif
-                        <div class="joined_date">Joined: {{ $member->created_at->format('M d, Y') }}</div>
+                        <div class="joined_date">Joined {{ $member->created_at->format('M d, Y') }}
+
+                        <br>Last seen 
+                        @if ($member->last_login_at) 
+                         {{ \Carbon\Carbon::createFromTimeStamp(strtotime($member->last_login_at))->diffForHumans() }}
+                         @else
+                         {{ \Carbon\Carbon::createFromTimeStamp(strtotime($member->created_at))->diffForHumans() }}
+                         @endif
+                        </div>
                         <ul class="list-inline">
                             @if ($member->profile->orcid)
                              <a href="https://orcid.org/{{ $member->profile->orcid }}" target="_blank">

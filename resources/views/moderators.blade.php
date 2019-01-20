@@ -48,7 +48,15 @@ ECR Community moderators
                         @if ($moderator->profile->organization)
                         <div class="organization">{{ $moderator->profile->organization }}</div>
                         @endif
-                        <div class="joined_date">Joined: {{ $moderator->created_at->format('M d, Y') }}</div>
+                        <div class="joined_date">Joined {{ $moderator->created_at->format('M d, Y') }}
+
+                        <br>Last seen 
+                        @if ($moderator->last_login_at) 
+                         {{ \Carbon\Carbon::createFromTimeStamp(strtotime($moderator->last_login_at))->diffForHumans() }}
+                         @else
+                         {{ \Carbon\Carbon::createFromTimeStamp(strtotime($moderator->created_at))->diffForHumans() }}
+                         @endif
+                        </div>
                         <ul class="list-inline">
                             @if ($moderator->profile->orcid)
                              <a href="https://orcid.org/{{ $moderator->profile->orcid }}" target="_blank">

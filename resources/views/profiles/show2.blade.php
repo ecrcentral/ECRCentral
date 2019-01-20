@@ -84,9 +84,9 @@
 					@endif
 					<hr>
 
-						 <i class="fa fa-user"> </i> Joined on: 
+						 <i class="fa fa-user"> </i> Joined on  
 						 {{ $user->created_at->format('M d, Y') }}</br>
-						 <i class="fa fa-user"> </i> Last seen:
+						 <i class="fa fa-user"> </i> Last seen 
 						 @if ($user->last_login_at) 
 						 {{ \Carbon\Carbon::createFromTimeStamp(strtotime($user->last_login_at))->diffForHumans() }}
 						 @else
