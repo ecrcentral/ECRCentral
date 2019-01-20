@@ -32,6 +32,8 @@ Contact us
         -->
             <div class="col-md-8">
                 <h5>Send us a message</h5>
+
+                <!--
                 <form name="sentMessage" id="contactForm" novalidate>
                     <div class="control-group form-group">
                         <div class="controls">
@@ -59,9 +61,13 @@ Contact us
                         </div>
                     </div>
                     <div id="success"></div>
-                    <!-- For success/fail messages -->
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
+            -->
+
+            <p>We appreciate feedback, criticism as well as suggestions. If you would like to make an enquiry or provide your feedback, please contact Aziz on azez(dot)khan(at)gmail.com or any of the <a href="/team">team members</a>.
+
+                <br><br>We will get back to you soon. Thank you.</p>
             </div>
             <!-- Contact Details Column -->
             <div class="col-md-4">

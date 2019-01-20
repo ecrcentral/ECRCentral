@@ -100,7 +100,7 @@ class PagesController extends Controller
 
     public function community(Request $request)
     {
-        $members = User::with('profile')->where('activated', 1)->paginate(env('USER_LIST_PAGINATION_SIZE'));
+        $members = User::with('profile')->where('activated', 1)->orderBy('last_login_at', 'DESC')->paginate(env('USER_LIST_PAGINATION_SIZE'));
 
 
         return View('community', compact('members'));
@@ -108,7 +108,7 @@ class PagesController extends Controller
 
     public function moderators(Request $request)
     {
-        $moderators = User::with('profile')->where('role_id', 4)->paginate(env('USER_LIST_PAGINATION_SIZE'));
+        $moderators = User::with('profile')->where('role_id', 4)->orderBy('last_login_at', 'DESC')->paginate(env('USER_LIST_PAGINATION_SIZE'));
 
 
         return View('moderators', compact('moderators'));
