@@ -48,6 +48,8 @@ class User extends \TCG\Voyager\Models\User
         'admin_ip_address',
         'updated_ip_address',
         'deleted_ip_address',
+        'last_login_at',
+        'last_login_ip',
     ];
 
     /**
@@ -65,6 +67,15 @@ class User extends \TCG\Voyager\Models\User
     protected $dates = [
         'deleted_at',
     ];
+
+
+    public function isAdmin()
+    {
+      if($this->role->name == 'admin')
+        return true;
+      else
+        return false;
+    }
 
 
     /**
