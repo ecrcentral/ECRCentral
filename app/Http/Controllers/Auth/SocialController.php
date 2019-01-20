@@ -101,7 +101,7 @@ class SocialController extends Controller
 
                     $user->avatar = $socialUserObject->getAvatar();
                     $user->profile->avatar = $socialUserObject->getAvatar();
-                    $user->profile->avatar_status == 1;
+                    $user->profile->avatar_status = 1;
                 }
 
                 if ($socialData->provider == 'github') {
