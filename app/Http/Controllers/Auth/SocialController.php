@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Input;
 #use jeremykenedy\LaravelRoles\Models\Role;
 use TCG\Voyager\Models\Role;
 
+use File;
 use Laravel\Socialite\Facades\Socialite;
 
 class SocialController extends Controller
@@ -94,6 +95,29 @@ class SocialController extends Controller
 
                 $user->profile()->save($profile);
                 $user->save();
+
+                #add avatar
+                if ($socialUserObject->getAvatar()){
+                    #$user->avatar = str_replace('http://','https://',$userData->avatar);
+                    // $avatar = $socialUserObject->getAvatar();
+                    // $filename = 'avatar.'.$avatar->getClientOriginalExtension();
+                    // $save_path = storage_path().'/users/id/'.$user->id.'/uploads/images/avatar/';
+                    // $path = $save_path.$filename;
+                    // $public_path = '/images/profile/'.$user->id.'/avatar/'.$filename;
+
+                    // // Make the user a folder and set permissions
+                    // File::makeDirectory($save_path, $mode = 0755, true, true);
+
+                    // // Save the file to the server
+                    // Image::make($avatar)->resize(300, 300)->save($save_path.$filename);
+
+                    // // Save the public image path
+                    // $user->profile->avatar = $public_path;
+                    // $user->avatar = $public_path;
+
+                    $user->avatar = $socialUserObject->getAvatar();
+                    $user->profile->avatar = $socialUserObject->getAvatar();
+                }
 
                 if ($socialData->provider == 'github') {
                     $user->profile->github_username = $socialUserObject->nickname;
