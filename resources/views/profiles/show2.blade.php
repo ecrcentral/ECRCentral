@@ -195,7 +195,7 @@
     
     <div class="col-md-8">
     <div class="panel panel-default">
-    <div class="panel-heading">{{ ucfirst($user->name) }}'s <strong>Activity</strong></div>
+    <div class="panel-heading">{{ ucfirst($user->name) }}'s <strong>Recent Activity</strong></div>
     <div class="panel-body">
         
         <div class="ibox-content">
@@ -217,7 +217,7 @@
                     </a>
                     <div class="media-body ">
                         <small class="pull-right">{{ \Carbon\Carbon::createFromTimeStamp(strtotime($post->created_at))->diffForHumans() }}</small>
-                        <a href="/profile/{{ $post->user->name }}"><strong>{{ ucfirst($post->user->name) }}</strong></a> left a message on <strong><a href="/{{ Config::get('chatter.routes.home') }}/{{ Config::get('chatter.routes.discussion') }}/{{ $post->discussion->category->slug }}/{{ $post->discussion->slug }}"> {{ $post->discussion->title }}</a></strong><br>
+                        <a href="/profile/{{ $post->user->name }}"><strong>{{ ucfirst($post->user->name) }}</strong></a> posted on <strong><a href="/{{ Config::get('chatter.routes.home') }}/{{ Config::get('chatter.routes.discussion') }}/{{ $post->discussion->category->slug }}/{{ $post->discussion->slug }}"> {{ $post->discussion->title }}</a></strong><br>
                         <small class="text-muted">{{ $post->created_at }}</small>
                             <div class="well">
                             @if($post->markdown)
