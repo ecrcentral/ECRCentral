@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'preheader'       => 'Just wanted to let you know that someone has responded to a forum post.',
+    'preheader'       => 'Just wanted to let you know that someone has responded to a forum post on ECRcental.',
     'greeting'        => 'Hi there,',
     'body'            => 'Just wanted to let you know that someone has responded to a forum post at',
     'view_discussion' => 'View the '.mb_strtolower(trans('chatter::intro.titles.discussion')).'.',
