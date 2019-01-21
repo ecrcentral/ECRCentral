@@ -20,29 +20,22 @@
         <meta name="description" content="ECRcentral is a central platform for early career researchers to find postdoc research fellowships, travel grants and to share experiences and to provide feedback."/>
         <meta name="keywords" content="funding, opportunities, Postdoc, fellowships, schemes, early career researchers, postdoctoral, research, grants, travel"/>
         <meta name="author" content="Aziz Khan">
-
-        <link rel="shortcut icon" href="/favicon.ico">
-
+        @include('partials.favicon')
+        
         @yield('socials_card')
-
         {{-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --}}
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-
         {{-- Fonts --}}
         @yield('template_linked_fonts')
-
         {{-- Styles --}}
-
         <link href="{{ asset('css/ecrcentral.css') }}" rel="stylesheet">
-
         <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
 
         @yield('template_linked_css')
-
         <style type="text/css">
             @yield('template_fastload_css')
 
@@ -52,7 +45,6 @@
                     background-size: auto 100%;
                 }
             @endif
-
         </style>
 
         {{-- Scripts --}}
