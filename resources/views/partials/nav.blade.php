@@ -27,7 +27,6 @@
                 <!--
                 <li {{ Route::is('index') ? 'class=active' : null }}><a href="{{ route('index') }}">Home</a></li>
                 -->
-
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Funding <span class="caret"></span></a>
                   <ul class="dropdown-menu">
@@ -47,17 +46,12 @@
                      <li {{ Request::is('blog') ? 'class=active' : null }}> <a href="/blog">Community Blog</a></li>
 
                     <li role="separator" class="divider"></li>
-<<<<<<< HEAD
-                    <li {{ Request::is('community') ? 'class=active' : null }}><a href="{{ route('community') }}">Community Members</a></li>
 
-                    <li {{ Request::is('moderators') ? 'class=active' : null }}><a href="{{ route('moderators') }}">Moderators</a></li>
-=======
                     <li {{ Request::is('community/members') ? 'class=active' : null }}><a href="/community/members">Community Members</a></li>
-                    <li {{ Request::is('community/moderators') ? 'class=active' : null }}><a href="community/moderators">Community Moderators</a></li>
-                    <!--
->>>>>>> f7a1f6ea2146becbbe2e2ecd5bf998585a68c503
+                    <li {{ Request::is('community/moderators') ? 'class=active' : null }}><a href="/community/moderators">Community Moderators</a></li>
+                    <li {{ Request::is('community/managers') ? 'class=active' : null }}><a href="/community/managers">Community Managers</a></li>
+                    <!--s
                     <li><a href="#">Mentors</a></li>
-                    <!--
                     <li role="separator" class="divider"></li>
                     <li><a href="#">Another tab</a></li>
                 -->

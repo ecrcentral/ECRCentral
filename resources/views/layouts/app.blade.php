@@ -12,9 +12,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google-site-verification" content="adaAvTZotNCGfeegU4tLnnInW2O1X4MTiTV2s8dkrLY" />
 
         {{-- CSRF Token --}}
         <meta name="csrf-token" content="{{ csrf_token() }}">
+
 
         <title>@if (trim($__env->yieldContent('template_title')))@yield('template_title') | @endif {{ config('app.name', Lang::get('titles.app')) }}</title>
         <meta name="description" content="ECRcentral is a central platform for early career researchers to find postdoc research fellowships, travel grants and to share experiences and to provide feedback."/>
@@ -34,6 +36,7 @@
         <link href="{{ asset('css/ecrcentral.css') }}" rel="stylesheet">
         <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
 
 
         @yield('template_linked_css')

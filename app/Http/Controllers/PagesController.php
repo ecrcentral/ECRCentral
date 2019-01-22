@@ -98,7 +98,23 @@ class PagesController extends Controller
         return view('page')->withpage($page);
     }
 
-    public function community(Request $request)
+    public function community($rolename='user')
+    {
+        if($rolename =='member')
+        {
+           $rolename = 'user';
+        }
+        $role = Role::where('name', $rolename)->firstOrFail();
+        if($role){
+            $members = User::with('profile')->where('activated', 1)->where('role_id', $role->id)->orderBy('last_login_at', 'DESC')->paginate(env('USER_LIST_PAGINATION_SIZE'));
+            }else
+            {
+              $members = User::with('profile')->where('activated', 1)->orderBy('last_login_at', 'DESC')->paginate(env('USER_LIST_PAGINATION_SIZE'));
+            }
+        return View('community', compact('members'));
+    }
+
+    public function community_all(Request $request)
     {
         $members = User::with('profile')->where('activated', 1)->orderBy('last_login_at', 'DESC')->paginate(env('USER_LIST_PAGINATION_SIZE'));
 

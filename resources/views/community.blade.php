@@ -7,12 +7,18 @@ ECR Community
 @section('template_linked_css')
 
 <style type="text/css">
-    .card {
+.card {
     border: none;
     background: #edf0f1;
 }
 .joined_date {
     font-size: 10px;
+}
+.member-type {
+    font-size: 13px;
+    padding: 2px;
+    padding-top: 0px;
+    font-weight: inherit;
 }
 .organization {
     font-size: 11px;
@@ -27,9 +33,6 @@ ECR Community
 <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-<<<<<<< HEAD
-                <h3 class="page-header">Community<small>members</small></h3>
-=======
                 <h3 class="page-header">Community<small>
                 @if(Request::is('community/moderators'))
                     moderators
@@ -41,7 +44,6 @@ ECR Community
                     members
                 @endif
             </small></h3>
->>>>>>> f7a1f6ea2146becbbe2e2ecd5bf998585a68c503
             </div>
         </div>
         <!-- /.row -->
@@ -63,6 +65,19 @@ ECR Community
 
                     <div class="caption">
                         <a href="/profile/{{ $member->name }}">@if ($member->first_name && $member->last_name) {{ $member->first_name }} {{ $member->last_name }} @else {{ $member->name }} @endif</a>
+                        <div class="member-type">
+                            @if($member->role->name == 'user')
+                                <span class="label label-success">member</span>
+                            @elseif($member->role->name == 'moderator')
+                                <span class="label label-primary">{{ $member->role->name }}</span>
+                            @elseif($member->role->name == 'manager')
+                                <span class="label label-warning">{{ $member->role->name }}</span>
+                            @elseif($member->role->name == 'admin')
+                                <span class="label label-danger">{{ $member->role->name }}</span>
+                            @else
+                                <span class="label label-info">{{ $member->role->name }}</span>
+                            @endif
+                        </div>
                         @if ($member->profile->organization)
                         <div class="organization">{{ $member->profile->organization }}</div>
                         @endif
