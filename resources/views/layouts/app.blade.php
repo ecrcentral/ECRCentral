@@ -36,6 +36,7 @@
         <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
         <meta name="google-site-verification" content="adaAvTZotNCGfeegU4tLnnInW2O1X4MTiTV2s8dkrLY" />
 
+
         @yield('template_linked_css')
         <style type="text/css">
             @yield('template_fastload_css')

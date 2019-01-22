@@ -34,10 +34,14 @@ ECR Community
         <div class="row">
             <div class="col-lg-12">
                 <h3 class="page-header">Community<small>
-                @if(Request::get('role'))
-                {{ Request::get('role') }}s
+                @if(Request::is('community/moderators'))
+                    moderators
+                @elseif(Request::is('community/managers'))
+                    managers
+                @elseif(Request::is('community/admins'))
+                    admins
                 @else
-                members
+                    members
                 @endif
             </small></h3>
             </div>

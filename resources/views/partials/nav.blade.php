@@ -46,8 +46,8 @@
                     <li {{ Request::is('forums') ? 'class=active' : null }}><a href="/forums">Community Forum</a></li>
                     <li {{ Request::is('blog') ? 'class=active' : null }}> <a href="/blog">Community Blog</a></li>
                     <li role="separator" class="divider"></li>
-                    <li {{ Request::is('community') ? 'class=active' : null }}><a href="{{ route('community') }}">Community Members</a></li>
-                    <li {{ Request::is("community?role=moderator") ? 'class=active' : null }}><a href="{{ route('community') }}?role=moderator">Community Moderators</a></li>
+                    <li {{ Request::is('community/members') ? 'class=active' : null }}><a href="/community/members">Community Members</a></li>
+                    <li {{ Request::is('community/moderators') ? 'class=active' : null }}><a href="community/moderators">Community Moderators</a></li>
                     <!--
                     <li><a href="#">Mentors</a></li>
                     
