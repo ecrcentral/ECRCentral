@@ -66,7 +66,7 @@ A central platform for early career researchers community
     <div class="container">
         <div class="row centered">
             <p class="lead" align="center">
-              By early career researchers (ECRs) for ECRs to curate, find and discuss funding opportunities, share experiences, mentor peers, and create impact through community engagement.
+              By early career researchers (ECRs) for ECRs to find and discuss funding opportunities, share experiences, mentor peers, and create impact through community engagement.
             </p>
         
       </div>

@@ -210,7 +210,7 @@ class ProfilesController extends Controller
     public function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:25|min:4',
+            'name' => 'required|max:20|min:4|alpha_dash|unique:users',
         ]);
     }
 
@@ -230,7 +230,7 @@ class ProfilesController extends Controller
         $ipAddress = new CaptureIpTrait();
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required|max:255',
+            'name' => 'required|max:20:min:4|alpha_dash|unique:users',
         ]);
 
         $rules = [];
