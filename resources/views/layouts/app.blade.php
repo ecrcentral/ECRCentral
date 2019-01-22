@@ -35,6 +35,7 @@
         <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
 
+
         @yield('template_linked_css')
         <style type="text/css">
             @yield('template_fastload_css')

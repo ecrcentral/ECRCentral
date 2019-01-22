@@ -27,7 +27,21 @@ ECR Community
 <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
+<<<<<<< HEAD
                 <h3 class="page-header">Community<small>members</small></h3>
+=======
+                <h3 class="page-header">Community<small>
+                @if(Request::is('community/moderators'))
+                    moderators
+                @elseif(Request::is('community/managers'))
+                    managers
+                @elseif(Request::is('community/admins'))
+                    admins
+                @else
+                    members
+                @endif
+            </small></h3>
+>>>>>>> f7a1f6ea2146becbbe2e2ecd5bf998585a68c503
             </div>
         </div>
         <!-- /.row -->
