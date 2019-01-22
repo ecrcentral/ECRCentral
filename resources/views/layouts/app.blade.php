@@ -72,6 +72,23 @@
 
     </head>
     <body data-spy="scroll" data-offset="0">
+      <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "WebSite",
+          "name": "ECRcentral",
+          "url": "https://ecrcentral.org",
+          "logo": "https://ecrcentral.org/images/logo.png",
+          "license": "CC BY 4.0",
+          "description": "ECRcentral is a central platform for early career researchers to find postdoc research fellowships, travel grants and to share experiences and to provide feedback.",
+          "version": "2019",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://ecrcentral.org/fundings?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+        </script>
 
         <div id="app">
 
