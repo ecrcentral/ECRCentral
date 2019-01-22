@@ -44,14 +44,13 @@
                   <ul class="dropdown-menu">
                     
                     <li {{ Request::is('forums') ? 'class=active' : null }}><a href="/forums">Community Forum</a></li>
-                     <li {{ Request::is('blog') ? 'class=active' : null }}> <a href="/blog">Community Blog</a></li>
-
+                    <li {{ Request::is('blog') ? 'class=active' : null }}> <a href="/blog">Community Blog</a></li>
                     <li role="separator" class="divider"></li>
                     <li {{ Request::is('community') ? 'class=active' : null }}><a href="{{ route('community') }}">Community Members</a></li>
-
-                    <li {{ Request::is('moderators') ? 'class=active' : null }}><a href="{{ route('moderators') }}">Moderators</a></li>
-                    <li><a href="#">Mentors</a></li>
+                    <li {{ Request::is("community?role=moderator") ? 'class=active' : null }}><a href="{{ route('community') }}?role=moderator">Community Moderators</a></li>
                     <!--
+                    <li><a href="#">Mentors</a></li>
+                    
                     <li role="separator" class="divider"></li>
                     <li><a href="#">Another tab</a></li>
                 -->
