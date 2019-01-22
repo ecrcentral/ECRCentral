@@ -47,9 +47,9 @@
 
                     <li role="separator" class="divider"></li>
 
-                    <li {{ Request::is('community/members') ? 'class=active' : null }}><a href="/community/members">Community Members</a></li>
-                    <li {{ Request::is('community/moderators') ? 'class=active' : null }}><a href="/community/moderators">Community Moderators</a></li>
-                    <li {{ Request::is('community/managers') ? 'class=active' : null }}><a href="/community/managers">Community Managers</a></li>
+                    <li {{ Request::is('community/members') ? 'class=active' : null }}><a href="/community/members">Members</a></li>
+                    <li {{ Request::is('community/moderators') ? 'class=active' : null }}><a href="/community/moderators">Moderators</a></li>
+                    <li {{ Request::is('community/managers') ? 'class=active' : null }}><a href="/community/managers">Managers</a></li>
                     <!--s
                     <li><a href="#">Mentors</a></li>
                     <li role="separator" class="divider"></li>
