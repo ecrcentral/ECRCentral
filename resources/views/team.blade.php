@@ -42,8 +42,7 @@ Team members
                 <div class="thumbnail">
                     <img class="img-responsive img-circle" src="https://pbs.twimg.com/profile_images/923604836389617665/ovO6lXHJ_400x400.jpg" alt="">
                     <div class="caption">
-                        <h6>Aziz Khan<br>
-                            <small>PhD</small>
+                        <h6>Aziz Khan
                         </h6>
                         <p>Aziz is a postdoctoral scientist at NCMM, University of Oslo, Norway, and leading the development of the ECRCentral project.</p>
                         <ul class="list-inline">
@@ -58,10 +57,9 @@ Team members
                 <div class="thumbnail">
                     <img class="img-responsive img-circle" src="https://pbs.twimg.com/profile_images/843770023856488449/4LtasiD4_400x400.jpg" alt="">
                     <div class="caption">
-                        <h6>Cristiana Cruceanu<br>
-                            <small>PhD</small>
+                        <h6>Cristiana Cruceanu
                         </h6>
-                        <p>Cristiana is a postdoctoral scientist at the Max Planck Institute of Psychiatry, Germany. She is managing the forums.</p>
+                        <p>Cristiana is a postdoctoral scientist at the Max Planck Institute of Psychiatry, Germany. Cristiana is managing the forums.</p>
                         <ul class="list-inline">
                             <li><a href="#"><i class="fa fa-2x fa-globe"></i></a></li>
                             <li><a href="https://twitter.com/DrCriCru" target="_blank"><i class="fa fa-2x fa-twitter"></i></a></li>
@@ -74,8 +72,7 @@ Team members
                 <div class="thumbnail">
                     <img class="img-responsive img-circle" src="{{ asset('images/team/juan.png') }}" alt="">
                     <div class="caption">
-                        <h6>Juan Quintana<br>
-                            <small>PhD</small>
+                        <h6>Juan Quintana
                         </h6>
                         <p>Juan is postdoctoral scientist at the Wellcome Centre for Anti-Infectives Research, University of Dundee, UK. Juan is curating funding list.</p>
                         <ul class="list-inline">
@@ -90,10 +87,9 @@ Team members
                 <div class="thumbnail">
                     <img class="img-responsive img-circle" src="https://pbs.twimg.com/profile_images/862415239652020225/Pk7ozf8n_400x400.jpg" alt="">
                     <div class="caption">
-                        <h6>Lotte de Winde<br>
-                            <small>PhD</small>
+                        <h6>Lotte de Winde
                         </h6>
-                        <p>Lotte is a postdoctoral scientist at the MRC Laboratory for Molecular Cell Biology at UCL, UK. She is curating travel grants.</p>
+                        <p>Lotte is a postdoctoral scientist at the MRC Laboratory for Molecular Cell Biology at UCL, UK. Lotte is curating travel grants.</p>
                         <ul class="list-inline">
                             <li><a href="#"><i class="fa fa-2x fa-globe"></i></a></li>
                             <li><a href="https://twitter.com/lotte_dewinde" target="_blank"><i class="fa fa-2x fa-twitter"></i></a></li>

@@ -197,7 +197,7 @@ class ProfilesController extends Controller
 
         $user->save();
 
-        return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updateSuccess'));
+        return redirect('profile/'.$user->name.'/')->with('success', trans('profile.updateSuccess'));
     }
 
     /**
@@ -259,7 +259,7 @@ class ProfilesController extends Controller
 
         $user->save();
 
-        return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updateAccountSuccess'));
+        return redirect('profile/'.$user->name.'/')->with('success', trans('profile.updateAccountSuccess'));
     }
 
     /**
