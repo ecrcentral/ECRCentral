@@ -63,7 +63,7 @@
                 {!! Form::label('source_name', 'Source name' , array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
                   <div class="input-group">
-                    {!! Form::text('source_name', old('source_name'), array('id' => 'source_name', 'class' => 'form-control', 'placeholder' => 'Add source name')) !!}
+                    {!! Form::text('source_name', old('source_name'), array('id' => 'source_name', 'class' => 'form-control', 'placeholder' => 'Add source/author name')) !!}
                     <label class="input-group-addon" for="source_name"><i class="fa fa-fw fa-pencil " aria-hidden="true"></i></label>
                   </div>
                 </div>
@@ -96,7 +96,7 @@
                 {!! Form::label('published_at', 'Published date' , array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
                   <div class="input-group">
-                    {!! Form::text('published_at', old('published_at'), array('id' => 'published_at', 'class' => 'form-control', 'placeholder' => 'mm/dd/yyyy')) !!}
+                    {!! Form::text('published_at', old('published_at'), array('id' => 'published_at', 'class' => 'form-control', 'placeholder' => 'dd/mm/yyyy')) !!}
                     <label class="input-group-addon" for="published_at"><i class="fa fa-fw fa-calander " aria-hidden="true"></i></label>
                   </div>
                 </div>

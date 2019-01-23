@@ -50,19 +50,19 @@ function hitTemplate(hit) {
 function get_logo(source_name){
   if (source_name == 'Nature'){
     return `<div class="funder-gravatar">
-              <img src="https://royalsociety.org/~/media/Redesign2015/rs-crest-footer.png" width="40" height="40">
+              <img src="/images/nature-logo.png" width="40" height="40">
           </div>`;
   }else if(source_name == 'Science'){
     return `<div class="funder-gravatar">
-              <img src="http://commercial.cancerresearchuk.org/sites/default/files/2-Column-Image_Big-C.png" width="40" height="40">
+              <img src="/images/science-logo.png" width="40" height="40">
           </div>`;
   }else if(source_name == 'eLife'){
     return `<div class="funder-gravatar">
-              <img src="https://pbs.twimg.com/profile_images/794233223551315969/uLsKoQxk_400x400.jpg" width="40" height="40">
+              <img src="/images/elife-logo.jpg" width="40" height="40">
           </div>`;
   }else if(source_name == 'EMBO'){
     return `<div class="funder-gravatar">
-              <img src="https://www.wemakescholars.com/admin/uploads/providers/1521.jpg" width="40" height="40">
+              <img src="/images/embo-logo.jpg" width="40" height="40">
           </div>`;
   }else{
     return " ";

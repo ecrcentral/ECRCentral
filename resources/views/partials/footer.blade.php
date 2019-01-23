@@ -26,13 +26,6 @@
                         <a href="https://github.com/ecrcentral" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
                     </li>
                 </ul>
-
-            <!--
-            <a class="footer-brand" href="https://elifesciences.org/inside-elife/912b0679/early-career-advisory-group-elife-welcomes-150-ambassadors-of-good-practice-in-science" target="_blank">
-              <img src="https://elifesciences.org/assets/patterns/img/patterns/organisms/elife-logo-full.b1283c9a.svg" width="200px" alt="eLife" />
-            </a>
-          -->
-
           </div>
 
           <div class="col-md-4">
@@ -58,9 +51,16 @@
          
         </div>
       </div>
-      <div class="row" style="background: #38495c;">
-        <br>
-        <p align="center">&copy; 2019 ECRcentral. The content is licensed under <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"> <i class="fa fa-creative-commons" aria-hidden="true"></i> </a> CC BY 4.0 | Developed with <span style="color: #e25555;">&#9829;</span> by eLife Ambassadors.</p>
-        <br>
-      </div>
     </footer>
+
+  <div id="footerc">
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <center>
+            <p style="color: #fff;">&copy; 2019 ECRcentral. The content is licensed under <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"> <i class="fa fa-creative-commons" aria-hidden="true"></i> </a> CC BY 4.0 | Developed with <span style="color: #e25555;">&#9829;</span> by eLife Ambassadors.</p>
+              </center>
+      </div>
+    </div>
+  </div>
+ </div>

@@ -58,6 +58,12 @@ return [
         'client_secret' => env('GITHUB_SECRET'),
         'redirect'      => env('GITHUB_REDIRECT'),
     ],
+    'orcid' => [
+        'client_id' => env('ORCID_CLIENT_ID'),
+        'client_secret' => env('ORCID_CLIENT_SECRET'),
+        'redirect' => env('ORCID_REDIRECT'),
+        'environment' => env('ORCID_ENVIRONMENT', 'test'),
+    ],
 
     // 'youtube' => [
     //     'client_id'     => env('YOUTUBE_KEY'),

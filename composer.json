@@ -37,6 +37,7 @@
         "rap2hpoutre/laravel-log-viewer": "^0.10.4",
         "socialiteproviders/generators": "^2.0",
         "socialiteproviders/google": "^3.0",
+        "socialiteproviders/linkedin": "^3.0",
         "socialiteproviders/twitter": "^3.0",
         "tcg/voyager": "1.0.15",
         "voyager-themes": "^0.15.0",
