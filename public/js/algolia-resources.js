@@ -28,7 +28,7 @@ function hitTemplate(hit) {
             </a>
           </div>
             <div class="entry-meta clear">
-            ${get_logo(hit.source_name)}
+            ${get_logo(hit)}
             <div class="entry-funder-content">
               <div class="funder-name">
                 <b>${hit.description}</b>
@@ -47,20 +47,25 @@ function hitTemplate(hit) {
     </div>`;
 }
 
-function get_logo(source_name){
-  if (source_name == 'Nature'){
+function get_logo(hit){
+  if(hit.logo != null)
+    {
+    return `<div class="funder-gravatar">
+              <img src="/storage/${hit.logo}" width="40" height="40">
+          </div>`;
+    }else if (hit.source_name == 'Nature'){
     return `<div class="funder-gravatar">
               <img src="/images/nature-logo.png" width="40" height="40">
           </div>`;
-  }else if(source_name == 'Science'){
+  }else if(hit.source_name == 'Science'){
     return `<div class="funder-gravatar">
               <img src="/images/science-logo.png" width="40" height="40">
           </div>`;
-  }else if(source_name == 'eLife'){
+  }else if(hit.source_name == 'eLife'){
     return `<div class="funder-gravatar">
               <img src="/images/elife-logo.jpg" width="40" height="40">
           </div>`;
-  }else if(source_name == 'EMBO'){
+  }else if(hit.source_name == 'EMBO'){
     return `<div class="funder-gravatar">
               <img src="/images/embo-logo.jpg" width="40" height="40">
           </div>`;

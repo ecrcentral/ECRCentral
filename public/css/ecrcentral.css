@@ -17,7 +17,6 @@ body {
     background-image: url(/images/banner-homepage11.png);
     padding-bottom: 20px;
     padding-top: 20px;
-    color: #fff;
     background-repeat: repeat;
 }
 
@@ -28,7 +27,6 @@ body {
     background-repeat: repeat;
     text-align: center;
     font-size: 15px;
-
 }
 
 #headerwrap h1 {

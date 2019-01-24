@@ -64,6 +64,12 @@ return [
         'redirect' => env('ORCID_REDIRECT'),
         'environment' => env('ORCID_ENVIRONMENT', 'test'),
     ],
+    
+    'linkedin' => [
+        'client_id' => env('LINKEDIN_KEY'),
+        'client_secret' => env('LINKEDIN_SECRET'),
+        'redirect' => env('LINKEDIN_REDIRECT_URI')
+    ],
 
     // 'youtube' => [
     //     'client_id'     => env('YOUTUBE_KEY'),
