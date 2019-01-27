@@ -20,7 +20,7 @@
 
         <title>@if (trim($__env->yieldContent('template_title')))@yield('template_title') | @endif {{ config('app.name', Lang::get('titles.app')) }}</title>
         <meta name="description" content="ECRcentral is a central platform for early career researchers to find postdoc research fellowships, travel grants and to share experiences and to provide feedback."/>
-        <meta name="keywords" content="funding, opportunities, Postdoc, fellowships, schemes, early career researchers, postdoctoral, research, grants, travel"/>
+        <meta name="keywords" content="funding, opportunities, Postdoc, fellowships, schemes, early career researchers, ECR, postdoctoral, forum, research, grants, travel, conference, resource, PhD"/>
         <meta name="author" content="Aziz Khan">
         @include('partials.favicon')
         
@@ -34,9 +34,9 @@
         @yield('template_linked_fonts')
         {{-- Styles --}}
         <link href="{{ asset('css/ecrcentral.css') }}" rel="stylesheet">
+        
         <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
-
 
 
         @yield('template_linked_css')
@@ -61,8 +61,7 @@
         @if (Auth::User() && (Auth::User()->profile) && $theme->link != null && $theme->link != 'null')
             <link rel="stylesheet" type="text/css" href="{{ $theme->link }}">
         @else
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/css/flat-ui.min.css">
-        
+        <link href="{{ asset('css/flat-ui.min.css') }}" rel="stylesheet">
         @endif
 
 
@@ -110,7 +109,9 @@
         {{-- Scripts --}}
         <script src="{{ mix('/js/app.js') }}"></script>
         <script src="{{ asset('js/avatar-initial.js') }}"></script>
-
+        <!--
+        <script src="{{ asset('js/flat-ui.min.js') }}"></script>
+    -->
 
         @if(config('settings.googleMapsAPIStatus'))
             {!! HTML::script('//maps.googleapis.com/maps/api/js?key='.env("GOOGLEMAPS_API_KEY").'&libraries=places&dummy=.js', array('type' => 'text/javascript')) !!}

@@ -171,6 +171,7 @@ return [
             'App\\Widgets\\FundingDimmer',
             'App\\Widgets\\TravelGrantDimmer',
             'App\\Widgets\\FunderDimmer',
+            'App\\Widgets\\ResourceDimmer',
         ],
 
     ],
@@ -213,7 +214,7 @@ return [
     ],
 
     'googlemaps' => [
-         'key'    => env('GOOGLE_MAPS_KEY', ''),
+         'key'    => env('GOOGLEMAPS_API_KEY', ''),
          'center' => [
              'lat' => env('GOOGLE_MAPS_DEFAULT_CENTER_LAT', '32.715738'),
              'lng' => env('GOOGLE_MAPS_DEFAULT_CENTER_LNG', '-117.161084'),

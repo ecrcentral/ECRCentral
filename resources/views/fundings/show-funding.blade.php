@@ -27,11 +27,9 @@ Funding - {{ $funding->name }}
           </div>
           @endif
         </h4>
-
       </div>
       
       <div class="col-md-8">
-
         @if($funding->status == 0)
         <div class="alert alert-danger fade in">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -98,6 +96,8 @@ Funding - {{ $funding->name }}
         <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::fullUrl()) }}" target="_blank" title="Share on Facebook" class="btn btn-social-icon btn-sm margin-half btn-facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
         <a href="https://plus.google.com/share?url={{ urlencode(Request::fullUrl()) }}" target="_blank" title="Share on Google+" class="btn btn-social-icon btn-sm margin-half btn-google"><i class="fa fa-google" aria-hidden="true"></i></a>
         <a href="http://www.linkedin.com/shareArticle?url={{ urlencode(Request::fullUrl()) }}" target="_blank" title="Share on Linkedin" class="btn btn-social-icon btn-sm margin-half btn-linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+        <a href="http://service.weibo.com/share/share.php?url={{ urlencode(Request::fullUrl())}}&amp;title={{$funding->name}}" target="_blank" class="btn btn-social-icon btn-sm margin-half btn-info"><i class="fa fa-weibo" aria-hidden="true"></i></a>
+
         <a href="mailto:?Subject={{$funding->name}}&Body={{ urlencode(Request::fullUrl()) }}" target="_blank" title="Email to someone" class="btn btn-social-icon btn-sm margin-half btn-github"><i class="fa fa-envelope" aria-hidden="true"></i></a>
         <div class="border-bottom"></div>
       </div>
@@ -165,5 +165,14 @@ Funding - {{ $funding->name }}
 @section('footer_scripts')
 
   @include('scripts.delete-modal-script')
+  <script type="text/javascript">
+    $(document).ready(function() {
+    $('.btn-social-icon').click(function(e) {
+        e.preventDefault();
+        window.open($(this).attr('href'), 'fbShareWindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 275) + ', left=' + ($(window).width() / 2 - 225) + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+        return false;
+    });
+});
+  </script>
 
 @endsection
