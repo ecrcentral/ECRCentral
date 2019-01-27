@@ -31,7 +31,6 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Funding <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li {{ Route::is('fundings') ? 'class=active' : null }}><a href="{{ route('fundings') }}">Funding Schemes</a></li>
-                    <li role="separator" class="divider"></li>
                     <li {{ Request::is('travel-grants') ? 'class=active' : null }}><a href="{{ route('travelgrants') }}">Travel Grants</a></li> 
                   </ul>
                 </li>
@@ -128,7 +127,7 @@
                                 <li {{ Request::is('active-users') ? 'class=active' : null }}>{!! HTML::link(url('/active-users'), Lang::get('titles.activeUsers')) !!}</li>
                             
                             @endif
-
+                            <li role="separator" class="divider"></li>
                             <li>
                                 <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();

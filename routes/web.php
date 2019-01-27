@@ -30,7 +30,8 @@ Route::get('sitemap', function() {
     if (!$sitemap->isCached()) {
         // add item to the sitemap (url, date, priority, freq)
         $sitemap->add(URL::to('/'), '2019-01-25T20:10:00+02:00', '1.0', 'daily');
-        $sitemap->add(URL::to('forums'), '2019-01-25T20:10:00+02:00', '1.0', 'hourly');
+        $sitemap->add(URL::to('forum'), '2019-01-25T20:10:00+02:00', '1.0', 'hourly');
+        $sitemap->add(URL::to('funders'), '2019-01-25T20:10:00+02:00', '1.0', 'monthly');
 
         $sitemap->add(URL::to('resources'), '2019-01-25T20:10:00+02:00', '1.0', 'weekly');
         // get all resources from db
