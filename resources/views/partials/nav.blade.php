@@ -41,7 +41,7 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     
-                    <li {{ Request::is('forums') ? 'class=active' : null }}><a href="/forums">Community Forum</a></li>
+                    <li {{ Request::is('forums') ? 'class=active' : null }}><a href="/{{ Config::get('chatter.routes.home') }}/">Community Forum</a></li>
                      <li {{ Request::is('blog') ? 'class=active' : null }}> <a href="/blog">Community Blog</a></li>
 
                     <li role="separator" class="divider"></li>
