@@ -53,13 +53,13 @@ function get_logo(logos){
     if(logos.length == 1)
     {
     return `<div class="funder-gravatar">
-              <img src="/storage/${logos}" width="40" height="40">
+              <img src="/storage/${logos}" height="40">
           </div>`;
     }else{
         logos_html = '<div class="funder-gravatar">'
         for(var logo in logos)
         {
-          logos_html = logos_html.concat(`<img src="/storage/${logo}" width="40" height="40">`)
+          logos_html = logos_html.concat(`<img src="/storage/${logo}" height="40">`)
         }
         return logos_html.concat('</div>');
     }

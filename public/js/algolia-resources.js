@@ -51,23 +51,23 @@ function get_logo(hit){
   if(hit.logo != null)
     {
     return `<div class="funder-gravatar">
-              <img src="/storage/${hit.logo}" width="40" height="40">
+              <img src="/storage/${hit.logo}" height="40">
           </div>`;
     }else if (hit.source_name == 'Nature'){
     return `<div class="funder-gravatar">
-              <img src="/images/nature-logo.png" width="40" height="40">
+              <img src="/images/nature-logo.png" height="40">
           </div>`;
   }else if(hit.source_name == 'Science'){
     return `<div class="funder-gravatar">
-              <img src="/images/science-logo.png" width="40" height="40">
+              <img src="/images/science-logo.png" height="40">
           </div>`;
   }else if(hit.source_name == 'eLife'){
     return `<div class="funder-gravatar">
-              <img src="/images/elife-logo.jpg" width="40" height="40">
+              <img src="/images/elife-logo.jpg" height="40">
           </div>`;
   }else if(hit.source_name == 'EMBO'){
     return `<div class="funder-gravatar">
-              <img src="/images/embo-logo.jpg" width="40" height="40">
+              <img src="/images/embo-logo.jpg" height="40">
           </div>`;
   }else{
     return " ";
