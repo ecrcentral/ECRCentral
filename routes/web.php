@@ -17,6 +17,187 @@
 // Authentication Routes
 Auth::routes();
 
+// sitemap Routes
+Route::get('sitemap', function() {
+    // create new sitemap object
+    $sitemap = App::make('sitemap');
+
+    // set cache key (string), duration in minutes (Carbon|Datetime|int), turn on/off (boolean)
+    // by default cache is disabled
+    $sitemap->setCache('ecrcental.sitemap', 60);
+
+    // check if there is cached sitemap and build new only if is not
+    if (!$sitemap->isCached()) {
+        // add item to the sitemap (url, date, priority, freq)
+        $sitemap->add(URL::to('/'), '2019-01-25T20:10:00+02:00', '1.0', 'daily');
+        $sitemap->add(URL::to('forums'), '2019-01-25T20:10:00+02:00', '1.0', 'hourly');
+
+        $sitemap->add(URL::to('resources'), '2019-01-25T20:10:00+02:00', '1.0', 'weekly');
+        // get all resources from db
+        $resources = DB::table('resources')->where('status', 1)->orderBy('created_at', 'desc')->get();
+        // add every resource to the sitemap
+        foreach ($resources as $resource) {
+            $sitemap->add(URL::to('resources')."/".$resource->slug, $resource->updated_at, '0.5', 'monthly');
+        }
+
+        $sitemap->add(URL::to('travel-grants'), '2019-01-25T20:10:00+02:00', '1.0', 'weekly');
+        // get all travelgrants from db
+        $travelgrants = DB::table('travel_grants')->where('status', 1)->orderBy('created_at', 'desc')->get();
+        // add every travelgrants to the sitemap
+        foreach ($travelgrants as $travelgrant) {
+            $sitemap->add(URL::to('travel-grants')."/".$travelgrant->slug, $travelgrant->updated_at, '0.5', 'monthly');
+        }
+
+        $sitemap->add(URL::to('fundings'), '2019-01-25T20:10:00+02:00', '1.0', 'weekly');
+        // get all funding from db
+        $fundings = DB::table('fundings')->where('status', 1)->orderBy('created_at', 'desc')->get();
+        // add every funding to the sitemap
+        foreach ($fundings as $funding) {
+            $sitemap->add(URL::to('fundings')."/".$funding->slug, $funding->updated_at, '0.5', 'monthly');
+        }
+    }
+
+    // show your sitemap (options: 'xml' (default), 'html', 'txt', 'ror-rss', 'ror-rdf')
+    return $sitemap->render('xml');
+});
+
+Route::get('resources/feed', function(){
+
+    // create new feed
+    $feed = App::make("feed");
+
+    // multiple feeds are supported
+    // if you are using caching you should set different cache keys for your feeds
+
+    // cache the feed for 60 minutes (second parameter is optional)
+    $feed->setCache(60, 'ECRcentralResourcesFeedKey');
+
+    // check if there is cached feed and build new only if is not
+    if (!$feed->isCached())
+    {
+       // creating rss feed with our most recent 20 resources
+       $resources = \DB::table('resources')->where('status',1)->orderBy('created_at', 'desc')->take(20)->get();
+
+       // set your feed's title, description, link, pubdate and language
+       $feed->title = 'Resources for ECRs - ECRcentral ';
+       $feed->description = 'A community curated catalog of useful resources for early career researchers';
+       $feed->logo = 'https://ecrcentral.org/images/logo.png';
+       $feed->link = url('feed');
+       $feed->setDateFormat('datetime'); // 'datetime', 'timestamp' or 'carbon'
+       $feed->pubdate = $resources[0]->created_at;
+       $feed->lang = 'en';
+       $feed->setShortening(true); // true or false
+       $feed->setTextLimit(100); // maximum length of description text
+
+       foreach ($resources as $resource)
+       {
+           // set item's title, author, url, pubdate, description, content, enclosure (optional)*
+           $feed->add($resource->name, 'ECRcentral', URL::to('resources/'.$resource->slug), $resource->created_at, $resource->description, $resource->description);
+       }
+
+    }
+
+    // first param is the feed format
+    // optional: second param is cache duration (value of 0 turns off caching)
+    // optional: you can set custom cache key with 3rd param as string
+    return $feed->render('atom');
+
+    // to return your feed as a string set second param to -1
+    // $xml = $feed->render('atom', -1);
+});
+
+Route::get('fundings/feed', function(){
+
+    // create new feed
+    $feed = App::make("feed");
+
+    // multiple feeds are supported
+    // if you are using caching you should set different cache keys for your feeds
+
+    // cache the feed for 60 minutes (second parameter is optional)
+    $feed->setCache(60, 'ECRcentralFundingsFeedKey');
+
+    // check if there is cached feed and build new only if is not
+    if (!$feed->isCached())
+    {
+       // creating rss feed with our most recent 20 funding
+       $fundings = \DB::table('fundings')->where('status',1)->orderBy('created_at', 'desc')->take(20)->get();
+
+       // set your feed's title, description, link, pubdate and language
+       $feed->title = 'Funding schemes and fellowships for ECRs - ECRcentral ';
+       $feed->description = 'A community curated catalog of funding schemes and fellowships for early career researchers';
+       $feed->logo = 'https://ecrcentral.org/images/logo.png';
+       $feed->link = url('feed');
+       $feed->setDateFormat('datetime'); // 'datetime', 'timestamp' or 'carbon'
+       $feed->pubdate = $fundings[0]->created_at;
+       $feed->lang = 'en';
+       $feed->setShortening(true); // true or false
+       $feed->setTextLimit(100); // maximum length of description text
+
+       foreach ($fundings as $funding)
+       {
+           // set item's title, author, url, pubdate, description, content, enclosure (optional)*
+           $feed->add($funding->name, 'ECRcentral', URL::to('fundings/'.$funding->slug), $funding->created_at, $funding->description, $funding->funder_name);
+       }
+
+    }
+
+    // first param is the feed format
+    // optional: second param is cache duration (value of 0 turns off caching)
+    // optional: you can set custom cache key with 3rd param as string
+    return $feed->render('atom');
+
+    // to return your feed as a string set second param to -1
+    // $xml = $feed->render('atom', -1);
+
+});
+
+Route::get('travel-grants/feed', function(){
+
+    // create new feed
+    $feed = App::make("feed");
+
+    // multiple feeds are supported
+    // if you are using caching you should set different cache keys for your feeds
+
+    // cache the feed for 60 minutes (second parameter is optional)
+    $feed->setCache(60, 'ECRcentralTravelgrantsFeedKey');
+
+    // check if there is cached feed and build new only if is not
+    if (!$feed->isCached())
+    {
+       // creating rss feed with our most recent 20 funding
+       $travelgrants = \DB::table('travel_grants')->where('status',1)->orderBy('created_at', 'desc')->take(20)->get();
+
+       // set your feed's title, description, link, pubdate and language
+       $feed->title = 'Travel grants for ECRs - ECRcentral ';
+       $feed->description = 'A community curated catalog of travel grants for early career researchers';
+       $feed->logo = 'https://ecrcentral.org/images/logo.png';
+       $feed->link = url('feed');
+       $feed->setDateFormat('datetime'); // 'datetime', 'timestamp' or 'carbon'
+       $feed->pubdate = $travelgrants[0]->created_at;
+       $feed->lang = 'en';
+       $feed->setShortening(true); // true or false
+       $feed->setTextLimit(100); // maximum length of description text
+
+       foreach ($travelgrants as $travelgrant)
+       {
+           // set item's title, author, url, pubdate, description, content, enclosure (optional)*
+           $feed->add($travelgrant->name, 'ECRcentral', URL::to('travel-grants/'.$travelgrant->slug), $travelgrant->created_at, $travelgrant->description, $travelgrant->funder_name);
+       }
+
+    }
+
+    // first param is the feed format
+    // optional: second param is cache duration (value of 0 turns off caching)
+    // optional: you can set custom cache key with 3rd param as string
+    return $feed->render('atom');
+
+    // to return your feed as a string set second param to -1
+    // $xml = $feed->render('atom', -1);
+
+});
+
 
 // Public Routes
 Route::group(['middleware' => ['web', 'activity']], function () {

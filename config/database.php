@@ -1,9 +1,4 @@
 <?php
-// define('RDS_DB_NAME', $_SERVER['RDS_DB_NAME']);
-// define('RDS_USERNAME', $_SERVER['RDS_USERNAME']);
-// define('RDS_PASSWORD', $_SERVER['RDS_PASSWORD']);
-// define('RDS_HOSTNAME', $_SERVER['RDS_HOSTNAME']);
-// define('RDS_PORT', $_SERVER['RDS_PORT']);
 
 return [
 
@@ -51,13 +46,6 @@ return [
             'database'  => env('DB_DATABASE', 'forge'),
             'username'  => env('DB_USERNAME', 'forge'),
             'password'  => env('DB_PASSWORD', ''),
-
-            // 'host'      => RDS_HOSTNAME,
-            // 'port'      => RDS_PORT,
-            // 'database'  => RDS_DB_NAME,
-            // 'username'  => RDS_USERNAME,
-            // 'password'  => RDS_PASSWORD,
-
             #'unix_socket'  => env('DB_SOCKET', ''),
             'charset'   => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',

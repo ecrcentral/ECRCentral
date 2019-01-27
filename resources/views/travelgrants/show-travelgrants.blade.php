@@ -23,16 +23,16 @@
                     
                     <div class="col-md-12">
                         <h4 class="page-header"><i class="fas fa-plane-departure"></i> Travel grants for early career researchers
-                         <div class="pull-right">
-                         <a class="btn btn-sm btn-primary btn-block" href="{{ URL::to('travel-grants/create') }}" data-toggle="tooltip" title="Add"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add Travel Grant
-                      </a>
-                        </div></h4>
+                         </h4>
                     </div>
                     <!-- END RESULT -->
                 </div>
                  <div class="row">
                          
-                          <div class="col-md-4">                            
+                          <div class="col-md-4">
+                          <a class="btn btn-sm btn-success" href="{{ URL::to('travel-grants/feed') }}" target="_blank" title="Subscribe to RSS Feeds"><i class="fa fa-rss" aria-hidden="true"></i> Subscribe to Feeds</a>
+                            <a class="btn btn-sm btn-primary" href="{{ URL::to('travel-grants/create') }}" data-toggle="tooltip" title="Add New Travel Grant"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add New Travel Grant</a>
+                          <hr>                            
                             <div id="applicant_countries"></div>
                             <div id="host_countries"></div>
                             <div id="categories"></div>

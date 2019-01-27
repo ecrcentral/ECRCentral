@@ -23,16 +23,16 @@
                     
                     <div class="col-md-12">
                         <h4 class="page-header"><i class="fas fa-book"></i> Resources for early career researchers
-                         <div class="pull-right">
-                         <a class="btn btn-sm btn-primary btn-block" href="{{ URL::to('resources/create') }}" data-toggle="tooltip" title="Add"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add Resource 
-                      </a>
-                        </div></h4>
+                         </h4>
                     </div>
                     <!-- END RESULT -->
                 </div>
                  <div class="row">
                          
-                          <div class="col-md-4">                            
+                          <div class="col-md-4">
+                           <a class="btn btn-sm btn-success" href="{{ URL::to('resources/feed') }}" target="_blank" title="Subscribe to RSS Feeds"><i class="fa fa-rss" aria-hidden="true"></i> Subscribe to Feeds</a>
+                            <a class="btn btn-sm btn-primary" href="{{ URL::to('resources/create') }}" data-toggle="tooltip" title="Add New Resource"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add New Resource</a>
+                          <hr>                                                      
                             <div id="categories"></div>
                           </div>
 

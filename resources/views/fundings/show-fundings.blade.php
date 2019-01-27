@@ -22,15 +22,15 @@
 
                     <div class="col-md-12">
                       <h4 class="page-header"><i class="fa fa-certificate"></i> Funding schemes and fellowships for early career researchers
-
-                      <div class="pull-right">
-                      <a class="btn btn-sm btn-primary btn-block" href="{{ URL::to('fundings/create') }}" data-toggle="tooltip" title="Add"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add Funding
-                      </a></div></h4>
+                    </h4>
                    </div>
                  </div>
                   <div class="row">
                          
-                          <div class="col-md-4">                            
+                          <div class="col-md-4">
+                            <a class="btn btn-sm btn-success" href="{{ URL::to('fundings/feed') }}" target="_blank" title="Subscribe to RSS Feeds"><i class="fa fa-rss" aria-hidden="true"></i> Subscribe to Feeds</a>
+                            <a class="btn btn-sm btn-primary" href="{{ URL::to('fundings/create') }}" data-toggle="tooltip" title="Add"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add New Funding</a>
+                          <hr>                          
                             <div id="applicant_countries"></div>
                             <div id="host_countries"></div>
                             <div id="categories"></div>
