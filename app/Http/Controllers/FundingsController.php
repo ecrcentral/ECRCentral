@@ -162,7 +162,7 @@ class FundingsController extends Controller
 
         $related_fundings = Funding::where('id', "!=", $funding->id)
             ->where('applicant_country', 'LIKE', '%' . $funding->applicant_country . '%')
-            ->orWhere('host_country', 'LIKE', '%' . $funding->host_country . '%')->paginate(8);
+            ->orWhere('host_country', 'LIKE', '%' . $funding->host_country . '%')->take(8)->get();
 
         $data = [
             'funding'        => $funding,

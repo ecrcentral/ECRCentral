@@ -154,7 +154,8 @@ class travelgrantsController extends Controller
         $travelgrant = TravelGrant::where('slug', '=', $id)->orWhere('id', '=', $id)->firstOrFail();
 
         $related_travelgrants = TravelGrant::where('id', "!=", $travelgrant->id)
-             ->where('purpose', 'LIKE', '%' . $travelgrant->purpose . '%')->paginate(8);
+            ->where('purpose', 'LIKE', '%' . $travelgrant->purpose . '%')->take(8)->get();
+    
 
         $data = [
             'travelgrant'        => $travelgrant,

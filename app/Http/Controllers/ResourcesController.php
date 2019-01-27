@@ -142,7 +142,7 @@ class resourcesController extends Controller
 
         $related_resources = Resource::where('id', "!=", $resource->id)
             ->orWhere('name', 'LIKE', '%' . $resource->name . '%')
-            ->orWhere('description', 'LIKE', '%' . $resource->description . '%')->paginate(5);
+            ->orWhere('description', 'LIKE', '%' . $resource->description . '%')->take(8)->get();
 
         $data = [
             'resource'        => $resource,

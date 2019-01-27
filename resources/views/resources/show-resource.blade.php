@@ -41,6 +41,20 @@ Resource - {{ $resource->name }}
             </div>
           </div>
 
+          @if($resource->categories)
+          <div class="panel panel-default">
+            <div class="panel-heading">Resource categories</div>
+            <div class="panel-body">
+              <small>
+                      @foreach ($resource->categories as $category)
+                      {{ $loop->first ? '' : ', ' }}
+                       {{ $category->name }}
+                      @endforeach
+              </small>
+            </div>
+          </div>
+           @endif
+
       <p>
         <a href="{{ $resource->url }}" target="_blank"><button type="button" class="btn btn-success">Resource website</button></a>
         

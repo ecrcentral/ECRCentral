@@ -7,7 +7,7 @@ function hitTemplate(hit) {
     deadline = hit.deadline;
   }
 
-  var currentDate = new Date(hit.updated_at);
+  var currentDate = new Date(hit.updated_at.replace(/-/g, "/"));
   var date = currentDate.getDate();
   var month = currentDate.getMonth(); 
   var year = currentDate.getFullYear();
