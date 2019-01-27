@@ -9,9 +9,9 @@
     <div class="container">
          <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">404
+                <h4 class="page-header">404
                     <small>Page Not Found</small>
-                </h1>
+                </h4>
                 <ol class="breadcrumb">
                     <li><a href="/">Home</a>
                     </li>
