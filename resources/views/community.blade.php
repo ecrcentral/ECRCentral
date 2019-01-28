@@ -47,7 +47,7 @@ ECR Community
             </div>
         </div>
         <!-- /.row -->
-        {{ $count = 1 }}
+       @php ($count = 1)
         @foreach($members as $member)
             @if($count%6 == 1)
             <div class="row">
@@ -118,7 +118,7 @@ ECR Community
             @if($count%6 == 0)
              </div>
             @endif
-            {{ ++$count }}
+            @php($count++)
             @endforeach
             @if($count%6 != 1)
             </div>
