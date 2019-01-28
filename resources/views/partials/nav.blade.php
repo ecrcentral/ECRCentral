@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top bg-dark" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top bg-dark">
     <div class="container">
         <div class="navbar-header">
 
@@ -51,7 +51,7 @@
                     <li role="separator" class="divider"></li>
 
                     <li {{ Request::is('community') ? 'class=active' : null }}><a href="/community">Members</a></li>
-                    <li {{ Request::is('community/moderators') ? 'class=active' : null }}><a href="/community/moderators">M oderators</a></li>
+                    <li {{ Request::is('community/moderators') ? 'class=active' : null }}><a href="/community/moderators">Moderators</a></li>
                     <li {{ Request::is('community/managers') ? 'class=active' : null }}><a href="/community/managers">Managers</a></li>
                     <!--s
                     <li><a href="#">Mentors</a></li>

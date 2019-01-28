@@ -30,7 +30,7 @@
                  <div class="row">
                          
                           <div class="col-md-4">
-                           <a class="btn btn-sm btn-success" href="{{ URL::to('resources/feed') }}" target="_blank" title="Subscribe to RSS Feeds"><i class="fa fa-rss" aria-hidden="true"></i> Subscribe to Feeds</a>
+                           <a class="btn btn-sm btn-warning" href="{{ URL::to('resources/feed') }}" target="_blank" title="Subscribe to RSS Feeds"><i class="fa fa-rss" aria-hidden="true"></i> Subscribe to Feeds</a>
                             <a class="btn btn-sm btn-primary" href="{{ URL::to('resources/create') }}" data-toggle="tooltip" title="Add New Resource"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add New Resource</a>
                           <hr>                                                      
                             <div id="categories"></div>
