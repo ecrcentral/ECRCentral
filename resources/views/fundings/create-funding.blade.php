@@ -198,6 +198,18 @@
                   </div>
                 </div>
               </div>
+
+              <div class="form-group has-feedback row {{ $errors->has('status') ? ' has-error ' : '' }}">
+                {!! Form::label('status', 'Status' , array('class' => 'col-md-3 control-label')); !!}
+                <div class="col-md-9">
+                  <div class="input-group">
+                    <select class="form-control" name="status" @if(Auth::user() && Auth::user()->role->name != 'user') @else disabled @endif>
+                      <option value="1">Publish</option>
+                      <option value="0" selected>Draft</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
         
         
 

@@ -84,7 +84,7 @@ A central platform for early career researchers community
             -->
             <img src="images/icons/desktop.svg" alt="Travel Grants" class="tile-image" width="50%">
             <h3 class="tile-title">Resources</h3>
-            <p>A curated list of useful resources for ECRs</p>
+            <p>A curated list of <b>{{ $total_resources }}</b> useful resources for ECRs</p>
             <a class="btn btn-primary btn-large btn-block" href="{{ route('resources') }}">View Resources</a>
           </div>
         </div>

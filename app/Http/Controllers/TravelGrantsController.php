@@ -125,7 +125,7 @@ class travelgrantsController extends Controller
             'fields' => $request->input('fields'),
             'diversity' => $request->input('diversity'),
             'career_level' => $request->input('career_level'),
-            'status' => 0,
+            'status' => $request->input('status'),
             'featured' => 0,
             'user_id' => $user_id,
          
