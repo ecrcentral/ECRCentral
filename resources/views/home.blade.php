@@ -264,7 +264,7 @@ A central platform for early career researchers community
                                 </div>
                                 <div class="pull-right">
                                     
-                                    <a class="btn btn-xs btn-white" title="Total replies"><i class="fa fa-pencil"></i> {{ $discussion->postsCount[0]->total }} </a>
+                                    <a class="btn btn-xs btn-white" title="Total replies"><i class="fa fa-comment"></i> {{ $discussion->postsCount[0]->total }} </a>
                                     <a class="btn btn-xs btn-white" title="Total views"><i class="fa fa-eye"></i> {{ $discussion->views }} </a>
                                   
                                     <a class="btn btn-xs btn-primary" href="/{{ Config::get('chatter.routes.home') }}/{{ Config::get('chatter.routes.discussion') }}/{{ $discussion->category->slug }}/{{ $discussion->slug }}"><i class="fa fa-reply"></i> Reply</a>

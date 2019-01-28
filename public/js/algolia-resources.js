@@ -53,13 +53,13 @@ function get_logo(hit){
     return `<div class="funder-gravatar">
               <img src="/storage/${hit.logo}" height="40">
           </div>`;
-    }else if (hit.source_name == 'Nature'){
+    }else if (hit.source_name == 'Nature' || hit.source_name == 'Nature careers'){
     return `<div class="funder-gravatar">
-              <img src="/images/nature-logo.png" height="40">
+              <img src="/images/nature-logo.jpg" height="40">
           </div>`;
-  }else if(hit.source_name == 'Science'){
+  }else if(hit.source_name == 'Science' || hit.source_name == 'Science careers'){
     return `<div class="funder-gravatar">
-              <img src="/images/science-logo.png" height="40">
+              <img src="/images/science-logo.jpg" height="40">
           </div>`;
   }else if(hit.source_name == 'eLife'){
     return `<div class="funder-gravatar">
