@@ -47,10 +47,11 @@ ECR Community
             </div>
         </div>
         <!-- /.row -->
-        <div class="row">
-            
-            @foreach($members as $member)
-
+        {{ $count = 1 }}
+        @foreach($members as $member)
+            @if( $count%6 == 1)
+            <div class="row">
+             @endif
             <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6 text-center">
                 <div class="thumbnail">
                     @if (($member->profile) && $member->profile->avatar_status == 1)
@@ -114,10 +115,15 @@ ECR Community
                     </div>
                 </div>
             </div>
+            @if( $count%6 == 0)
+             </div>
+            @endif
+            {{ $count++ }}
+            @endforeach
+            @if($count%6 != 1)
+            </div>
+            @endif           
 
-            @endforeach             
-        
-        </div>
          {{ $members->links() }}
         <br><br>     
 </div>
