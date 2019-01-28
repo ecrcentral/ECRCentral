@@ -118,7 +118,7 @@ ECR Community
             @if( $count%6 == 0)
              </div>
             @endif
-            {{ $count++ }}
+            {{ $count = $count+1 }}
             @endforeach
             @if($count%6 != 1)
             </div>
