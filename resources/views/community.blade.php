@@ -47,9 +47,8 @@ ECR Community
             </div>
         </div>
         <!-- /.row -->
-        {{ $count = 1 }}
         @foreach($members as $member)
-            @if( $count%6 == 1)
+            @if($loop->iteration%6 == 1)
             <div class="row">
              @endif
             <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6 text-center">
@@ -115,12 +114,12 @@ ECR Community
                     </div>
                 </div>
             </div>
-            @if( $count%6 == 0)
+            @if($loop->iteration%6 == 0)
              </div>
             @endif
-            {{ $count = $count+1 }}
+           
             @endforeach
-            @if($count%6 != 1)
+            @if($loop->iteration%6 != 1)
             </div>
             @endif           
 
