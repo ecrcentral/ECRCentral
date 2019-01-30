@@ -203,8 +203,10 @@
                 {!! Form::label('status', 'Status' , array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
                   <div class="input-group">
-                    <select class="form-control" name="status" @if(Auth::user() && Auth::user()->role->name != 'user') @else disabled @endif>
+                    <select class="form-control" name="status">
+                      @if(Auth::user() && Auth::user()->role->name != 'user')
                       <option value="1">Publish</option>
+                       @endif
                       <option value="0" selected>Draft</option>
                     </select>
                   </div>
