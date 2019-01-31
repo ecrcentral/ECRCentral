@@ -22,17 +22,18 @@ body {
 
 #footerc {
     background-color: #34495e;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-top: 15px;
     background-repeat: repeat;
     text-align: center;
     font-size: 15px;
 }
 
+
 #headerwrap h1 {
     margin-top: 30px;
     color: white;
-    font-size: 70px;
+    xfont-size: 70px;
     
 }
 #headerwrap h2 {
@@ -75,12 +76,13 @@ body {
 }
 
 #intro2 {
-    border-top: #c1652b solid 0px;
-    border-bottom: #c1652b solid 0px;
-    background-image: url(/images/banner.jpg);
+    border-top: #E7E9EC solid 1px;
+    border-bottom: #E7E9EC solid 1px;
+    background-color: #ECF0F1;
     padding-bottom: 20px;
     padding-top: 40px;
     background-repeat: repeat;
+
 }
 
 #page-header {

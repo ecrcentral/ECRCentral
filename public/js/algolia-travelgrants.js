@@ -31,11 +31,11 @@ function hitTemplate(hit) {
             ${get_logo(hit.logos)}
             <div class="entry-funder-content">
               <div class="funder-name">
-                <i class="fas fa-user-graduate"></i> Applicant nationality: ${hit.applicant_country} | 
-<i class="fas fa-university"></i> Grant purpose: ${hit.travel_purpose.toString()}
+                 <i class="fa fa-globe"></i> Applicant nationality: ${hit.applicant_country} | 
+<i class="fa fa-university"></i> Grant purpose: ${hit.travel_purpose.toString()}
               </div>
               <div class="post-date">
-                <i class="far fa-calendar-alt"></i> Deadline: ${deadline} | Last updated: ${dateString}
+                <i class="fa fa-calendar-alt"></i> Deadline: ${deadline} | Last updated: ${dateString}
               </div>
               <!--
               <div class="post-meta-info">

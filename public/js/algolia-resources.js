@@ -34,7 +34,7 @@ function hitTemplate(hit) {
                 <b>${hit.description}</b>
               </div>
               <div class="post-date">
-                <i class="fas fa-book"></i> Category: ${hit.categories.toString()} <i class="far fa-calendar-alt"></i> Last updated: ${dateString}
+                <i class="fa fa-book"></i> Category: ${hit.categories.toString()} <i class="fa fa-calendar"></i> Last updated: ${dateString}
               </div>
               <!--
               <div class="post-meta-info">

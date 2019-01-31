@@ -12,7 +12,7 @@
 
             {{-- Branding Image --}}
             <a class="navbar-brand" href="{{ url('/') }}">
-                @if(!setting('site.logo'))
+                @if(setting('site.logo'))
                 <img height="100%" src="/storage/{{ setting('site.logo') }}">
                 @else
                 {{ setting('site.title') }}
@@ -53,18 +53,11 @@
                     <li {{ Request::is('community') ? 'class=active' : null }}><a href="/community">Members</a></li>
                     <li {{ Request::is('community/moderators') ? 'class=active' : null }}><a href="/community/moderators">Moderators</a></li>
                     <li {{ Request::is('community/managers') ? 'class=active' : null }}><a href="/community/managers">Managers</a></li>
-                    <!--s
-                    <li><a href="#">Mentors</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Another tab</a></li>
-                -->
                   </ul>
                 </li>
-                <!--
-                
+                <!--             
                 <li {{ Request::is('blog') ? 'class=active' : null }}> <a href="/blog">Blog</a></li>
             -->
-
                
                 <li class="dropdown" {{ Request::is('about') ? 'class=active' : null }}>
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret active"></span></a>

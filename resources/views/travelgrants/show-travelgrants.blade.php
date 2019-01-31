@@ -7,25 +7,20 @@
 @section('template_linked_css')
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('css/algolia.css') }}">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
 @endsection
 
 @section('content')
 <div class="container">
 <div class="row">
-    <!-- BEGIN SEARCH RESULT -->
     <div class="col-md-12">
         <div class="grid search">
             <div class="grid-body">
                 <div class="row">
-                    <!-- BEGIN FILTERS -->
                     
                     <div class="col-md-12">
-                        <h4 class="page-header"><i class="fas fa-plane-departure"></i> Travel grants for early career researchers
-                         </h4>
+                        <h4 class="page-header"> Travel grants for early career researchers</h4>
                     </div>
-                    <!-- END RESULT -->
                 </div>
                  <div class="row">
                          

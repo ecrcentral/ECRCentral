@@ -96,7 +96,7 @@ A central platform for early career researchers community
             -->
             <img src="images/icons/global.svg" alt="Funders" class="tile-image" width="50%">
             <h3 class="tile-title">Community</h3>
-            <p>Bringing ECR community together to network and mentor</p>
+            <p>Bringing ECR community together to network, engage, and mentor</p>
             <a class="btn btn-primary btn-large btn-block" href="/forums">Join the Community</a>
           </div>
         </div>
@@ -118,30 +118,29 @@ A central platform for early career researchers community
       </div>
   </div>
 </div>
-
-
 <div style="background-color: #edf0f1; padding-bottom: 30px; padding-top: 0px;">
     <div class="container">
 
           <div class="row"> 
 
             <div class="col-md-6">
-              <h4 class="page-header">Featured postdoctoral fellowships</h4>
+              <h4 class="page-header">Featured research fellowships</h4>
 
                @foreach($featured_fundings as $funding)
                 <div class="media">
+                    <!--
                     <div class="pull-left">
                         <span class="fa-stack fa-2x">
                               <i class="fa fa-circle fa-stack-2x text-primary"></i>
                               <i class="fa fa-star fa-stack-1x fa-inverse"></i>
                         </span> 
                     </div>
+                  -->
                     <div class="media-body">
                         <strong><a href="{{ route('fundings') }}/@if($funding->slug){{$funding->slug}}@else{{$funding->id}}@endif">{{$funding->name}}</a></strong>
                         <p>
                         <small><b>Funder</b>: {{$funding->funder_name}} | <b>Deadline</b>: {{$funding->deadline}}</small>
                         </p>
-
                     </div>
                 </div>
                 @endforeach
@@ -152,25 +151,24 @@ A central platform for early career researchers community
 
                    @foreach($featured_travelgrants as $travelgrant)
                     <div class="media">
+                        <!--
                         <div class="pull-left">
                             <span class="fa-stack fa-2x">
                                   <i class="fa fa-circle fa-stack-2x text-primary"></i>
                                   <i class="fa fa-plane fa-stack-1x fa-inverse"></i>
                             </span> 
                         </div>
+                      -->
                         <div class="media-body">
                             <strong><a href="{{ route('travelgrants') }}/@if($travelgrant->slug){{$travelgrant->slug}}@else{{$travelgrant->id}}@endif">{{$travelgrant->name}}</a></strong>
                             <p>
                             <small><b>Funder</b>: {{$travelgrant->funder_name}} | <b>Subject</b>: {{$travelgrant->fields}}</small>
                             </p>
-
                         </div>
                     </div>
                     @endforeach
                 </div>
-
             </div>
-
       </div>
     </div>
 
@@ -181,12 +179,14 @@ A central platform for early career researchers community
 
                @foreach($fundings as $funding)
                 <div class="media">
+                    <!--
                     <div class="pull-left">
                         <span class="fa-stack fa-2x">
                               <i class="fa fa-circle fa-stack-2x text-primary"></i>
                               <i class="fa fa-calendar fa-stack-1x fa-inverse"></i>
                         </span> 
                     </div>
+                  -->
                     <div class="media-body">
                         <strong><a href="{{ route('fundings') }}/@if($funding->slug){{$funding->slug}}@else{{$funding->id}}@endif">{{$funding->name}}</a></strong>
                         <p>
@@ -203,12 +203,14 @@ A central platform for early career researchers community
 
                    @foreach($featured_resources as $resource)
                     <div class="media">
+                        <!--
                         <div class="pull-left">
                             <span class="fa-stack fa-2x">
                                   <i class="fa fa-circle fa-stack-2x text-primary"></i>
                                   <i class="fa fa-book fa-stack-1x fa-inverse"></i>
                             </span> 
                         </div>
+                      -->
                         <div class="media-body">
                             <strong><a href="{{ route('resources') }}/@if($resource->slug){{$resource->slug}}@else{{$resource->id}}@endif">{{$resource->name}}</a></strong> <small class="text-muted">  by {{$resource->source_name}} </small>
                             <p>{{ substr(strip_tags($resource->description), 0, 115) }}@if(strlen(strip_tags($resource->description)) > 115){{ '...' }}@endif</p>
@@ -216,11 +218,19 @@ A central platform for early career researchers community
                     </div>
                     @endforeach
             </div>
-
           </div>
     </div>
-
-           
+<br> <br> 
+<div id="intro2">
+  <div class="container">
+        <div class="row centered">
+          <p class="lead" align="center">
+                This is a community curated catalog of useful resources for early career researchers <a href="{{ route('getinvolved')}}">
+                  <button class="btn btn-info"><b>Get involved and create impact</b></button></a>
+          </p>
+        </div>
+  </div>
+</div><br> 
  <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -245,7 +255,6 @@ A central platform for early career researchers community
                             <img class="round" width="50" height="50" avatar="{{ $discussion->user->name }}">
                             @endif
                           @endif
-
                         
                         @endif
                         </a>
@@ -278,20 +287,11 @@ A central platform for early career researchers community
         </div>
     </div>
 
-
   </div>
 </div>
 
 <br><br>
-<div id="intro2">
-  <div class="container">
-          <div class="row centered">
-              <p class="lead" align="center">
-                This is a community curated catalog of useful resources for early career researchers <a href="{{ route('getinvolved')}}">
-                  <button class="btn btn-danger"><b>Get involved and create impact</b></button></a></p>
-        </div>
-  </div>
-</div>
+
 
 @endsection
 
