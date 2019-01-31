@@ -193,6 +193,7 @@ return [
         Laravel\Scout\ScoutServiceProvider::class,
         Laravelium\Feed\FeedServiceProvider::class,
         Laravelium\Sitemap\SitemapServiceProvider::class,
+        Spatie\Newsletter\NewsletterServiceProvider::class,
 
         #Laravolt\Avatar\ServiceProvider::class,
 

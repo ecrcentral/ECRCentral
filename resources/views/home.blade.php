@@ -27,7 +27,7 @@ A central platform for early career researchers community
         <div class="row">             
               <div class="col-lg-12 col-md-12">
                 <center>
-                <a href="@if(Auth::user()) /forums @else /register @endif">
+                <a href="@if(Auth::user()) /forum @else /register @endif">
                  <button class="btn btn-embossed btn-primary">Join the Community</button></a>
                </center>
                </div>
@@ -97,7 +97,7 @@ A central platform for early career researchers community
             <img src="images/icons/global.svg" alt="Funders" class="tile-image" width="50%">
             <h3 class="tile-title">Community</h3>
             <p>Bringing ECR community together to network, engage, and mentor</p>
-            <a class="btn btn-primary btn-large btn-block" href="/forums">Join the Community</a>
+            <a class="btn btn-primary btn-large btn-block" href="/forum">Join the Community</a>
           </div>
         </div>
 
