@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+## commented because https://stackoverflow.com/questions/45266254/laravel-unable-to-prepare-route-for-serialization-uses-closure
+#Route::middleware('auth:api')->get('/user', function (Request $request) {
+#    return $request->user();
+#});
