@@ -69,6 +69,32 @@
 
         @yield('css')
 
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+        <script>
+        window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+          "palette": {
+            "popup": {
+              "background": "#38495c",
+              "text": "#ffffff"
+            },
+            "button": {
+              "background": "#19b491",
+              "text": "#ffffff"
+            }
+          },
+          "theme": "classic",
+          "position": "bottom-left",
+          "content": {
+            "message": "This site uses cookies to deliver its services and analyse traffic. We also embed content from third parties, including social media websites, which may include cookies. By using this site, you agree to its use of cookies.",
+            "dismiss": "GOT IT",
+            "link": "Learn more",
+            "href": "https://ecrcentral.org/privacy"
+          }
+        })});
+        </script>
+
     </head>
     <body data-spy="scroll" data-offset="0">
       <script type="application/ld+json">
@@ -109,9 +135,8 @@
         {{-- Scripts --}}
         <script src="{{ mix('/js/app.js') }}"></script>
         <script src="{{ asset('js/avatar-initial.js') }}"></script>
-        <!--
-        <script src="{{ asset('js/flat-ui.min.js') }}"></script>
-    -->
+  
+        <script src="{{ asset('js/flat-ui.js') }}"></script>
 
         @if(config('settings.googleMapsAPIStatus'))
             {!! HTML::script('//maps.googleapis.com/maps/api/js?key='.env("GOOGLEMAPS_API_KEY").'&libraries=places&dummy=.js', array('type' => 'text/javascript')) !!}

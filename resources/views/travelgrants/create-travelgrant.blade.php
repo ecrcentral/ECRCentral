@@ -106,16 +106,6 @@
                 {!! Form::label('membership', 'Memberschip required?' , array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
                   <div class="input-group">
-                    {!! Form::text('membership', old('membership'), array('id' => 'membership', 'class' => 'form-control', 'placeholder' => 'Memberschip required?')) !!}
-                    <label class="input-group-addon" for="membership"><i class="fa fa-fw fa-pencil " aria-hidden="true"></i></label>
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-group has-feedback row {{ $errors->has('membership') ? ' has-error ' : '' }}">
-                {!! Form::label('membership', 'Memberschip required?' , array('class' => 'col-md-3 control-label')); !!}
-                <div class="col-md-9">
-                  <div class="input-group">
                   <label class="radio-inline"><input type="radio"  class='form-control' value="1" name="membership"> Yes</label>
                   <label class="radio-inline"><input type="radio" class='form-control' value="0" name="membership"> No</label>
                 </div>
@@ -187,10 +177,10 @@
                 <div class="col-md-9">
                   <div class="input-group">
                     <select class="form-control" name="status">
+                      <option value="0" selected>Draft</option>
                       @if(Auth::user() && Auth::user()->role->name != 'user')
                       <option value="1">Publish</option>
-                       @endif
-                      <option value="0" selected>Draft</option>
+                       @endif                      
                     </select>
                   </div>
                 </div>

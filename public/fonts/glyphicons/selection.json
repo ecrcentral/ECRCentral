@@ -2063,10 +2063,10 @@
 	],
 	"height": 1024,
 	"metadata": {
-		"name": "flat-ui-pro-icons",
-		"url": "https://designmodo.com/flat",
+		"name": "flat-ui-icons",
+		"url": "http://designmodo.com/flat",
 		"designer": "Sergey Shmidt",
-		"designerURL": "https://designmodo.com",
+		"designerURL": "http://designmodo.com",
 		"license": "Attribution-NonCommercial-NoDerivs 3.0 Unported",
 		"licenseURL": "http://creativecommons.org/licenses/by-nc-nd/3.0/"
 	},
@@ -2076,12 +2076,12 @@
 		"fontPref": {
 			"prefix": "fui-",
 			"metadata": {
-				"fontFamily": "flat-ui-pro-icons",
+				"fontFamily": "flat-ui-icons",
 				"majorVersion": 1,
 				"minorVersion": 1,
-				"fontURL": "https://designmodo.com/flat",
+				"fontURL": "http://designmodo.com/flat",
 				"designer": "Sergey Shmidt",
-				"designerURL": "https://designmodo.com",
+				"designerURL": "http://designmodo.com",
 				"license": "Attribution-NonCommercial-NoDerivs 3.0 Unported",
 				"licenseURL": "http://creativecommons.org/licenses/by-nc-nd/3.0/"
 			},

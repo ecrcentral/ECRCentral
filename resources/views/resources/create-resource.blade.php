@@ -107,15 +107,14 @@
                 <div class="col-md-9">
                   <div class="input-group">
                     <select class="form-control" name="status">
+                      <option value="0" selected>Draft</option>
                       @if(Auth::user() && Auth::user()->role->name != 'user')
                       <option value="1">Publish</option>
                        @endif
-                      <option value="0" selected>Draft</option>
                     </select>
                   </div>
                 </div>
               </div>
-
               
               {!! Form::button('<i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Submit Resource', array('class' => 'btn btn-success btn-flat margin-bottom-1 pull-right','type' => 'submit', )) !!}
 

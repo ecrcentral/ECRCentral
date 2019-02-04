@@ -18,7 +18,7 @@
           <div class="col-md-2">
             <h3 class="footer-title">
               <a href="https://elifesciences.org/" target="_blank">
-              <img height="65px" class="pull-right" src=" {{ asset('images/powered-by-eLife.png') }}"> 
+              <img height="65px" class="pull-right" src=" {{ asset('images/powered-by-eLife.svg') }}"> 
             </a>
             </h3>
           </div>

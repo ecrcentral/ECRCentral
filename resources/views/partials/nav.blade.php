@@ -1,14 +1,11 @@
-<nav class="navbar navbar-default navbar-fixed-top bg-dark">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
 
             {{-- Collapsed Hamburger --}}
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                <span class="sr-only">{!! trans('titles.toggleNav') !!}</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+              </button>
 
             {{-- Branding Image --}}
             <a class="navbar-brand" href="{{ url('/') }}">
@@ -17,11 +14,10 @@
                 @else
                 {{ setting('site.title') }}
                 @endif
-                
             </a>
         </div>
 
-        <div class="collapse navbar-collapse" id="app-navbar-collapse">
+        <div class="collapse navbar-collapse" id="navbar-collapse">
             {{-- Left Side Of Navbar --}}
             <ul class="nav navbar-nav">
                 <!--
