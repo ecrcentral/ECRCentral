@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h3 class="page-header">{{ $page->title }}
-                    @if ($page->slug == 'about')
+                    @if ($page->slug == 'about' || $page->slug == 'team')
                     <small>ECRcentral</small>
                     @endif
                 @if(Auth::user() && Auth::user()->role->name != 'user')
@@ -31,8 +31,6 @@
         <div class="row">
             <div class="col-md-12">
                 <p>{!! $page->body !!}</p>
-                  
-             <div id="disqus_thread"> </div>         
             </div>
         </div>
 </div>

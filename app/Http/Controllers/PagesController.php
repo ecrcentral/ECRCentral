@@ -89,7 +89,7 @@ class PagesController extends Controller
     public function show($slug)
     {   
 
-        $page = Page::where('slug', $slug)->first();
+        $page = Page::where('slug', $slug)->firstOrFail();
 
         return view('page')->withpage($page);
     }
@@ -136,7 +136,7 @@ class PagesController extends Controller
      */
     public function about()
     {
-        $page = Page::where('slug', 'about')->first();
+        $page = Page::where('slug', 'about')->firstOrFail();
 
         return view('page')->withpage($page);
     }
@@ -150,35 +150,35 @@ class PagesController extends Controller
      */
     public function team()
     {
-        $page = Page::where('slug', 'about')->first();
+        $page = Page::where('slug', 'team')->firstOrFail();
 
-        return view('team')->withpage($page);
+        return view('page')->withpage($page);
     }
 
     public function privacy()
     {
-        $page = Page::where('slug', 'privacy')->first();
+        $page = Page::where('slug', 'privacy')->firstOrFail();
 
         return view('page')->withpage($page);
     }
 
     public function terms()
     {
-        $page = Page::where('slug', 'terms')->first();
+        $page = Page::where('slug', 'terms')->firstOrFail();
 
         return view('page')->withpage($page);
     }
 
     public function contact()
     {
-        $page = Page::where('slug', 'contact')->first();
+        $page = Page::where('slug', 'contact')->firstOrFail();
 
         return view('contact-us')->withpage($page);
     }
 
     public function get_involved()
     {
-        $page = Page::where('slug', 'get-involved')->first();
+        $page = Page::where('slug', 'get-involved')->firstOrFail();
 
         return view('page')->withpage($page);
     }
