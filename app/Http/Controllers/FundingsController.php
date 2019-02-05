@@ -143,7 +143,7 @@ class FundingsController extends Controller
 
         $funding->save();
 
-        Mail::to('azez.khan@gmail.com')->send(new FundingAdded($funding));
+        Mail::to('ecrcentral@googlegroups.com')->send(new FundingAdded($funding));
 
         return redirect('fundings')->with('success', trans('fundings.createSuccess'));
     }

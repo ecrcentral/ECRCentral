@@ -124,7 +124,7 @@ class resourcesController extends Controller
         $resource->save();
         $resource->categories()->sync($categories);
 
-        Mail::to('azez.khan@gmail.com')->send(new resourceAdded($resource));
+        Mail::to('ecrcentral@googlegroups.com')->send(new resourceAdded($resource));
 
         return redirect('resources')->with('success', trans('resources.createSuccess'));
     }

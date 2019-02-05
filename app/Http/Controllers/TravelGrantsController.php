@@ -137,7 +137,7 @@ class travelgrantsController extends Controller
         $travelgrant->save();
         $travelgrant->purposes()->sync($purposes);
 
-        Mail::to('azez.khan@gmail.com')->send(new TravelGrantAdded($travelgrant));
+        Mail::to('ecrcentral@googlegroups.com')->send(new TravelGrantAdded($travelgrant));
 
         return redirect('travel-grants')->with('success', trans('travelgrants.createSuccess'));
     }
