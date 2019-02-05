@@ -112,7 +112,8 @@ class resourcesController extends Controller
             'url' => $request->input('url'),
             'logo' => $request->input('logo'),
             'published_at' => $request->input('published_at'),
-            'status' => $request->input('status'),
+            #'status' => $request->input('status'),
+            'status' => 0,
             'featured' => 0,
             'user_id' => $user_id,
          

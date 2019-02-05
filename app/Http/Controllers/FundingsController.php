@@ -134,6 +134,7 @@ class FundingsController extends Controller
             'fileds' => $request->input('fileds'),
             'mobility_rule' => $request->input('mobility_rule'),
             'research_costs' => $request->input('research_costs'),
+            #'status' => $request->input('status'),
             'status' => 0,
             'featured' => 0,
             'user_id' => $user_id,
