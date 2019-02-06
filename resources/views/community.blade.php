@@ -58,9 +58,9 @@ ECR Community
                         <img src="{{ $member->profile->avatar }}" alt="{{ $member->name }}" width="100" height="100" border="0" class="img-circle">
                     @else
                         @if ($member->first_name && $member->last_name)
-                        <img class="round" width="140" height="140" avatar="{{ $member->first_name }} {{ $member->last_name }}">
+                        <img class="round" width="100" height="100" avatar="{{ $member->first_name }} {{ $member->last_name }}">
                         @else
-                        <img class="round" width="140" height="140" avatar="{{ $member->name }}">
+                        <img class="round" width="100" height="100" avatar="{{ $member->name }}">
                         @endif
                     @endif
 
