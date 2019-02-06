@@ -124,8 +124,10 @@ A central platform for early career researchers community
       <div class="col-md-12">
         <div class="alert alert-info fade in">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        <h5>Logo design competition</h5>
-          It is time for branding ourselves with a great logo! We're hosting a competition to design a new logo for ECRcentral. The competition deadline is <strong> March 4th 2019</strong>. For more details about the participation and prize click <a href="https://github.com/ecrcentral/logo" target="_blank">here</a>. 
+        <h6>ECRcentral logo design competition</h6>
+        <small>
+          It is time for branding ourselves with a great logo! We're hosting a competition to design a new logo for ECRcentral. The competition deadline is <strong> March 4th 2019</strong>.
+          <br>For more details about the participation and prize click <a href="https://github.com/ecrcentral/logo" target="_blank">here</a>. </small>
         </div>
       </div>
     </div>
