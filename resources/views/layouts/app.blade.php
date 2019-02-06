@@ -76,8 +76,8 @@
         window.cookieconsent.initialise({
           "palette": {
             "popup": {
-              "background": "#38495c",
-              "text": "#ffffff"
+              "background": "#BDC3C7",
+              "text": "#000"
             },
             "button": {
               "background": "#19b491",
@@ -87,7 +87,7 @@
           "theme": "classic",
           "position": "bottom-left",
           "content": {
-            "message": "This site uses cookies to deliver its services and analyse traffic. We also embed content from third parties, including social media websites, which may include cookies. By using this site, you agree to its use of cookies.",
+            "message": "This site uses cookies to deliver its services and analyse traffic. By using this site, you agree to its use of cookies.",
             "dismiss": "GOT IT",
             "link": "Learn more",
             "href": "https://ecrcentral.org/privacy"
