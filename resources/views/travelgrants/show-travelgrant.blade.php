@@ -68,7 +68,7 @@
             
               <p><b>Award</b>: {{ $travelgrant->award }}</p>
               @if($travelgrant->award_type)<p><b>Award type</b>: {{ $travelgrant->award_type }}</p>@endif
-              <p><b>Memberschip required?</b>: @if($travelgrant->membership == 0) No @elseif @if($travelgrant->membership == 1) Yes @else {{ $travelgrant->membership }} @endif</p>
+              <p><b>Memberschip required?</b>: @if($travelgrant->membership == 0) No @elseif($travelgrant->membership == 1) Yes @else {{ $travelgrant->membership }} @endif</p>
               <p><b>Memberschip duration</b> (years): {{ $travelgrant->membership_time }}</p>  
               <p><b>Diversity</b>: {{ $travelgrant->diversity }}</p> 
               <p><b>Subjects</b>: 
