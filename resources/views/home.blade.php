@@ -4,9 +4,10 @@
 A central platform for early career researchers community
 @endsection
 
-@section('socials_card')
-@include('partials.socials-card')
+@section('card_summary')
+summary_large_imag
 @endsection
+
 
 @section('template_linked_css')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/algolia-autocomplete.css') }}">
@@ -138,7 +139,8 @@ A central platform for early career researchers community
           <div class="row"> 
 
             <div class="col-md-6">
-              <h4 class="page-header">Featured research fellowships</h4>
+              <h4 class="page-header">Featured research fellowships
+                <small class="pull-right"><a href="{{ route('fundings') }}">View all</a></small></h4>
 
                @foreach($featured_fundings as $funding)
                 <div class="media">
@@ -161,7 +163,9 @@ A central platform for early career researchers community
                </div>
 
                 <div class="col-md-6">
-                  <h4 class="page-header">Featured travel grants</h4>
+                  <h4 class="page-header">Featured travel grants
+                  <small class="pull-right"><a href="{{ route('travelgrants') }}">View all</a></small>
+                </h4>
 
                    @foreach($featured_travelgrants as $travelgrant)
                     <div class="media">
@@ -213,7 +217,9 @@ A central platform for early career researchers community
             </div>
 
             <div class="col-md-6">
-                  <h4 class="page-header">Featured resources</h4>
+                  <h4 class="page-header">Featured resources
+                  <small class="pull-right"><a href="{{ route('resources') }}">View all</a></small>
+                </h4>
 
                    @foreach($featured_resources as $resource)
                     <div class="media">
@@ -248,7 +254,9 @@ A central platform for early career researchers community
  <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h4 class="page-header">Recent discussions from ECR community forum</h4>
+        <h4 class="page-header">Recent discussions from ECR community forum
+          <small class="pull-right"><a href="/{{ Config::get('chatter.routes.home') }}">View all</a></small>
+        </h4>
             <div class="ibox-content">
                <div class="feed-activity-list">
                  @foreach($discussions as $discussion)
@@ -297,7 +305,6 @@ A central platform for early career researchers community
               @endforeach
 
                 </div>
-                {{ $discussions->links() }}
         </div>
     </div>
 

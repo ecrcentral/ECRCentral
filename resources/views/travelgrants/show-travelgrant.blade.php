@@ -1,8 +1,15 @@
 @extends('layouts.app')
 
-@section('template_title')
-{{ $travelgrant->name }}
+@section('template_title'){{ $travelgrant->name }} by {{ $travelgrant->funder_name }}@endsection
+@section('og_title'){{ $travelgrant->name }} by {{ $travelgrant->funder_name }}@endsection
+@section('og_url'){{ Request::url() }}@endsection
+
+@section('card_summary')@endsection
+@section('description')
+{{ $travelgrant->name }} by {{ $travelgrant->funder_name }} for {{ $travelgrant->purpose }} in the subject {{ $travelgrant->fields }}
 @endsection
+@section('published_time'){{ $travelgrant->created_at }}@endsection
+@section('modified_time'){{ $travelgrant->updated_at }}@endsection
 
 @section('content')
   <div class="container">

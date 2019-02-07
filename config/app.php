@@ -189,6 +189,9 @@ return [
         App\Providers\LocalEnvironmentServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         jeremykenedy\laravelexceptionnotifier\LaravelExceptionNotifier::class,
+        jeremykenedy\LaravelLogger\LaravelLoggerServiceProvider::class,
+        jeremykenedy\LaravelHttps\LaravelHttpsServiceProvider::class,
+
 
         Laravel\Scout\ScoutServiceProvider::class,
         Laravelium\Feed\FeedServiceProvider::class,

@@ -53,7 +53,7 @@ class PagesController extends Controller
         $total_travelgrants = TravelGrant::where('status', '=', 1)->count();
         $total_resources = Resource::where('status', '=', 1)->count();
   
-        $discussions = Models::discussion()->with('user')->with('post')->with('postsCount')->with('category')->orderBy(config('chatter.order_by.discussions.order'), config('chatter.order_by.discussions.by'));
+        $discussions = Models::discussion()->with('user')->with('post')->with('postsCount')->with('category')->orderBy(config('chatter.order_by.discussions.order'), config('chatter.order_by.discussions.by'))->take(5)->get();
         if (isset($slug)) {
             $category = Models::category()->where('slug', '=', $slug)->first();
             
@@ -65,8 +65,6 @@ class PagesController extends Controller
             }
         }
         
-        $discussions = $discussions->paginate(5);
-
         $data = [
             'fundings' => $fundings,
             //'posts' => $posts,

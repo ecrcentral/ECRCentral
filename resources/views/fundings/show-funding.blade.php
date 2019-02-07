@@ -1,9 +1,15 @@
 @extends('layouts.app')
 
-@section('template_title')
-Funding - {{ $funding->name }}
-@endsection
+@section('template_title'){{ $funding->name }} by {{ $funding->funder_name }}@endsection
+@section('og_title'){{ $funding->name }} by {{ $funding->funder_name }}@endsection
+@section('og_url'){{ Request::url() }}@endsection
 
+@section('card_summary')@endsection
+@section('description')
+{{ $funding->name }} by {{ $funding->funder_name }}, Applicant citizenship: {{ $funding->applicant_country }} and Host country: {{ $funding->host_country }}
+@endsection
+@section('published_time'){{ $funding->created_at }}@endsection
+@section('modified_time'){{ $funding->updated_at }}@endsection
 
 @section('content')
   <div class="container">

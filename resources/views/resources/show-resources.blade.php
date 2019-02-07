@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
-@section('template_title')
-  Resources for early caree researchers
+
+@section('template_title') List of Resources for Postdocs and early caree researchers @endsection
+@section('og_title') List of Resources for Postdocs and early caree researchers @endsection
+@section('og_url'){{ Request::url() }}@endsection
+
+@section('card_summary')@endsection
+@section('description')
+A detailed list of useful Resources for PhDs, Postdocs and early career researcher (ECRs)
 @endsection
 
 @section('template_linked_css')

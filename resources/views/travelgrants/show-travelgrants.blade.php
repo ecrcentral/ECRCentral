@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
-@section('template_title')
-  Travel Grants for PhDs, Postdocs and ECRs
+
+@section('template_title') List of Travel funding opportunities for Postdocs and ECRs @endsection
+@section('og_title')Travel Grants for PhDs, Postdocs and ECRs @endsection
+@section('og_url'){{ Request::url() }}@endsection
+
+@section('card_summary')@endsection
+@section('description')
+A detailed list of travel grants opportunities PhDs, Postdocs and early career researcher
 @endsection
 
 @section('template_linked_css')

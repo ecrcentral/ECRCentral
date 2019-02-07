@@ -1,10 +1,15 @@
 @extends('layouts.app')
 
-@section('template_title')
-Resource - {{ $resource->name }} 
+@section('template_title'){{ $resource->name }} by {{ $resource->source_name }}@endsection
+@section('og_title'){{ $resource->name }} by {{ $resource->source_name }}@endsection
+@section('og_url'){{ Request::url() }}@endsection
+@section('og_image'){{ $resource->logo }}@endsection
+@section('card_summary')@endsection
+@section('description')
+{{ $resource->description }}
 @endsection
-
-
+@section('published_time'){{ $resource->created_at }}@endsection
+@section('modified_time'){{ $resource->updated_at }}@endsection
 @section('content')
 
   <div class="container">

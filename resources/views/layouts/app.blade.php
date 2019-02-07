@@ -18,13 +18,13 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
-        <title>@if (trim($__env->yieldContent('template_title')))@yield('template_title') | @endif {{ config('app.name', Lang::get('titles.app')) }}</title>
-        <meta name="description" content="ECRcentral is a central platform for early career researchers to find postdoc research fellowships, travel grants and to share experiences and to provide feedback."/>
+        <title>@if (trim($__env->yieldContent('template_title')))@yield('template_title')|@endif {{ config('app.name', Lang::get('titles.app')) }}</title>
         <meta name="keywords" content="funding, opportunities, Postdoc, fellowships, schemes, early career researchers, ECR, postdoctoral, forum, research, grants, travel, conference, resource, PhD"/>
         <meta name="author" content="Aziz Khan">
         @include('partials.favicon')
         
-        @yield('socials_card')
+        @include('partials.socials-card')
+
         {{-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --}}
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -135,8 +135,10 @@
         {{-- Scripts --}}
         <script src="{{ mix('/js/app.js') }}"></script>
         <script src="{{ asset('js/avatar-initial.js') }}"></script>
-  
+        
+        <!--
         <script src="{{ asset('js/flat-ui.js') }}"></script>
+    -->
 
         @if(config('settings.googleMapsAPIStatus'))
             {!! HTML::script('//maps.googleapis.com/maps/api/js?key='.env("GOOGLEMAPS_API_KEY").'&libraries=places&dummy=.js', array('type' => 'text/javascript')) !!}
