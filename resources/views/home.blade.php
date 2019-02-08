@@ -21,7 +21,7 @@ summary_large_imag
             <div class="col-lg-12">
               <center>             
                 <h2>A central platform for early career researchers community</h2>
-                <h1><a>Create</a>. <a>Contribute</a>. <a>Engage</a>.</h1>
+                <h1><a>Contribute</a>. <a>Share</a>. <a>Engage</a>.</h1>
             </center>
           </div>
         </div>

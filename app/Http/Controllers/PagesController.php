@@ -150,7 +150,7 @@ class PagesController extends Controller
     {
         $page = Page::where('slug', 'team')->firstOrFail();
 
-        return view('page')->withpage($page);
+        return view('team')->withpage($page);
     }
 
     public function privacy()
