@@ -72,7 +72,7 @@ summary_large_imag
             <!--
             <i class="fa fa-graduation-cap fa-4x"></i>
             -->
-            <img src="images/icons/graduation.svg" alt="Fundings" class="tile-image" width="50%">
+            <img src="{{ route('index') }}/images/icons/graduation.svg" alt="Fundings" class="tile-image" width="50%">
             <h3 class="tile-title">Funding</h3>
             <p>Browse <b>{{ $total_fundings }} </b> funding and <b>{{ $total_travelgrants }}</b> travel grant opportunities</p>
             <a class="btn btn-primary btn-large btn-block" href="{{ route('fundings') }}">View Funding</a>
@@ -83,7 +83,7 @@ summary_large_imag
              <!--
             <i class="fa fa-plane fa-4x"></i>
             -->
-            <img src="images/icons/desktop.svg" alt="Travel Grants" class="tile-image" width="50%">
+            <img src="{{ route('index') }}/images/icons/desktop.svg" alt="Travel Grants" class="tile-image" width="50%">
             <h3 class="tile-title">Resources</h3>
             <p>A curated list of <b>{{ $total_resources }}</b> useful resources for ECRs</p>
             <a class="btn btn-primary btn-large btn-block" href="{{ route('resources') }}">View Resources</a>
@@ -95,7 +95,7 @@ summary_large_imag
              <!--
             <i class="fa fa-credit-card fa-4x"></i>
             -->
-            <img src="images/icons/global.svg" alt="Funders" class="tile-image" width="50%">
+            <img src="{{ route('index') }}/images/icons/global.svg" alt="Funders" class="tile-image" width="50%">
             <h3 class="tile-title">Community</h3>
             <p>Bringing ECR community together to network, engage, and mentor</p>
             <a class="btn btn-primary btn-large btn-block" href="/forum">Join the Community</a>
@@ -107,7 +107,7 @@ summary_large_imag
              <!--
             <i class="fa fa-plus fa-4x"></i>
             -->
-            <img src="images/icons/network.svg" alt="Contribute" class="tile-image" width="50%">
+            <img src="{{ route('index') }}/images/icons/network.svg" alt="Contribute" class="tile-image" width="50%">
             <h3 class="tile-title">Contribute</h3>
             <p>Add <a href="{{ route('fundings') }}/create">funding</a>, 
               <a href="{{ route('travelgrants') }}/create">travel grants</a> and
