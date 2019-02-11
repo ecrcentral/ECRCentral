@@ -43,7 +43,7 @@ ECR Community
                 @else
                     members
                 @endif
-                ({{$members->count()}})
+                ({{$members->total()}})
             </small></h3>
             </div>
         </div>
