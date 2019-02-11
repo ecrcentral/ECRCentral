@@ -65,7 +65,7 @@ Contact us
                 </form>
             -->
 
-            <p>We appreciate your feedback and suggestions to make ECRcentral useful for everyone. If you would like to make an enquiry or provide your feedback, please contact the ECRcentral team at <a href="mailto:ECRcentral@googlegroups.com">ECRcentral[at]googlegroups[dot]com</a>.
+            <p>We appreciate your feedback and suggestions to make ECRcentral useful for everyone. If you would like to make an enquiry or provide your feedback, please contact the ECRcentral team at <a href="mailto:ecrcentral.team@gmail.com">ecrcentral.team[at]gmail[dot]com</a>.
 
                 <br><br>We will get back to you soon. Thank you.</p>
             </div>

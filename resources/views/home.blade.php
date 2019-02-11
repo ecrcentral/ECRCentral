@@ -267,7 +267,7 @@ summary_large_imag
                           <?php $db_field = Config::get('chatter.user.avatar_image_database_field'); ?>
 
                           <!-- If the user db field contains http:// or https:// we don't need to use the relative path to the image assets -->
-                          @if (($discussion->user->profile->avatar) && $discussion->user->profile->avatar_status == 1)
+                          @if (($discussion->user->profile) && ($discussion->user->profile->avatar) && $discussion->user->profile->avatar_status == 1)
                           <img src="{{ $discussion->user->profile->avatar }}" alt="{{ $discussion->user->name }}" width="50" height="50" border="0" class="img-circle">
 
                           @else

@@ -43,6 +43,7 @@ ECR Community
                 @else
                     members
                 @endif
+                ({{$members->count()}})
             </small></h3>
             </div>
         </div>
@@ -65,7 +66,7 @@ ECR Community
                     @endif
 
                     <div class="caption">
-                        <a href="/profile/{{ $member->name }}">@if ($member->first_name && $member->last_name) {{ $member->first_name }} {{ $member->last_name }} @else {{ $member->name }} @endif</a>
+                        <a href="/profile/{{ $member->name }}">{{$member->name}}</a>
                         <div class="member-type">
                             @if($member->role->name == 'user')
                                 <span class="label label-success">member</span>

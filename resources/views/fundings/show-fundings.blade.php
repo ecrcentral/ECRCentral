@@ -5,12 +5,12 @@ Funding schemes and fellowships for Postdocs and early career researchers
 @endsection
 
 @section('template_title') Funding schemes and fellowships for Postdocs and early career researchers @endsection
-@section('og_title') Funding schemes and fellowships for Postdocs and early career researchers @endsection
+@section('og_title') Funding schemes and fellowships for Postdocs and ECRs @endsection
 @section('og_url'){{ Request::url() }}@endsection
 
 @section('card_summary')@endsection
 @section('description')
-A detailed list of funding schemes and fellowships for for Postdocs and early career researcher (ECRs)
+A detailed list of funding schemes and fellowships for Postdocs and early career researcher (ECRs)
 @endsection
 
 @section('template_linked_css')
