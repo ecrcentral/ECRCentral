@@ -127,7 +127,7 @@ summary_large_imag
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
         <h6>ECRcentral logo design competition</h6>
         <small>
-          It is time for branding ourselves with a great logo! We're hosting a competition to design a new logo for ECRcentral. The competition deadline is <strong> March 4th 2019</strong>.
+          It is time for branding ourselves with a great logo! We're hosting a competition to design a new logo for ECRcentral. The competition deadline is <strong> March 25th 2019</strong>.
           <br>For more details about the participation and prize click <a href="https://github.com/ecrcentral/logo" target="_blank">here</a>. </small>
         </div>
       </div>
@@ -253,8 +253,9 @@ summary_large_imag
 </div><br> 
  <div class="container">
     <div class="row">
+
       <div class="col-md-12">
-        <h4 class="page-header">Recent discussions from ECR community forum
+        <h4 class="page-header">Recent discussions in community forum
           <small class="pull-right"><a href="/{{ Config::get('chatter.routes.home') }}">View all</a></small>
         </h4>
             <div class="ibox-content">
@@ -291,7 +292,7 @@ summary_large_imag
                                   @else
                                     <?php $discussion_body = $discussion->post[0]->body; ?>
                                   @endif
-                                  <p>{{ substr(strip_tags($discussion_body), 0, 200) }}@if(strlen(strip_tags($discussion_body)) > 200){{ '...' }}@endif</p>
+                                  <p>{{ substr(strip_tags($discussion_body), 0, 120) }}@if(strlen(strip_tags($discussion_body)) > 120){{ '...' }}@endif</p>
                                 </div>
                                 <div class="pull-right">
                                     
