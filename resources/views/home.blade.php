@@ -120,19 +120,6 @@ summary_large_imag
   </div>
 </div>
 <br>
-<div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="alert alert-info fade in">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        <h6>ECRcentral logo design competition</h6>
-        <small>
-          It is time for branding ourselves with a great logo! We're hosting a competition to design a new logo for ECRcentral. The competition deadline is <strong> March 25th 2019</strong>.
-          <br>For more details about the participation and prize click <a href="https://github.com/ecrcentral/logo" target="_blank">here</a>. </small>
-        </div>
-      </div>
-    </div>
-  </div>
 <div style="background-color: #edf0f1; padding-bottom: 30px; padding-top: 0px;">
     <div class="container">
 
