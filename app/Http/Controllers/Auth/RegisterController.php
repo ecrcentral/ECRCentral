@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Profile;
 use App\Traits\ActivationTrait;
 use App\Traits\CaptchaTrait;
 use App\Traits\CaptureIpTrait;
@@ -119,6 +120,14 @@ class RegisterController extends Controller
 
         #$user->attachRole($role);
         $this->initiateEmailActivation($user);
+
+        // if($user->id){
+        //     #create the profile table
+        //     Profile::create([
+        //         'user_id' => $user->id,
+        //         'theme_id' => 1,
+        //     ]);
+        // }
 
         return $user;
     }

@@ -97,7 +97,7 @@
                 <div class="col-md-9">
                   <div class="input-group">
                     {!! Form::text('published_at', old('published_at'), array('id' => 'published_at', 'class' => 'form-control', 'placeholder' => 'YYYY-MM-DD')) !!}
-                    <label class="input-group-addon" for="published_at"><i class="fa fa-fw fa-calander " aria-hidden="true"></i></label>
+                    <label class="input-group-addon" for="published_at"><i class="fa fa-calander " aria-hidden="true"></i></label>
                   </div>
                 </div>
               </div>

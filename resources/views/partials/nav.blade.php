@@ -10,7 +10,9 @@
             {{-- Branding Image --}}
             <a class="navbar-brand" href="{{ url('/') }}">
                 @if(setting('site.logo'))
+                <!--
                 <img height="100%" src="/storage/{{ setting('site.logo') }}">
+            -->
                 @else
                 {{ setting('site.title') }}
                 @endif
