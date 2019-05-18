@@ -33,7 +33,7 @@
         {{-- Fonts --}}
         @yield('template_linked_fonts')
         {{-- Styles --}}
-        <link href="{{ asset('css/ecrcentral.css?v=2') }}" rel="stylesheet">
+        <link href="{{ asset('css/ecrcentral.css?v=3') }}" rel="stylesheet">
         
         <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">

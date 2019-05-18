@@ -7,7 +7,11 @@
             <h3 class="footer-title">
               <a href="/">
                 @if(setting('site.logo'))
+                <!--
                 <img height="50px" src="/storage/{{ setting('site.logo') }}">
+              -->
+              <img height="50px" src="{{ asset('images/ecrcentral-logo-footer.png') }}">
+            
                 @else
                 {{ setting('site.title') }}
                 @endif
