@@ -241,7 +241,7 @@ summary_large_imag
  <div class="container">
     <div class="row">
 
-      <div class="col-md-12">
+      <div class="col-md-8">
         <h4 class="page-header">Recent discussions in community forum
           <small class="pull-right"><a href="/{{ Config::get('chatter.routes.home') }}">View all</a></small>
         </h4>
@@ -295,6 +295,13 @@ summary_large_imag
                 </div>
         </div>
     </div>
+
+  <div class="col-md-4">
+    <h4 class="page-header">Follow us on <a href="https://twitter.com/ECRcentral" target="_blank">Twitter</a> </h4>
+     <div class="media">
+    <a class="twitter-timeline" data-lang="en" data-height="1000" data-link-color="#19b491" href="https://twitter.com/ECRcentral?ref_src=twsrc%5Etfw">Tweets by ECRcentral</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+  </div>
 
   </div>
 </div>
