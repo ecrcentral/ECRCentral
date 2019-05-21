@@ -12,7 +12,9 @@
                 @if(setting('site.logo'))
                 <!--
                 <img height="100%" src="/storage/{{ setting('site.logo') }}">
-            -->
+             
+                <img height="100%" src="{{ asset('images/ecrcentral-logo-footer.png') }}">
+                -->   
                 @else
                 {{ setting('site.title') }}
                 @endif

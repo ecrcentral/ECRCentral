@@ -10,7 +10,7 @@
                 <!--
                 <img height="50px" src="/storage/{{ setting('site.logo') }}">
               -->
-              <img height="50px" src="{{ asset('images/ecrcentral-logo-footer.png') }}">
+              <img height="45px" src="{{ asset('images/ecrcentral-logo-footer.png') }}">
             
                 @else
                 {{ setting('site.title') }}
