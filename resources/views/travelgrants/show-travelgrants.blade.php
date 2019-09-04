@@ -34,9 +34,9 @@ A detailed list of travel grants opportunities PhDs, Postdocs and early career r
                           <a class="btn btn-sm btn-warning" href="{{ URL::to('travel-grants/feed') }}" target="_blank" title="Subscribe to RSS Feeds"><i class="fa fa-rss" aria-hidden="true"></i> Subscribe to Feeds</a>
                             <a class="btn btn-sm btn-primary" href="{{ URL::to('travel-grants/create') }}" data-toggle="tooltip" title="Add New Travel Grant"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add New Travel Grant</a>
                           <hr>                            
-                            <div id="applicant_countries"></div>
-                            <div id="host_countries"></div>
-                            <div id="categories"></div>
+                            <div id="travel_purpose"></div>
+                            <div id="funders"></div>
+                            <div id="membership"></div>
                           </div>
 
                             <div class="col-md-8">

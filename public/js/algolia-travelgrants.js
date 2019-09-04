@@ -148,7 +148,7 @@ const search = instantsearch({
 
  search.addWidget(
   instantsearch.widgets.refinementList({
-    container: "#categories",
+    container: "#funders",
     attributeName: "funder_name",
     autoHideContainer: false,
     showMore: true,
@@ -166,7 +166,7 @@ const search = instantsearch({
 
 search.addWidget(
   instantsearch.widgets.refinementList({
-    container: "#applicant_countries",
+    container: "#travel_purpose",
     attributeName: "travel_purpose",
     autoHideContainer: true,
     showMore: true,
@@ -175,6 +175,23 @@ search.addWidget(
     limit: 10,
     templates: {
       header: "Grant purpose"
+    }
+  }
+
+  )
+);
+
+search.addWidget(
+  instantsearch.widgets.refinementList({
+    container: "#membership",
+    attributeName: "membership",
+    autoHideContainer: true,
+    showMore: true,
+    searchForFacetValues: false,
+    collapsible: true,
+    limit: 2,
+    templates: {
+      header: "Membership required?"
     }
   }
 

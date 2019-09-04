@@ -142,14 +142,17 @@
                 </div>
               </div>
 
-               <div class="form-group has-feedback row {{ $errors->has('career_level') ? ' has-error ' : '' }}">
-                {!! Form::label('career_level', 'Career level' , array('class' => 'col-md-3 control-label')); !!}
+              <div class="form-group has-feedback row {{ $errors->has('career_levels') ? ' has-error ' : '' }}">
+                {!! Form::label('career_levels', 'Career level' , array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
                   <div class="input-group">
-                    {!! Form::text('career_level', old('career_level'), array('id' => 'career_level', 'class' => 'form-control', 'placeholder' => 'Career level')) !!}
-                    <label class="input-group-addon" for="career_level"><i class="fa fa-fw fa-pencil " aria-hidden="true"></i></label>
+
+                    @foreach($career_levels as $career_level)
+                    <label>{!! Form::checkbox('career_levels[]', $career_level->id, null,  ['id' => 'career_levels']) !!} {!! $career_level->name !!} </label>
+                    &nbsp;&nbsp;
+                    @endforeach
                   </div>
-                </div>  
+                </div>
               </div>
               
               <div class="form-group has-feedback row {{ $errors->has('deadline') ? ' has-error ' : '' }}">
