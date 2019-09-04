@@ -183,15 +183,15 @@ search.addWidget(
 
 search.addWidget(
   instantsearch.widgets.refinementList({
-    container: "#membership",
-    attributeName: "membership",
+    container: "#career_level",
+    attributeName: "career_level",
     autoHideContainer: true,
     showMore: true,
     searchForFacetValues: false,
     collapsible: true,
-    limit: 2,
+    limit: 4,
     templates: {
-      header: "Membership required?"
+      header: "Career level"
     }
   }
 

@@ -36,7 +36,7 @@ A detailed list of travel grants opportunities PhDs, Postdocs and early career r
                           <hr>                            
                             <div id="travel_purpose"></div>
                             <div id="funders"></div>
-                            <div id="membership"></div>
+                            <div id="career_level"></div>
                           </div>
 
                             <div class="col-md-8">
