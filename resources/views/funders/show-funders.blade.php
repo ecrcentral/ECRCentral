@@ -105,8 +105,14 @@
                                     @foreach($funders as $funder)
                                         <tr>
                                             <td><strong><a href="{{ route('funders') }}/{{$funder->slug}}">{{$funder->name}}</a></strong><br>
-                                            {{$funder->country}}</td>
-                                            <td><a href="http://dx.doi.org/10.13039/{{$funder->funder_id}}" target="_blank">http://dx.doi.org/10.13039/{{$funder->funder_id}}</a></td>
+                                            {{$funder->country}}
+                                            
+                                            </td>
+                                            <td><a href="http://dx.doi.org/10.13039/{{$funder->funder_id}}" target="_blank">http://dx.doi.org/10.13039/{{$funder->funder_id}}</a>
+                                            @if($funder->dora == '1')
+                                               <br> <small> <img src="{{ asset('images/dora.png') }}" height="20px"> DORA signatory </small>
+                                            @endif
+                                           </td>
                                            <!--
                                            @if(Auth::user() && Auth::user()->role->id == '1')
                                             <td>

@@ -66,7 +66,8 @@ ECR Community
                     @endif
 
                     <div class="caption">
-                        <a href="/profile/{{ $member->name }}">{{$member->name}}</a>
+                        <small>
+                        <a href="/profile/{{ $member->name }}">{{$member->name}}</a></small>
                         <div class="member-type">
                             @if($member->role->name == 'user')
                                 <span class="label label-success">member</span>

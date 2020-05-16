@@ -46,6 +46,7 @@ class TravelGrant extends Model
 
         $extraFields = [
             'travel_purpose' => $this->purposes->pluck('name')->toArray(),
+            'career_levels' => $this->career_levels->pluck('name')->toArray(),
             'funders' => $this->funders->pluck('name')->toArray(),
             'logos' => $this->funders->pluck('logo')->toArray(),
         ];
