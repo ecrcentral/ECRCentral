@@ -178,6 +178,22 @@ search.addWidget(
   )
 );
 
+ search.addWidget(
+  instantsearch.widgets.refinementList({
+    container: "#subjects",
+    attributeName: "subjects",
+    autoHideContainer: false,
+    showMore: true,
+    searchForFacetValues: false,
+    collapsible: true,
+    limit: 10,
+    templates: {
+      header: "Subjects",
+    }
+  }
+  )
+);
+
 search.addWidget(
   instantsearch.widgets.refinementList({
     container: "#host_countries",
