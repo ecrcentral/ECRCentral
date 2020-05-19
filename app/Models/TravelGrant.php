@@ -84,6 +84,15 @@ class TravelGrant extends Model
     }
 
     /**
+     * The career_levels that belong to the travel grants.
+     */
+    public function career_levels()
+    {
+        return $this->belongsToMany(CareerLevel::class, 'careerlevel_travelgrant');
+
+    }
+
+    /**
      * The purpose that belong to the travel grants.
      */
     public function subjects()
