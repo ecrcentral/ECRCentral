@@ -202,8 +202,8 @@ search.addWidget(
 
 search.addWidget(
   instantsearch.widgets.refinementList({
-    container: "#career_levels",
-    attributeName: "career_levels",
+    container: "#career_level",
+    attributeName: "career_level",
     autoHideContainer: true,
     showMore: true,
     searchForFacetValues: false,

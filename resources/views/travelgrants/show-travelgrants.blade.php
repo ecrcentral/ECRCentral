@@ -35,7 +35,7 @@ A detailed list of travel grants opportunities PhDs, Postdocs and early career r
                             <a class="btn btn-sm btn-primary" href="{{ URL::to('travel-grants/create') }}" data-toggle="tooltip" title="Add New Travel Grant"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add New Travel Grant</a>
                           <hr>                            
                             <div id="travel_purpose"></div>
-                            <div id="career_levels"></div>
+                            <div id="career_level"></div>
                             <div id="membership"></div>
                             <div id="funders"></div>
                           </div>
