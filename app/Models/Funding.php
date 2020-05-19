@@ -45,6 +45,7 @@ class Funding extends Model
         // Customize array...
         $extraFields = [
             'funders' => $this->funders->pluck('name')->toArray(),
+            'subjects' => $this->subjects->pluck('name')->toArray(),
             'logos' => $this->funders->pluck('logo')->toArray(),
         ];
 

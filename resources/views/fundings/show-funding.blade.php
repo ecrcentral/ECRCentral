@@ -22,7 +22,7 @@
                         {{ $loop->first ? '' : ', ' }}
                         <a href="/funders/{{ $funder->slug }}">{{ $funder->name }}</a>
                          @if($funder->dora == '1')
-                           <small> [ <img src="{{ asset('images/dora.png') }}" height="20px"> DORA signatory ] </small>
+                           <small> <img src="{{ asset('images/dora.png') }}" height="20px"> DORA signatory </small>
                           @endif
                       @endforeach
                     @else
