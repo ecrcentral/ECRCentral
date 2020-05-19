@@ -208,7 +208,7 @@ search.addWidget(
     showMore: true,
     searchForFacetValues: false,
     collapsible: true,
-    limit: 4,
+    limit: 6,
     templates: {
       header: "Career level"
     }
