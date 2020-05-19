@@ -172,7 +172,7 @@ const search = instantsearch({
     showMore: true,
     searchForFacetValues: false,
     collapsible: true,
-    limit: 10,
+    limit: 2,
     templates: {
       header: "Membership required?"
     }
@@ -193,6 +193,23 @@ search.addWidget(
     limit: 10,
     templates: {
       header: "Grant purpose"
+    }
+  }
+
+  )
+);
+
+search.addWidget(
+  instantsearch.widgets.refinementList({
+    container: "#career_level",
+    attributeName: "career_level",
+    autoHideContainer: true,
+    showMore: true,
+    searchForFacetValues: false,
+    collapsible: true,
+    limit: 4,
+    templates: {
+      header: "Career level"
     }
   }
 
