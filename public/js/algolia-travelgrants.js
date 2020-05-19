@@ -199,22 +199,6 @@ search.addWidget(
   )
 );
 
-search.addWidget(
-  instantsearch.widgets.refinementList({
-    container: "#career_level",
-    attributeName: "career_level",
-    autoHideContainer: true,
-    showMore: true,
-    searchForFacetValues: false,
-    collapsible: true,
-    limit: 4,
-    templates: {
-      header: "Career level"
-    }
-  }
-
-  )
-);
 
 search.addWidget(
   instantsearch.widgets.refinementList({
