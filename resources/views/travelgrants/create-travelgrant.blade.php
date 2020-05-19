@@ -106,8 +106,8 @@
                 {!! Form::label('membership', 'Memberschip required?' , array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
                   <div class="input-group">
-                  <label class="radio-inline"><input type="radio"  class='form-control' value="1" name="membership"> Yes</label>
-                  <label class="radio-inline"><input type="radio" class='form-control' value="0" name="membership"> No</label>
+                  <label class="radio-inline"><input type="radio"  class='form-control' value="Yes" name="membership"> Yes</label>
+                  <label class="radio-inline"><input type="radio" class='form-control' value="No" name="membership"> No</label>
                 </div>
                 </div>
               </div>

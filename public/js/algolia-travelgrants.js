@@ -162,6 +162,24 @@ const search = instantsearch({
   )
 );
 
+// widget to add Funders list.
+
+ search.addWidget(
+  instantsearch.widgets.refinementList({
+    container: "#membership",
+    attributeName: "membership",
+    autoHideContainer: false,
+    showMore: true,
+    searchForFacetValues: false,
+    collapsible: true,
+    limit: 10,
+    templates: {
+      header: "Membership required?"
+    }
+  }
+  )
+);
+
 // widget to add grant purpose list.
 
 search.addWidget(
@@ -183,8 +201,8 @@ search.addWidget(
 
 search.addWidget(
   instantsearch.widgets.refinementList({
-    container: "#career_level",
-    attributeName: "career_level",
+    container: "#career_levels",
+    attributeName: "career_levels",
     autoHideContainer: true,
     showMore: true,
     searchForFacetValues: false,
