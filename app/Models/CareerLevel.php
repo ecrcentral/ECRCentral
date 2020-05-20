@@ -30,11 +30,19 @@ class CareerLevel extends Model
     }
 
     /**
-     * The purpose that belong to the travel grant.
+     * The careerlevel that belong to the travel grant.
      */
     public function travelgrants()
     {
         return $this->belongsToMany(TravelGrant::class, 'careerlevel_travelgrant');
+    }
+
+    /**
+     * The careerlevel that belong to the funding.
+     */
+    public function fundings()
+    {
+        return $this->belongsToMany(Funding::class, 'careerlevel_funding');
     }
 
     public function parentId()

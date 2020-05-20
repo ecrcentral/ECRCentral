@@ -46,6 +46,7 @@ class Funding extends Model
         $extraFields = [
             'funders' => $this->funders->pluck('name')->toArray(),
             'subjects' => $this->subjects->pluck('name')->toArray(),
+            'career_levels' => $this->career_levels->pluck('name')->toArray(),
             'logos' => $this->funders->pluck('logo')->toArray(),
         ];
 
@@ -80,6 +81,15 @@ class Funding extends Model
     public function subjects()
     {
         return $this->belongsToMany(Subject::class, 'subject_funding');
+
+    }
+
+    /**
+     * The career_levels that belong to the funding.
+     */
+    public function career_levels()
+    {
+        return $this->belongsToMany(CareerLevel::class, 'careerlevel_funding');
 
     }
 
