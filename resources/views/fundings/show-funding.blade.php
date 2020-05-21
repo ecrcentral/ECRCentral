@@ -94,7 +94,7 @@
         @if($funding->comments)<p><b>Additional comments</b>: {{ $funding->comments }}</p>@endif
 
         <p><b>How to apply?</b> For further eligibility requirements and the application process, please visit the
-        <a href="{{ $funding->url }}" target="_blank"><b>official website</b></a>.</p>
+        <a href="{{ $funding->url }}" target="_blank"><button type="button" class="btn btn-success">Funding website</button></a></p>
 
        <hr>
       </div>
@@ -102,7 +102,6 @@
         <small>Share this funding</small><br>
         <a href="https://twitter.com/intent/tweet?text={{$funding->name}}&amp;url={{ urlencode(Request::fullUrl()) }}&amp;via=ecrcentral" target="_blank" title="Tweet" class="btn btn-social-icon btn-sm margin-half btn-twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
         <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::fullUrl()) }}" target="_blank" title="Share on Facebook" class="btn btn-social-icon btn-sm margin-half btn-facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-        <a href="https://plus.google.com/share?url={{ urlencode(Request::fullUrl()) }}" target="_blank" title="Share on Google+" class="btn btn-social-icon btn-sm margin-half btn-google"><i class="fa fa-google" aria-hidden="true"></i></a>
         <a href="http://www.linkedin.com/shareArticle?url={{ urlencode(Request::fullUrl()) }}" target="_blank" title="Share on Linkedin" class="btn btn-social-icon btn-sm margin-half btn-linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
         <a href="http://service.weibo.com/share/share.php?url={{ urlencode(Request::fullUrl())}}&amp;title={{$funding->name}}" target="_blank" class="btn btn-social-icon btn-sm margin-half btn-info"><i class="fa fa-weibo" aria-hidden="true"></i></a>
 

@@ -99,7 +99,7 @@ Contact us
             </div>
             <div class="col-md-4">
               <br>
-            <a class="twitter-timeline" href="https://twitter.com/ECRcentral?ref_src=twsrc%5Etfw">Tweets by ECRcentral</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+           <a class="twitter-timeline" data-lang="en" data-height="1000" data-link-color="#19b491" href="https://twitter.com/ECRcentral?ref_src=twsrc%5Etfw">Tweets by ECRcentral</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
           </div>
         </div>
         <!-- /.row -->

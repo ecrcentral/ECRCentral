@@ -135,7 +135,7 @@ const search = instantsearch({
     showMore: true,
     searchForFacetValues: false,
     collapsible: true,
-    limit: 10,
+    limit: 15,
     templates: {
       header: "Resource category"
     }
