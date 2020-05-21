@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Funding;
 use App\Models\Subject;
-
+use App\Models\CareerLevel;
 use App\Models\Funder;
 
 use App\Traits\CaptureIpTrait;
@@ -77,8 +77,11 @@ class FundingsController extends Controller
     {
         $fundings = Funding::all();
 
+        $career_levels = CareerLevel::all();
+
         $data = [
             'fundings' => $fundings,
+            'career_levels' => $career_levels,
         ];
 
         return view('fundings.create-funding')->with($data);
@@ -139,9 +142,12 @@ class FundingsController extends Controller
             'featured' => 0,
             'user_id' => $user_id,
          
-        ]);
+        ]);        
 
         $funding->save();
+        $career_levels =  $request->input('career_levels');
+
+        $funding->career_levels()->sync($career_levels);
 
         Mail::to('ecrcentral@googlegroups.com')->send(new FundingAdded($funding));
 

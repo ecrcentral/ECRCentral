@@ -118,6 +118,19 @@
                 </div>  
               </div>
 
+              <div class="form-group has-feedback row {{ $errors->has('career_levels') ? ' has-error ' : '' }}">
+                {!! Form::label('career_levels', 'Career level' , array('class' => 'col-md-3 control-label')); !!}
+                <div class="col-md-9">
+                  <div class="input-group">
+
+                    @foreach($career_levels as $career_level)
+                    <label>{!! Form::checkbox('career_levels[]', $career_level->id, null,  ['id' => 'career_levels']) !!} {!! $career_level->name !!} </label>
+                    &nbsp;&nbsp;
+                    @endforeach
+                  </div>
+                </div>
+              </div>
+
               <div class="form-group has-feedback row {{ $errors->has('duration') ? ' has-error ' : '' }}">
                 {!! Form::label('duration', 'Funding duration' , array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
@@ -148,15 +161,17 @@
                 </div>  
               </div>
 
+
               <div class="form-group has-feedback row {{ $errors->has('mobility_rule') ? ' has-error ' : '' }}">
-                {!! Form::label('mobility_rule', 'Mobility rule' , array('class' => 'col-md-3 control-label')); !!}
+                {!! Form::label('mobility_rule', 'Mobility rule apply?' , array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
                   <div class="input-group">
-                    {!! Form::text('mobility_rule', old('mobility_rule'), array('id' => 'mobility_rule', 'class' => 'form-control', 'placeholder' => 'Mobility rule')) !!}
-                    <label class="input-group-addon" for="mobility_rule"><i class="fa fa-fw fa-pencil " aria-hidden="true"></i></label>
-                  </div>
-                </div>  
+                  <label class="radio-inline"><input type="radio"  class='form-control' value="Yes" name="mobility_rule"> Yes</label>
+                  <label class="radio-inline"><input type="radio" class='form-control' value="No" name="mobility_rule"> No</label>
+                </div>
+                </div>
               </div>
+
 
                <div class="form-group has-feedback row {{ $errors->has('research_costs') ? ' has-error ' : '' }}">
                 {!! Form::label('research_costs', 'Research costs' , array('class' => 'col-md-3 control-label')); !!}
@@ -164,17 +179,6 @@
                   <div class="input-group">
                     {!! Form::text('research_costs', old('research_costs'), array('id' => 'research_costs', 'class' => 'form-control', 'placeholder' => 'Research costs')) !!}
                     <label class="input-group-addon" for="research_costs"><i class="fa fa-fw fa-pencil " aria-hidden="true"></i></label>
-                  </div>
-                </div>  
-              </div>
-
-
-               <div class="form-group has-feedback row {{ $errors->has('diversity') ? ' has-error ' : '' }}">
-                {!! Form::label('diversity', 'Diversity' , array('class' => 'col-md-3 control-label')); !!}
-                <div class="col-md-9">
-                  <div class="input-group">
-                    {!! Form::text('diversity', old('diversity'), array('id' => 'diversity', 'class' => 'form-control', 'placeholder' => 'Diversity')) !!}
-                    <label class="input-group-addon" for="diversity"><i class="fa fa-fw fa-pencil " aria-hidden="true"></i></label>
                   </div>
                 </div>  
               </div>

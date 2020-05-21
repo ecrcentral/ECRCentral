@@ -71,8 +71,7 @@
               @if($funding->award_type)<p><b>Award type</b>: {{ $funding->award_type }}</p>@endif
               <p><b>Award Duration</b> (years): {{ $funding->duration }}</p>  
               <p><b>Research costs</b>: {{ $funding->research_costs }}</p> 
-              <p><b>Benefits</b>: {{ $funding->benefits }}</p>      
-              <p><b>Diversity</b>: {{ $funding->diversity }}</p> 
+              <p><b>Benefits</b>: {{ $funding->benefits }}</p>    
 
               <p><b>Mobility rule</b>: {{ $funding->mobility_rule }}</p>
 
