@@ -48,6 +48,7 @@ class Funding extends Model
             'subjects' => $this->subjects->pluck('name')->toArray(),
             'career_levels' => $this->career_levels->pluck('name')->toArray(),
             'logos' => $this->funders->pluck('logo')->toArray(),
+            'funding_purpose' => $this->purposes->pluck('name')->toArray(),
         ];
 
         return array_merge($array, $extraFields);
@@ -99,6 +100,15 @@ class Funding extends Model
     public function funders()
     {
         return $this->belongsToMany(Funder::class, 'funder_funding')->where('status', '=', 1)->orderBy('name');
+
+    }
+
+    /**
+     * The purpose that belong to the funding.
+     */
+    public function purposes()
+    {
+        return $this->belongsToMany(FundingPurpose::class, 'fundingpurpose_funding');
 
     }
 
