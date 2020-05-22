@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
 
-class TravelPurpose extends Model
+class FundingPurpose extends Model
 {
 	protected $guarded = [
         'id',
