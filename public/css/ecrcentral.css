@@ -76,12 +76,12 @@ body {
 
 #intro {
     padding-top: 50px;
-    border-top: #c1652b solid 5px;
+    border-top: #F6454C solid 5px;
 }
 
 #search-box {
-    border-top: #c1652b solid 2px;
-    border-bottom: #c1652b solid 2px;
+    border-top: #F6454C solid 2px;
+    border-bottom: #F6454C solid 2px;
     background-image: url(/images/banner.jpg);
     padding-bottom: 20px;
     padding-top: 35px;

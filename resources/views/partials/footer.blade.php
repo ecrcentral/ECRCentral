@@ -11,6 +11,7 @@
                 <img height="50px" src="/storage/{{ setting('site.logo') }}">
               -->
               <img height="45px" src="{{ asset('images/ecrcentral-logo-footer.png') }}">
+
             
                 @else
                 {{ setting('site.title') }}
@@ -24,9 +25,13 @@
           <div class="col-md-2">
             <h3 class="footer-title">
               <a href="https://elifesciences.org/" target="_blank">
-              <img height="65px" class="pull-right" src=" {{ asset('images/powered-by-eLife.svg') }}"> 
+              <img width="100px" class="pull-right" src=" {{ asset('images/powered-by-eLife.svg') }}">
+              
             </a>
+            <br><br>
+            <img width="120px" src="{{ asset('images/elife-ambassadors.png') }}">
             </h3>
+
           </div>
          
           <div class="col-md-4">
