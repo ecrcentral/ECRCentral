@@ -21,11 +21,12 @@
       @if($funder->funder_id == $funder->slug)
         @if($funder->url != '')
               <i class="ai ai-link"></i>
-              <a href="{{$funder->url}}" target="_blank">http://dx.doi.org/10.13039/{{$funder->url}}</a>
+              <a href="{{$funder->url}}" target="_blank">{{$funder->url}}</a>
         @endif
       @else
       <i class="a fa-link"></i>
-      <a href="http://dx.doi.org/10.13039/{{$funder->funder_id}}" target="_blank">http://dx.doi.org/10.13039/{{$funder->funder_id}}</a>@endif
+      <a href="http://dx.doi.org/10.13039/{{$funder->funder_id}}" target="_blank">http://dx.doi.org/10.13039/{{$funder->funder_id}}</a>
+      @endif
 
       
       @if(Auth::user() && Auth::user()->role->name != 'user')
