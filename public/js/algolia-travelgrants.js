@@ -154,7 +154,7 @@ const search = instantsearch({
     showMore: true,
     searchForFacetValues: false,
     collapsible: true,
-    limit: 10,
+    limit: 5,
     templates: {
       header: "Funders"
     }
@@ -216,8 +216,6 @@ search.addWidget(
 
   )
 );
-
-
 
 
 // Uncomment the following widget to add pagination.

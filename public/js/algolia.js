@@ -170,7 +170,7 @@ search.addWidget(
     showMore: true,
     searchForFacetValues: false,
     collapsible: true,
-    limit: 10,
+    limit: 5,
     templates: {
       header: "Funders",
     }
@@ -186,7 +186,7 @@ search.addWidget(
     showMore: true,
     searchForFacetValues: false,
     collapsible: true,
-    limit: 10,
+    limit: 5,
     templates: {
       header: "Subjects",
     }
@@ -200,6 +200,7 @@ search.addWidget(
     attributeName: "host_country",
     autoHideContainer: false,
     showMore: true,
+    limit: 5,
     templates: {
       header: "Host country"
     }
@@ -214,6 +215,7 @@ search.addWidget(
     attributeName: "applicant_country",
     autoHideContainer: true,
     showMore: true,
+    limit: 5,
     templates: {
       header: "Applicant country"
     }

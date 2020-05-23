@@ -20,6 +20,9 @@
                     @if($travelgrant->funders()->exists())
                       @foreach ($travelgrant->funders as $funder)
                         <a href="/funders/{{ $funder->slug }}">{{ $funder->name }}</a>
+                        @if($funder->dora == '1')
+                           <small> <img src="{{ asset('images/dora.png') }}" height="20px"> DORA signatory </small>
+                          @endif
                       @endforeach
                     @else
                       {{ $travelgrant->funder_name }}
@@ -96,8 +99,12 @@
 
         @if($travelgrant->comments)<p><b>Additional comments</b>: {{ $travelgrant->comments }}</p>@endif
 
-        <p><b>How to apply?</b> For further eligibility requirements and the application process, please visit the
-        <a href="{{ $travelgrant->url }}" target="_blank"><b>official website</b></a>.</p>
+        <p><b>How to apply?</b> For further eligibility requirements and the application process, please visit:
+        <a href="{{ $travelgrant->url }}" target="_blank">
+
+          <button type="button" class="btn btn-primary btn-large btn-block"><b>Travel Grant website</b></button>
+
+          </a></p>
         @include('partials.resource-status')       
          @if ($travelgrant->updated_at)
          <p>

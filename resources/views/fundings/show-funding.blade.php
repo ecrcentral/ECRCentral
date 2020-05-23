@@ -79,7 +79,7 @@
               @if($funding->subjects()->exists())
                     @foreach ($funding->subjects as $subject)
                       {{ $loop->first ? '' : ', ' }}
-                     <a href="#">{{ $subject->name }}</a>
+                     {{ $subject->name }}
                     @endforeach
               @elseif($funding->fileds)
                   {{ $funding->fileds }}
@@ -93,8 +93,8 @@
 
         @if($funding->comments)<p><b>Additional comments</b>: {{ $funding->comments }}</p>@endif
 
-        <p><b>How to apply?</b> For further eligibility requirements and the application process, please visit the
-        <a href="{{ $funding->url }}" target="_blank"><button type="button" class="btn btn-success">Funding website</button></a></p>
+        <p><b>How to apply?</b> For further eligibility requirements and the application process, please visit:
+        <a href="{{ $funding->url }}" target="_blank"><button type="button" class="btn btn-primary btn-large btn-block"><b>Official Funding website</b></button></a></p>
 
        <hr>
       </div>
