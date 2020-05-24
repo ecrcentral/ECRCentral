@@ -72,7 +72,7 @@ function get_logo33(funder_name){
 }
 
 function get_logo(logos){
-  if (logos != null){
+  if (logos != null && logos.length != null && logos.length > 0){
     if(logos.length == 1)
     {
     return `<div class="funder-gravatar">
@@ -87,6 +87,7 @@ function get_logo(logos){
         return logos_html.concat('</div>');
     }
   }else{
+    logos = null;
     return " ";
   }
 
