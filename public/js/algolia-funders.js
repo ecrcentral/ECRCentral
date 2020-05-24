@@ -54,7 +54,7 @@ function get_url(hit){
 }
 
 function is_dora(dora){
-  if(dora == 1){
+  if(dora == 'Yes'){
   return `<br><img src="/images/dora.png" height="13px"> DORA signatory`;
 }else{
   return " ";
