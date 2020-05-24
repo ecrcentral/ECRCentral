@@ -71,28 +71,6 @@ function get_logo(logos){
 
 }
 
-function get_logo2(funder_name){
-  if (funder_name == 'American Psychological Foundation'){
-    return `<div class="funder-gravatar">
-              <img src="https://www.insidehighered.com/sites/default/server_files/styles/large/public/media/APA.png" width="40" height="40">
-          </div>`;
-  }else if(funder_name == 'National Institutes of Health'){
-    return `<div class="funder-gravatar">
-              <img src="https://www.nih.gov/sites/default/files/about-nih/2012-logo.png" width="40" height="40">
-          </div>`;
-  }else if(funder_name == 'American Gastroenterological Association'){
-    return `<div class="funder-gravatar">
-              <img src="https://www.southbaygastro.com/wp-content/uploads/2017/11/logo_aga-1.png" width="40" height="40">
-          </div>`;
-  }else if(funder_name == 'Human Frontiers in Science Program'){
-    return `<div class="funder-gravatar">
-              <img src="http://www.hfsp.org/sites/www.hfsp.org/files/webfm/Communications/logo-blue-6x6.jpg" width="40" height="40">
-          </div>`;
-  }else{
-    return " ";
-  }
-
-}
 
 function hitTemplate22(hit) {
   return `<tr>
