@@ -24,7 +24,7 @@ class Funding extends Model
 
     public function isPublished()
     {
-        return $this->status === 1;
+        return ($this->status !== 0 or $this->status !== 2);
     }
 
     /**
