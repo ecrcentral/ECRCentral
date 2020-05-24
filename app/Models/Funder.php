@@ -38,11 +38,11 @@ class Funder extends Model
         }
         if ($this->dora == 1)
         {
-            $this->dora == "Yes";
+            $this->dora = "Yes";
         }
         if ($this->dora == 0)
         {
-            $this->dora == "No";
+            $this->dora = "No";
         } 
 
         $array = $this->toArray();
