@@ -165,7 +165,7 @@ search.addWidget(
  search.addWidget(
   instantsearch.widgets.refinementList({
     container: "#categories",
-    attributeName: "funder_name",
+    attributeName: "funders",
     autoHideContainer: false,
     showMore: true,
     searchForFacetValues: false,
@@ -182,7 +182,7 @@ search.addWidget(
   instantsearch.widgets.refinementList({
     container: "#subjects",
     attributeName: "subjects",
-    autoHideContainer: true,
+    autoHideContainer: false,
     showMore: true,
     searchForFacetValues: false,
     collapsible: true,
