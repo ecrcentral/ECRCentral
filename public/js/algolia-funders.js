@@ -1,17 +1,7 @@
 /* global instantsearch */
 
-function hitTemplate(hit) {
-  if (hit.deadline == ''){
-    deadline = 'Check website';
-  }else{
-    deadline = hit.deadline;
-  }
 
-  var currentDate = new Date(hit.updated_at.replace(/-/g, "/"));
-  var date = currentDate.getDate();
-  var month = currentDate.getMonth(); 
-  var year = currentDate.getFullYear();
-  var dateString = date + "-" +(month + 1) + "-" + year;
+function hitTemplate(hit) {
 
   return `
     <div>
@@ -31,8 +21,8 @@ function hitTemplate(hit) {
             ${get_logo(hit.logo)}
             <div class="entry-funder-content">
               <div class="funder-name">
-                 <i class="fa fa-globe"></i> Funder URLs: ${hit.url} | 
-<i class="fa fa-university"></i> Is DORA: ${hit.dora}
+                 ${get_url(hit)}
+                 ${is_dora(hit.dora)}
               </div>
               <!--
               <div class="post-meta-info">
@@ -45,9 +35,32 @@ function hitTemplate(hit) {
     </div>`;
 }
 
+function get_url(hit){
+  if (hit.funder_id == hit.slug){
+   
+   if(hit.url != null)
+   {
+      return `<i class="fa fa-external-link"></i>
+<a href="${hit.url}" target="_blank">${hit.url}</a>`;
+        }
+   }else
+   {
+    return `<i class="ai ai-doi"></i>
+    <a href="http://dx.doi.org/10.13039/${hit.funder_id}" target="_blank">http://dx.doi.org/10.13039/${hit.funder_id}</a>`;
+   }
+
+}
+
+function is_dora(dora){
+  if(dora == 1){
+  return ` | <img src="{{ asset('images/dora.png') }}" height="20px"> DORA signatory </small>`;
+}else{
+  return " ";
+}
+}
 
 function get_logo(logo){
-  if (logo != null && logo.length != 0 && logos[0] != null){
+  if (logo != null){
    
       return `<div class="funder-gravatar">
               <img src="/storage/${logo}" height="40">
@@ -121,7 +134,7 @@ const search = instantsearch({
     showMore: true,
     searchForFacetValues: false,
     collapsible: true,
-    limit: 5,
+    limit: 10,
     templates: {
       header: "Funder Country"
     }
