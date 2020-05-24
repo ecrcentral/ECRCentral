@@ -49,19 +49,20 @@ function hitTemplate(hit) {
 }
 
 function get_logo(logos){
-  if (logos != null && logos.length != null && logos.length > 0){
-    if(logos.length == 1)
+  if (logos != null && logos.length != 0 && logos[0] != null){
+    if(logos.length > 1)
     {
-    return `<div class="funder-gravatar">
-              <img src="/storage/${logos}" height="40">
-          </div>`;
-    }else{
-        logos_html = '<div class="funder-gravatar">'
+      logos_html = '<div class="funder-gravatar">'
         for(var logo in logos)
         {
           logos_html = logos_html.concat(`<img src="/storage/${logo}" height="40">`)
         }
         return logos_html.concat('</div>');
+    
+    }else{
+      return `<div class="funder-gravatar">
+              <img src="/storage/${logos}" height="40">
+          </div>`;
     }
   }else{
     logos = null;

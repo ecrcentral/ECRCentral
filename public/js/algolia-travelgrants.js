@@ -48,43 +48,22 @@ function hitTemplate(hit) {
     </div>`;
 }
 
-function get_logo33(funder_name){
-  if (funder_name == 'The Royal Society'){
-    return `<div class="funder-gravatar">
-              <img src="https://royalsociety.org/~/media/Redesign2015/rs-crest-footer.png" height="40">
-          </div>`;
-  }else if(funder_name == 'Cancer Research UK'){
-    return `<div class="funder-gravatar">
-              <img src="http://commercial.cancerresearchuk.org/sites/default/files/2-Column-Image_Big-C.png" height="40">
-          </div>`;
-  }else if(funder_name == 'eLife'){
-    return `<div class="funder-gravatar">
-              <img src="https://pbs.twimg.com/profile_images/794233223551315969/uLsKoQxk_400x400.jpg" height="40">
-          </div>`;
-  }else if(funder_name == 'EMBO'){
-    return `<div class="funder-gravatar">
-              <img src="https://www.wemakescholars.com/admin/uploads/providers/1521.jpg" height="40">
-          </div>`;
-  }else{
-    return " ";
-  }
-
-}
 
 function get_logo(logos){
-  if (logos != null && logos.length != null && logos.length > 0){
-    if(logos.length == 1)
+  if (logos != null && logos.length != 0 && logos[0] != null){
+    if(logos.length > 1)
     {
-    return `<div class="funder-gravatar">
-              <img src="/storage/${logos}" height="40">
-          </div>`;
-    }else{
-        logos_html = '<div class="funder-gravatar">'
+      logos_html = '<div class="funder-gravatar">'
         for(var logo in logos)
         {
           logos_html = logos_html.concat(`<img src="/storage/${logo}" height="40">`)
         }
         return logos_html.concat('</div>');
+    
+    }else{
+      return `<div class="funder-gravatar">
+              <img src="/storage/${logos}" height="40">
+          </div>`;
     }
   }else{
     logos = null;
@@ -92,7 +71,6 @@ function get_logo(logos){
   }
 
 }
-
 
 
 const search = instantsearch({

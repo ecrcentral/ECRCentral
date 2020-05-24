@@ -49,6 +49,7 @@ class Funding extends Model
             'career_levels' => $this->career_levels->pluck('name')->toArray(),
             'logos' => $this->funders->pluck('logo')->toArray(),
             'funding_purpose' => $this->purposes->pluck('name')->toArray(),
+            'deadlines' => $this->pluck('deadline')->explode(',')->toArray(),
         ];
 
         return array_merge($array, $extraFields);
