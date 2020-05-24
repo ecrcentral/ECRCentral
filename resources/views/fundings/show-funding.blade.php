@@ -156,7 +156,7 @@
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-12">
       @include('partials.resource-status')       
          @if ($funding->updated_at)
          <p>

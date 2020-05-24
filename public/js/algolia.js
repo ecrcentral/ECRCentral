@@ -182,7 +182,7 @@ search.addWidget(
   instantsearch.widgets.refinementList({
     container: "#subjects",
     attributeName: "subjects",
-    autoHideContainer: false,
+    autoHideContainer: true,
     showMore: true,
     searchForFacetValues: false,
     collapsible: true,
@@ -221,6 +221,39 @@ search.addWidget(
     }
   }
 
+  )
+);
+
+ search.addWidget(
+  instantsearch.widgets.refinementList({
+    container: "#career_levels",
+    attributeName: "career_levels",
+    autoHideContainer: true,
+    showMore: true,
+    searchForFacetValues: false,
+    collapsible: true,
+    limit: 5,
+    templates: {
+      header: "Academic requirement",
+    }
+  }
+  )
+);
+
+
+ search.addWidget(
+  instantsearch.widgets.refinementList({
+    container: "#call_frequency",
+    attributeName: "frequency",
+    autoHideContainer: false,
+    showMore: true,
+    searchForFacetValues: false,
+    collapsible: true,
+    limit: 5,
+    templates: {
+      header: "Call frequency",
+    }
+  }
   )
 );
 

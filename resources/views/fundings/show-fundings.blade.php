@@ -41,6 +41,8 @@ A detailed list of funding schemes and fellowships for Postdocs and early career
                           <hr>                          
                             <div id="applicant_countries"></div>
                             <div id="host_countries"></div>
+                            <div id="career_levels"></div>
+                            <div id="call_frequency"></div>
                             <div id="subjects"></div>
                             <div id="categories"></div>
                           </div>
