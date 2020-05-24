@@ -36,15 +36,15 @@ class Funder extends Model
             $this->unsearchable();
             return [];
         }
-        if ($this->dora == 1}
+        if ($this->dora == 1)
         {
             $this->dora == "Yes";
         }
-        if ($this->dora == 0}
+        if ($this->dora == 0)
         {
             $this->dora == "No";
         } 
-        
+
         $array = $this->toArray();
 
         // Customize array...
