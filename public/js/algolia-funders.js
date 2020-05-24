@@ -21,8 +21,10 @@ function hitTemplate(hit) {
             ${get_logo(hit.logo)}
             <div class="entry-funder-content">
               <div class="funder-name">
+                <strong>
                  ${get_url(hit)}
                  ${is_dora(hit.dora)}
+                </strong>
               </div>
               <!--
               <div class="post-meta-info">
@@ -53,7 +55,7 @@ function get_url(hit){
 
 function is_dora(dora){
   if(dora == 1){
-  return `<br><img src="/images/dora.png" height="15px"> DORA signatory`;
+  return `<br><img src="/images/dora.png" height="13px"> DORA signatory`;
 }else{
   return " ";
 }
