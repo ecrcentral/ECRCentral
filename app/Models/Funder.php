@@ -39,8 +39,7 @@ class Funder extends Model
         if ($this->dora == 1)
         {
             $this->dora = "Yes";
-        }
-        if ($this->dora == 0)
+        }elseif ($this->dora == 0)
         {
             $this->dora = "No";
         } 
