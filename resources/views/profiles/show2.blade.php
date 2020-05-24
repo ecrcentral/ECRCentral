@@ -35,7 +35,7 @@
                     @endif
 
                     <br>                   
-                    <h4 class="media-heading">{{ $user->first_name }} {{ $user->last_name }} <small>{{ $user->profile->title }}</small></h4>
+                    <h5 class="media-heading">{{ $user->first_name }} {{ $user->last_name }} <br><small>{{ $user->profile->title }}</small></h5>
                     @if ($user->profile->organization)
                     {{ $user->profile->organization }}
                     <br>

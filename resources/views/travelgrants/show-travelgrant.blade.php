@@ -47,6 +47,13 @@
         </div>
         @endif
 
+        @if($travelgrant->status == 2)
+        <div class="alert alert-danger fade in">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            Note: This travel grant opportunity is discontinued.
+        </div>
+        @endif
+
          @if($travelgrant->description)
           <p>{!! $travelgrant->description !!}</p>
         @endif

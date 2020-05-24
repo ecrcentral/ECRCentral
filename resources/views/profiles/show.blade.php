@@ -24,7 +24,7 @@
                     
                     <img src="@if ($user->profile->avatar_status == 1) {{ $user->profile->avatar }} @endif" alt="{{ $user->name }}"  width="140" height="140" border="0" class="img-circle"><br>
                    
-                    <h3 class="media-heading">{{ $user->first_name }} {{ $user->last_name }} <small>{{ $user->profile->title }}</small></h3>
+                    <h3 class="media-heading">{{ $user->first_name }} {{ $user->last_name }} <br><small>{{ $user->profile->title }}</small></h3>
                     @if ($user->profile->organization)
                     {{ $user->profile->organization }}
                     <br>
