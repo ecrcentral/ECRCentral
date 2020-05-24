@@ -53,7 +53,7 @@ function get_url(hit){
 
 function is_dora(dora){
   if(dora == 1){
-  return ` | <img src="{{ asset('images/dora.png') }}" height="20px"> DORA signatory </small>`;
+  return ` | <img src="/images/dora.png" height="20px"> DORA signatory`;
 }else{
   return " ";
 }
