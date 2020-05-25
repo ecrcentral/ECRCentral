@@ -15,7 +15,7 @@ A detailed list of funding schemes and fellowships for Postdocs and early career
 
 @section('template_linked_css')
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/algolia.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/algolia.css') }}?v=1.0">
 
 @endsection
 
@@ -89,6 +89,6 @@ A detailed list of funding schemes and fellowships for Postdocs and early career
 
 @section('js')
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.0/dist/instantsearch.min.js"></script>
-<script src="{{ asset('js/algolia.js') }}"></script>
+<script src="{{ asset('js/algolia.js') }}?v=1.0"></script>
 @endsection
 

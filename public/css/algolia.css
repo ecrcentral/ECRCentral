@@ -16,7 +16,14 @@ em {
 }
 
 #host_countries,
-#applicant_countries,
+#call_frequency,
+#career_levels,
+#subjects,
+#countries,
+#dora,
+#travel_purpose,
+#membership,
+#funders,
 #categories {
   margin-right: 4px;
   padding: 8px 10px;
@@ -24,6 +31,14 @@ em {
 
 #categories,
 #host_countries,
+#call_frequency,
+#career_levels,
+#subjects,
+#countries,
+#dora,
+#travel_purpose,
+#membership,
+#funders,
 #applicant_countries,
 .ais-hits--item,
 .ais-search-box--input {

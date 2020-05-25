@@ -166,7 +166,7 @@ search.addWidget(
   instantsearch.widgets.refinementList({
     container: "#travel_purpose",
     attributeName: "travel_purpose",
-    autoHideContainer: true,
+    autoHideContainer: false,
     showMore: true,
     searchForFacetValues: false,
     collapsible: true,
@@ -182,9 +182,9 @@ search.addWidget(
 
 search.addWidget(
   instantsearch.widgets.refinementList({
-    container: "#career_level",
+    container: "#career_levels",
     attributeName: "career_levels",
-    autoHideContainer: true,
+    autoHideContainer: false,
     showMore: true,
     searchForFacetValues: false,
     collapsible: true,

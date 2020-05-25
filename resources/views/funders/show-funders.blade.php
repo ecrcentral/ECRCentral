@@ -12,7 +12,7 @@ A detailed list of funders
 
 @section('template_linked_css')
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/algolia.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/algolia.css') }}?v=1.0">
 
 @endsection
 
@@ -72,7 +72,7 @@ A detailed list of funders
 @endsection
 @section('js')
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.0/dist/instantsearch.min.js"></script>
-<script src="{{ asset('js/algolia-funders.js') }}"></script>
+<script src="{{ asset('js/algolia-funders.js') }}?v=1.0"></script>
 
 @endsection
 

@@ -12,7 +12,7 @@ A detailed list of travel grants opportunities PhDs, Postdocs and early career r
 
 @section('template_linked_css')
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/algolia.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/algolia.css') }}?v=1.0">
 
 @endsection
 
@@ -35,7 +35,7 @@ A detailed list of travel grants opportunities PhDs, Postdocs and early career r
                             <a class="btn btn-sm btn-primary" href="{{ URL::to('travel-grants/create') }}" data-toggle="tooltip" title="Add New Travel Grant"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add New Travel Grant</a>
                           <hr>                            
                             <div id="travel_purpose"></div>
-                            <div id="career_level"></div>
+                            <div id="career_levels"></div>
                             <div id="membership"></div>
                             <div id="funders"></div>
                           </div>
@@ -73,7 +73,7 @@ A detailed list of travel grants opportunities PhDs, Postdocs and early career r
 @endsection
 @section('js')
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.0/dist/instantsearch.min.js"></script>
-<script src="{{ asset('js/algolia-travelgrants.js') }}"></script>
+<script src="{{ asset('js/algolia-travelgrants.js') }}?v=1.0"></script>
 
 @endsection
 

@@ -149,7 +149,7 @@ search.addWidget(
     autoHideContainer: false,
     showMore: true,
     searchForFacetValues: false,
-    collapsible: true,
+    collapsible: false,
     limit: 5,
     templates: {
       header: "Funders",
@@ -165,7 +165,7 @@ search.addWidget(
     autoHideContainer: false,
     showMore: true,
     searchForFacetValues: false,
-    collapsible: true,
+    collapsible: false,
     limit: 5,
     templates: {
       header: "Subjects",
@@ -193,7 +193,7 @@ search.addWidget(
   instantsearch.widgets.refinementList({
     container: "#applicant_countries",
     attributeName: "applicant_country",
-    autoHideContainer: true,
+    autoHideContainer: false,
     showMore: true,
     limit: 5,
     templates: {
@@ -211,7 +211,7 @@ search.addWidget(
     autoHideContainer: false,
     showMore: true,
     searchForFacetValues: false,
-    collapsible: true,
+    collapsible: false,
     limit: 5,
     templates: {
       header: "Academic requirement",
@@ -228,8 +228,8 @@ search.addWidget(
     autoHideContainer: false,
     showMore: true,
     searchForFacetValues: false,
-    collapsible: true,
-    limit: 5,
+    collapsible: false,
+    limit: 3,
     templates: {
       header: "Call frequency",
     }
