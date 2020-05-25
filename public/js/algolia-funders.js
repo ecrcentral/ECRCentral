@@ -132,7 +132,7 @@ const search = instantsearch({
   instantsearch.widgets.refinementList({
     container: "#countries",
     attributeName: "country",
-    autoHideContainer: false,
+    autoHideContainer: true,
     showMore: true,
     searchForFacetValues: false,
     collapsible: true,
@@ -150,13 +150,13 @@ const search = instantsearch({
   instantsearch.widgets.refinementList({
     container: "#dora",
     attributeName: "dora",
-    autoHideContainer: false,
+    autoHideContainer: true,
     showMore: true,
     searchForFacetValues: false,
     collapsible: true,
     limit: 2,
     templates: {
-      header: "Is DORA signatory?"
+      header: "DORA signatory"
     }
   }
   )
