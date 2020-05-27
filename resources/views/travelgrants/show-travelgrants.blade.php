@@ -73,7 +73,7 @@ A detailed list of travel grants opportunities PhDs, Postdocs and early career r
 @endsection
 @section('js')
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.0/dist/instantsearch.min.js"></script>
-<script src="{{ asset('js/algolia-travelgrants.js') }}?v=1.0"></script>
+<script src="{{ asset('js/algolia-travelgrants.js') }}?v=1.1"></script>
 
 @endsection
 
