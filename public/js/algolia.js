@@ -24,7 +24,7 @@ function hitTemplate(hit) {
             </a>
           </h2>
           <div class="post-excerpt">
-            ${hit._highlightResult.funder_name.value}
+          ${get_funder(hit.funders, hit._highlightResult.funder_name.value)}
             </a>
           </div>
             <div class="entry-meta clear">
@@ -46,6 +46,20 @@ function hitTemplate(hit) {
         </div>
       </article>
     </div>`;
+}
+
+function get_funder(funders, funder_name){
+  if (funders != null && funders.length != 0 && funders[0] != null){
+    if(funders.length > 1)
+    {
+        return funders.join(", ");
+    }else{
+      return funders;
+    }
+  }else{
+    return funder_name;
+  }
+
 }
 
 function get_logo(logos){

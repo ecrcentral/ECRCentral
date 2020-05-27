@@ -89,6 +89,6 @@ A detailed list of funding schemes and fellowships for Postdocs and early career
 
 @section('js')
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.0/dist/instantsearch.min.js"></script>
-<script src="{{ asset('js/algolia.js') }}?v=1.1"></script>
+<script src="{{ asset('js/algolia.js') }}?v=1.2"></script>
 @endsection
 

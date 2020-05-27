@@ -23,13 +23,11 @@ A detailed list of travel grants opportunities PhDs, Postdocs and early career r
         <div class="grid search">
             <div class="grid-body">
                 <div class="row">
-                    
                     <div class="col-md-12">
                         <h4 class="page-header"> Travel grants for early career researchers</h4>
                     </div>
                 </div>
                  <div class="row">
-                         
                           <div class="col-md-4">
                           <a class="btn btn-sm btn-warning" href="{{ URL::to('travel-grants/feed') }}" target="_blank" title="Subscribe to RSS Feeds"><i class="fa fa-rss" aria-hidden="true"></i> Subscribe to Feeds</a>
                             <a class="btn btn-sm btn-primary" href="{{ URL::to('travel-grants/create') }}" data-toggle="tooltip" title="Add New Travel Grant"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add New Travel Grant</a>
@@ -73,7 +71,7 @@ A detailed list of travel grants opportunities PhDs, Postdocs and early career r
 @endsection
 @section('js')
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.0/dist/instantsearch.min.js"></script>
-<script src="{{ asset('js/algolia-travelgrants.js') }}?v=1.1"></script>
+<script src="{{ asset('js/algolia-travelgrants.js') }}?v=1.2"></script>
 
 @endsection
 

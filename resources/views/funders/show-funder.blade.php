@@ -12,9 +12,6 @@
     <div class="row">
       <div class="col-md-12">
       <h4><i class="fa fa-search-o"></i>{{ $funder->name }}</h4>
-      @if($funder->logo !='')
-      <img src="{{$funder->logo}}" height="50px">
-      @endif
       {{ $funder->country }}  
        @if($funder->dora == '1')
        | <img src="{{ asset('images/dora.png') }}" height="20px"> DORA signatory
