@@ -56,7 +56,7 @@ function get_logo(logos){
       logos_html = '<div class="funder-gravatar">'
         for(var logo in logos)
         {
-          logos_html = logos_html.concat(`<img src="/storage/${logo}" height="40">`)
+          logos_html = logos_html.concat(`<img src="/storage/${logos[logo]}" height="40">`)
         }
         return logos_html.concat('</div>');
     
