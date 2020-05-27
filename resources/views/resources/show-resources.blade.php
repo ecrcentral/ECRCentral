@@ -73,7 +73,7 @@ A detailed list of useful Resources for PhDs, Postdocs and early career research
 @endsection
 @section('js')
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.0/dist/instantsearch.min.js"></script>
-<script src="{{ asset('js/algolia-resources.js') }}"></script>
+<script src="{{ asset('js/algolia-resources.js') }}?v=1.0"></script>
 
 @endsection
 

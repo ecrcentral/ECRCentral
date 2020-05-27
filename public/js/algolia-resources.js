@@ -31,7 +31,8 @@ function hitTemplate(hit) {
             ${get_logo(hit)}
             <div class="entry-funder-content">
               <div class="funder-name">
-                <b>${hit.description}</b>
+                <b>${truncateString(hit.description, 225)}
+                </b>
               </div>
               <div class="post-date">
                 <i class="fa fa-book"></i> Category: ${hit.categories.toString()} <i class="fa fa-calendar"></i> Last updated: ${dateString}
@@ -73,6 +74,17 @@ function get_logo(hit){
     return " ";
   }
 
+}
+
+function truncateString(str, num) {
+  // If the length of str is less than or equal to num
+  // Author: https://github.com/DylanAttal
+  // just return str--don't truncate it.
+  if (str.length <= num) {
+    return str
+  }
+  // Return str truncated with '...' concatenated to the end of str.
+  return str.slice(0, num) + '...'
 }
 
 const search = instantsearch({
