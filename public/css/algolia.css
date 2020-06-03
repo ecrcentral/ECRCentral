@@ -48,10 +48,6 @@ em {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
-#host_countries {
-  margin-right: 4px;
-  padding: 8px 10px;
-}
 
 .ais-search-box--input:focus {
   box-shadow: 0 2px 4pxs 0 rgba(0, 0, 44, 0.1);

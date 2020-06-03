@@ -61,7 +61,7 @@
            @endif
 
       <p>
-        <a href="{{ $resource->url }}" target="_blank"><button type="button" class="btn btn-success">Resource website</button></a>
+        <a href="{{ $resource->url }}" target="_blank" class="btn btn-sm btn-primary">Resource website</a>
         
         <div class="border-bottom"></div>
       </p>

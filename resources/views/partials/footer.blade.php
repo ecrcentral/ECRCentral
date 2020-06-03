@@ -19,7 +19,7 @@
               </a>
               </h3>
                 
-            <p><b>ECRcentral</b> aims to bring early career researchers together to discuss funding opportunities, share experiences, and create impact through community engagement.
+            <p><b>ECRcentral</b> aims to bring early career researchers together to discuss opportunities, share experiences, and create impact through community engagement.
             </p>
           </div>
           <div class="col-md-2">
@@ -91,7 +91,7 @@
         <div class="row">
           <div class="col-lg-12 col-md-12">
             <center>
-            <p style="color: #fff; font-size: 14px;">&copy; 2019 ECRcentral. The content is licensed under <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"> <i class="fa fa-creative-commons" aria-hidden="true"></i> </a> Creative Commons BY 4.0 | ECRcentral is developed with <span style="color: #e25555;">&#9829;</span> by eLife Ambassadors.</p>
+            <p style="color: #fff; font-size: 14px;">&copy; 2020 ECRcentral. The content is licensed under <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"> <i class="fa fa-creative-commons" aria-hidden="true"></i> </a> Creative Commons BY 4.0 | ECRcentral is developed with <span style="color: #e25555;">&#9829;</span> by eLife Ambassadors.</p>
               </center>
       </div>
     </div>

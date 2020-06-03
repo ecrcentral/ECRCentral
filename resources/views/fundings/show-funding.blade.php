@@ -102,7 +102,7 @@
         @if($funding->comments)<p><b>Additional comments</b>: {{ $funding->comments }}</p>@endif
 
         <p><b>How to apply?</b> For further eligibility requirements and the application process, please visit:
-        <a href="{{ $funding->url }}" target="_blank"><button type="button" class="btn btn-primary btn-large btn-block"><b>Official Funding website</b></button></a></p>
+        <a href="{{ $funding->url }}" target="_blank" class="btn btn-sm btn-primary"><b>Official Funding website</b></a></p>
 
        <hr>
       </div>

@@ -15,7 +15,7 @@ A detailed list of funding schemes and fellowships for Postdocs and early career
 
 @section('template_linked_css')
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/algolia.css') }}?v=1.0">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/algolia.css') }}?v=1.1">
 
 @endsection
 

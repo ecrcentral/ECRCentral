@@ -5,7 +5,7 @@
             {{-- Collapsed Hamburger --}}
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
-              </button>
+            </button>
 
             {{-- Branding Image --}}
             <a class="navbar-brand" href="{{ url('/') }}">
@@ -33,16 +33,18 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     
+                    <!--
                     <li {{ Request::is('forums') ? 'class=active' : null }}><a href="/{{ Config::get('chatter.routes.home') }}/">Community Forum</a></li>
+                -->
                     
-                    <li><a href="https://ecrlife.org" target="_balank">Blog</a></li>
+                    <li><a href="https://ecrlife.org" target="_balank">ecrLife Blog</a></li>
                     <!--
                     <li {{ Request::is('blog') ? 'class=active' : null }}> <a href="/blog">Community Blog</a></li>
                 -->
 
                     <li role="separator" class="divider"></li>
 
-                    <li {{ Request::is('community') ? 'class=active' : null }}><a href="/community">Members</a></li>
+                    <li {{ Request::is('community') ? 'class=active' : null }}><a href="/community">Community Members</a></li>
                     <li {{ Request::is('community/moderators') ? 'class=active' : null }}><a href="/community/moderators">Moderators</a></li>
                     <li {{ Request::is('community/managers') ? 'class=active' : null }}><a href="/community/managers">Managers</a></li>
                   </ul>

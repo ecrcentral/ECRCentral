@@ -57,7 +57,7 @@ summary_large_imag
     <div class="container">
         <div class="row centered">
             <p class="lead" align="center">
-              By early career researchers (ECRs) for ECRs to find and discuss funding opportunities, share experiences, mentor peers, and create impact through community engagement.
+              By early career researchers (ECRs) for ECRs to find and discuss opportunities, share experiences, mentor peers, and create impact through community engagement.
             </p>
         
       </div>
@@ -237,7 +237,9 @@ summary_large_imag
           </p>
         </div>
   </div>
-</div><br> 
+</div>
+
+<!--
  <div class="container">
     <div class="row">
 
@@ -254,7 +256,6 @@ summary_large_imag
 
                           <?php $db_field = Config::get('chatter.user.avatar_image_database_field'); ?>
 
-                          <!-- If the user db field contains http:// or https:// we don't need to use the relative path to the image assets -->
                           @if (($discussion->user->profile) && ($discussion->user->profile->avatar) && $discussion->user->profile->avatar_status == 1)
                           <img src="{{ $discussion->user->profile->avatar }}" alt="{{ $discussion->user->name }}" width="50" height="50" border="0" class="img-circle">
 
@@ -305,6 +306,8 @@ summary_large_imag
 
   </div>
 </div>
+
+-->
 
 <br>
 

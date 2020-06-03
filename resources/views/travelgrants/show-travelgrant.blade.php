@@ -107,11 +107,8 @@
         @if($travelgrant->comments)<p><b>Additional comments</b>: {{ $travelgrant->comments }}</p>@endif
 
         <p><b>How to apply?</b> For further eligibility requirements and the application process, please visit:
-        <a href="{{ $travelgrant->url }}" target="_blank">
-
-          <button type="button" class="btn btn-primary btn-large btn-block"><b>Travel Grant website</b></button>
-
-          </a></p>
+        <a href="{{ $travelgrant->url }}" target="_blank" class="btn btn-sm btn-primary">
+          <b>Travel Grant website</b></a></p>
         @include('partials.resource-status')       
          @if ($travelgrant->updated_at)
          <p>
