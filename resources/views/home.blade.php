@@ -120,7 +120,7 @@ summary_large_imag
   </div>
 </div>
 <br>
-<div style="background-color: #edf0f1; padding-bottom: 30px; padding-top: 0px;">
+<div style="padding-bottom: 30px; padding-top: 0px;">
     <div class="container">
 
           <div class="row"> 
@@ -137,7 +137,7 @@ summary_large_imag
                       @foreach ($funding->funders as $funder)
                         @if($funder->logo)
                         {{ $loop->first ? '' : ' ' }}
-                        <a href="/funders/{{ $funder->slug }}"><img src="/storage/{{ $funder->logo }}" width="50px" ></a>
+                        <a href="/funders/{{ $funder->slug }}"><img src="https://ecrcentral.org/storage/{{ $funder->logo }}" width="50px" ></a>
                          @else
                        <span class="fa-stack fa-2x">
                               <i class="fa fa-circle fa-stack-2x text-primary"></i>
@@ -190,7 +190,7 @@ summary_large_imag
                       @foreach ($travelgrant->funders as $funder)
                         @if($funder->logo)
                         {{ $loop->first ? '' : ' ' }}
-                        <a href="/funders/{{ $funder->slug }}"><img src="/storage/{{ $funder->logo }}" width="50px" ></a>
+                        <a href="/funders/{{ $funder->slug }}"><img src="https://ecrcentral.org/storage/{{ $funder->logo }}" width="50px" ></a>
                          @else
                        <span class="fa-stack fa-2x">
                               <i class="fa fa-circle fa-stack-2x text-primary"></i>
