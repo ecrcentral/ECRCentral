@@ -131,18 +131,47 @@ summary_large_imag
 
                @foreach($featured_fundings as $funding)
                 <div class="media">
-                    <!--
+                  
                     <div class="pull-left">
-                        <span class="fa-stack fa-2x">
+                      @if($funding->funders()->exists())
+                      @foreach ($funding->funders as $funder)
+                        @if($funder->logo)
+                        {{ $loop->first ? '' : ' ' }}
+                        <a href="/funders/{{ $funder->slug }}"><img src="/storage/{{ $funder->logo }}" width="50px" ></a>
+                         @else
+                       <span class="fa-stack fa-2x">
                               <i class="fa fa-circle fa-stack-2x text-primary"></i>
                               <i class="fa fa-star fa-stack-1x fa-inverse"></i>
                         </span> 
+                      @endif
+
+                      @endforeach
+                    @else
+                       <span class="fa-stack fa-2x">
+                              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                              <i class="fa fa-star fa-stack-1x fa-inverse"></i>
+                        </span> 
+                      @endif
                     </div>
-                  -->
+                  
                     <div class="media-body">
                         <strong><a href="{{ route('fundings') }}/@if($funding->slug){{$funding->slug}}@else{{$funding->id}}@endif">{{$funding->name}}</a></strong>
                         <p>
-                        <small><b>Funder</b>: {{$funding->funder_name}} | <b>Deadline</b>: {{$funding->deadline}}</small>
+                        <small> 
+
+                    @if($funding->funders()->exists())
+                      @foreach ($funding->funders as $funder)
+                        {{ $loop->first ? '' : ', ' }}
+                        <a href="/funders/{{ $funder->slug }}">{{ $funder->name }}</a>
+                      @endforeach
+                    @else
+                      {{ $funding->funder_name }}
+                      @endif
+                      
+                        | <b>Call</b>: {{$funding->frequency}}
+
+                      
+                    </small>
                         </p>
                     </div>
                 </div>
@@ -156,18 +185,49 @@ summary_large_imag
 
                    @foreach($featured_travelgrants as $travelgrant)
                     <div class="media">
-                        <!--
-                        <div class="pull-left">
-                            <span class="fa-stack fa-2x">
-                                  <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                                  <i class="fa fa-plane fa-stack-1x fa-inverse"></i>
-                            </span> 
-                        </div>
-                      -->
+                      <div class="pull-left">
+                      @if($travelgrant->funders()->exists())
+                      @foreach ($travelgrant->funders as $funder)
+                        @if($funder->logo)
+                        {{ $loop->first ? '' : ' ' }}
+                        <a href="/funders/{{ $funder->slug }}"><img src="/storage/{{ $funder->logo }}" width="50px" ></a>
+                         @else
+                       <span class="fa-stack fa-2x">
+                              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                              <i class="fa fa-star fa-stack-1x fa-inverse"></i>
+                        </span> 
+                      @endif
+
+                      @endforeach
+                    @else
+                       <span class="fa-stack fa-2x">
+                              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                              <i class="fa fa-star fa-stack-1x fa-inverse"></i>
+                        </span> 
+                      @endif
+                    </div>
                         <div class="media-body">
                             <strong><a href="{{ route('travelgrants') }}/@if($travelgrant->slug){{$travelgrant->slug}}@else{{$travelgrant->id}}@endif">{{$travelgrant->name}}</a></strong>
                             <p>
-                            <small><b>Funder</b>: {{$travelgrant->funder_name}} | <b>Subject</b>: {{$travelgrant->fields}}</small>
+                            <small> 
+                            @if($travelgrant->funders()->exists())
+                              @foreach ($travelgrant->funders as $funder)
+                                {{ $loop->first ? '' : ', ' }}
+                                <a href="/funders/{{ $funder->slug }}">{{ $funder->name }}</a>
+                              @endforeach
+                            @else
+                              {{ $funding->funder_name }}
+                              @endif | <b>Purpose</b>:
+                            @if($travelgrant->purposes)
+                              @foreach ($travelgrant->purposes as $purpose)
+                              {{ $loop->first ? '' : ', ' }}
+                               {{ $purpose->name }}
+                              @endforeach
+                        @else($travelgrant->fileds)
+                            {{ $travelgrant->purpose }}
+                  
+                        @endif
+                      </small>
                             </p>
                         </div>
                     </div>

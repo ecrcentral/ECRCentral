@@ -46,7 +46,7 @@
         </div>
         @endif
 
-        @if($funding->status == 0)
+        @if($funding->status == 2)
         <div class="alert alert-danger fade in">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             Note: This funding opportunity is discontinued.

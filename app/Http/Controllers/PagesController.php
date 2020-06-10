@@ -44,8 +44,8 @@ class PagesController extends Controller
         $month = date('F', time());
 
         $fundings = Funding::where('deadline', 'LIKE', '%' . $month . '%')->take(5)->get();
-        $featured_fundings = Funding::where('featured', 1)->orderBy('updated_at', 'desc')->take(5)->get();
-        $featured_travelgrants = TravelGrant::where('featured', 1)->orderBy('updated_at', 'desc')->take(5)->get();
+        $featured_fundings = Funding::where('featured', 1)->orderBy('updated_at', 'desc')->take(7)->get();
+        $featured_travelgrants = TravelGrant::where('featured', 1)->orderBy('updated_at', 'desc')->take(7)->get();
         $featured_resources = Resource::where('featured', 1)->orderBy('updated_at', 'desc')->take(5)->get();
         //$posts = Post::orderBy('id', 'asc')->paginate(5);
 

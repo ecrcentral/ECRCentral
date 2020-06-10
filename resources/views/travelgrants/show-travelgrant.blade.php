@@ -74,7 +74,7 @@
                 @if($travelgrant->purposes)
                       @foreach ($travelgrant->purposes as $purpose)
                       {{ $loop->first ? '' : ', ' }}
-                       <a href="#">{{ $purpose->name }}</a>
+                       {{ $purpose->name }}
                       @endforeach
                 @elseif($travelgrant->fileds)
                     {{ $travelgrant->purpose }}
