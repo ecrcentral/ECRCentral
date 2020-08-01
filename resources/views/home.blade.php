@@ -265,7 +265,7 @@ summary_large_imag
 
             <div class="col-md-6">
                   <h4 class="page-header">Featured resources
-                  <small class="pull-right"><a href="{{ route('resources') }}">View all</a></small>
+                  <small class="pull-right"><a href="{{ route('resources') }}"><small>View all</small></a></small>
                 </h4>
 
                    @foreach($featured_resources as $resource)
@@ -309,51 +309,10 @@ summary_large_imag
         </h4>
             <div class="ibox-content">
                <div class="feed-activity-list">
-                 @foreach($discussions as $discussion)
-                  <div class="feed-element">
-                        <a href="/{{ Config::get('chatter.routes.home') }}/{{ Config::get('chatter.routes.discussion') }}/{{ $discussion->category->slug }}/{{ $discussion->slug }}" class="pull-left">
-                        @if(Config::get('chatter.user.avatar_image_database_field'))
 
-                          <?php $db_field = Config::get('chatter.user.avatar_image_database_field'); ?>
+                
 
-                          @if (($discussion->user->profile) && ($discussion->user->profile->avatar) && $discussion->user->profile->avatar_status == 1)
-                          <img src="{{ $discussion->user->profile->avatar }}" alt="{{ $discussion->user->name }}" width="50" height="50" border="0" class="img-circle">
-
-                          @else
-                            @if ($discussion->user->first_name && $discussion->user->last_name)
-                            <img class="round" width="50" height="50" avatar="{{ $discussion->user->first_name }} {{ $discussion->user->last_name }}">
-                            @else
-                            <img class="round" width="50" height="50" avatar="{{ $discussion->user->name }}">
-                            @endif
-                          @endif
-                        
-                        @endif
-                        </a>
-                        <div class="media-body ">
-                            <small class="pull-right">{{ \Carbon\Carbon::createFromTimeStamp(strtotime($discussion->created_at))->diffForHumans() }}</small>
-                            <small class="text-muted"> <a href="/profile/{{ $discussion->user->name }}"> {{ ucfirst($discussion->user->name) }}</a></small> posted on
-                             <strong><a href="/{{ Config::get('chatter.routes.home') }}/{{ Config::get('chatter.routes.discussion') }}/{{ $discussion->category->slug }}/{{ $discussion->slug }}"> {{ $discussion->title }} </a></strong> in channel <span class="badge badge-secondary" style="background-color:{{ $discussion->category->color }}">{{ $discussion->category->name }}</span> 
-                            
-                                <div class="well">
-                                   @if($discussion->post[0]->markdown)
-                                    <?php $discussion_body = GrahamCampbell\Markdown\Facades\Markdown::convertToHtml( $discussion->post[0]->body ); ?>
-                                  @else
-                                    <?php $discussion_body = $discussion->post[0]->body; ?>
-                                  @endif
-                                  <p>{{ substr(strip_tags($discussion_body), 0, 120) }}@if(strlen(strip_tags($discussion_body)) > 120){{ '...' }}@endif</p>
-                                </div>
-                                <div class="pull-right">
-                                    
-                                    <a class="btn btn-xs btn-white" title="Total replies"><i class="fa fa-comment"></i> {{ $discussion->postsCount[0]->total }} </a>
-                                    <a class="btn btn-xs btn-white" title="Total views"><i class="fa fa-eye"></i> {{ $discussion->views }} </a>
-                                  
-                                    <a class="btn btn-xs btn-primary" href="/{{ Config::get('chatter.routes.home') }}/{{ Config::get('chatter.routes.discussion') }}/{{ $discussion->category->slug }}/{{ $discussion->slug }}"><i class="fa fa-reply"></i> Reply</a>
-                                </div>
-                        </div>
-                    </div>
-              @endforeach
-
-                </div>
+               </div>
         </div>
     </div>
 

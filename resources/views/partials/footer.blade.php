@@ -90,9 +90,19 @@
     <div class="container">
         <div class="row">
           <div class="col-lg-12 col-md-12">
-            <center>
-            <p style="color: #fff; font-size: 14px;">&copy; 2020 ECRcentral. The content is licensed under <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"> <i class="fa fa-creative-commons" aria-hidden="true"></i> </a> Creative Commons BY 4.0 | ECRcentral is developed with <span style="color: #e25555;">&#9829;</span> by eLife Ambassadors.</p>
-              </center>
+            <div class="col-md-8 pull-left">
+            <p style="color: #fff; font-size: 14px; text-align: left;">&copy; 2020 ECRcentral. The content is licensed under <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"> <i class="fa fa-creative-commons" aria-hidden="true"></i> </a> Creative Commons BY 4.0. <br>
+            ECRcentral is developed with <span style="color: #e25555;">&#9829;</span> by eLife Ambassadors.</p>
+            </div>
+            <div class="col-md-4 pull-right">
+              <p style="text-align: right;">
+                 <img height="30px" src="{{ asset('images/dora-logo.png') }}"> &nbsp;&nbsp;
+                 <img height="30px" src="{{ asset('images/crossref-logo.svg') }}"> &nbsp;&nbsp;
+                 <img height="30px" src="{{ asset('images/doi.png') }}"> &nbsp;&nbsp;
+                 <img height="30px" src="{{ asset('images/orcid.png') }}">
+                 </p>
+            </div>
+
       </div>
     </div>
   </div>

@@ -57,7 +57,7 @@
                     <div class="media-body">
                         <strong><a href="{{ route('fundings') }}/@if($funding->slug){{$funding->slug}}@else{{$funding->id}}@endif">{{$funding->name}}</a></strong>
                         <p>
-                        <small><b>Funder</b>: {{$funding->funder_name}} | <b>Deadline</b>: {{$funding->deadline}}</small>
+                        <small><b>Applicant country</b>: {{$funding->applicant_country}} | <b>Host country</b>: {{$funding->host_country}} | <b>Deadline</b>: {{$funding->deadline}}</small>
                         </p>
 
                     </div>
@@ -80,7 +80,7 @@
                         <div class="media-body">
                             <strong><a href="{{ route('travelgrants') }}/@if($travelgrant->slug){{$travelgrant->slug}}@else{{$travelgrant->id}}@endif">{{$travelgrant->name}}</a></strong>
                             <p>
-                            <small><b>Funder</b>: {{$travelgrant->funder_name}} | <b>Subject</b>: @if($travelgrant->subjects()->exists())
+                            <small><b>Subject</b>: @if($travelgrant->subjects()->exists())
                               @foreach ($travelgrant->subjects as $subject)
                               {{ $loop->first ? '' : ', ' }}
                                <a href="#">{{ $subject->name }}</a>
@@ -96,7 +96,7 @@
                             @if($travelgrant->purposes)
                                   @foreach ($travelgrant->purposes as $purpose)
                                   {{ $loop->first ? '' : ', ' }}
-                                   <a href="#">{{ $purpose->name }}</a>
+                                   {{ $purpose->name }}
                                   @endforeach
                             @elseif($travelgrant->fileds)
                                 {{ $travelgrant->purpose }}
