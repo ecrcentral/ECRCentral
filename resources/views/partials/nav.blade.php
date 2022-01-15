@@ -29,19 +29,13 @@
 
                 <li {{ Request::is('resources') ? 'class=active' : null }}><a href="{{ route('resources') }}">Resources</a></li>
 
+
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    
-                    <!--
-                    <li {{ Request::is('forums') ? 'class=active' : null }}><a href="/{{ Config::get('chatter.routes.home') }}/">Community Forum</a></li>
-                -->
-                    
+                                        
                     <li><a href="https://ecrlife.org" target="_balank">ecrLife Blog</a></li>
-                    <!--
-                    <li {{ Request::is('blog') ? 'class=active' : null }}> <a href="/blog">Community Blog</a></li>
-                -->
-
+                
                     <li role="separator" class="divider"></li>
 
                     <li {{ Request::is('community') ? 'class=active' : null }}><a href="/community">Community Members</a></li>
@@ -49,9 +43,6 @@
                     <li {{ Request::is('community/managers') ? 'class=active' : null }}><a href="/community/managers">Managers</a></li>
                   </ul>
                 </li>
-                <!--             
-                <li {{ Request::is('blog') ? 'class=active' : null }}> <a href="/blog">Blog</a></li>
-            -->
                
                 <li class="dropdown" {{ Request::is('about') ? 'class=active' : null }}>
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret active"></span></a>

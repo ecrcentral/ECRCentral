@@ -131,11 +131,12 @@
         <div class="border-bottom"></div>
       </div>
 
+      <!--
       <div class="col-md-4">
-        
-        <a href="/{{ Config::get('chatter.routes.home') }}/channel/travel-grants"><button type="button" class="btn btn-primary btn-large btn-block"><b>Ask questions about this travel grant</b></button></a>
+        <a href="#"><button type="button" class="btn btn-primary btn-large btn-block"><b>Ask questions about this travel grant</b></button></a>
         <div class="border-bottom"></div>
       </div>
+     -->
 
       <div class="col-md-4">
         <div class="panel panel-warning">

@@ -40,7 +40,7 @@ Team members
 
             <div class="col-md-3 text-center">
                 <div class="thumbnail">
-                    <img class="img-responsive img-circle" src="https://pbs.twimg.com/profile_images/923604836389617665/ovO6lXHJ_400x400.jpg" alt="">
+                    <img class="img-responsive img-circle" src="https://med.stanford.edu/services/api/cap/profiles/photocache.223566.jpg" alt="">
                     <div class="caption">
                         <h6>Aziz Khan
                         </h6>

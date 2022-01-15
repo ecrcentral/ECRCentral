@@ -93,12 +93,12 @@
 
       </div>
 
+      <!--
       <div class="col-md-4">
-        <a href="/{{ Config::get('chatter.routes.home') }}/channel/resources"><button type="button" class="btn btn-primary btn-large btn-block"><b>Ask questions about this resource</b></button></a>
-
+        <a href="#"><button type="button" class="btn btn-primary btn-large btn-block"><b>Ask questions about this resource</b></button></a>
         <div class="border-bottom"></div>
-
       </div>
+      -->
 
         <div class="col-md-4">
         <div class="panel panel-default">

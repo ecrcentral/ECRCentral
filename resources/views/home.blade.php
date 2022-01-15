@@ -25,6 +25,8 @@ summary_large_imag
             </center>
           </div>
         </div>
+
+        <!-- ## this is down for now and will point to https://forum.ecrcentral.org/
         <div class="row">             
               <div class="col-lg-12 col-md-12">
                 <center>
@@ -33,6 +35,7 @@ summary_large_imag
                </center>
                </div>
         </div>
+      -->
 
         <div class="row"> 
               <div class="col-md-8 col-md-offset-2">
@@ -240,7 +243,7 @@ summary_large_imag
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-              <h4 class="page-header">Upcomming funding opportunities</h4>
+              <h4 class="page-header">Upcoming funding opportunities</h4>
 
                @foreach($fundings as $funding)
                 <div class="media">
