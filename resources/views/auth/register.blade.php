@@ -13,6 +13,16 @@
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
 
+                Dear ECR, <br>
+
+                We're not accepting new registrations on this platform. But the good news is, we are soon launching a more inclusive, friendly, and yet interactive community forum using the famous open-source discourse platform. <br><br>
+
+                Stay safe and tuned!<br><br>
+
+                Best wishes,<br>
+                ECRcentral team
+                 <!--
+
                     {!! Form::open(['route' => 'register', 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'POST'] ) !!}
 
                         {{ csrf_field() }}
@@ -120,6 +130,8 @@
                         @include('partials.socials-icons')
 
                     {!! Form::close() !!}
+
+                -->
 
                 </div>
             </div>

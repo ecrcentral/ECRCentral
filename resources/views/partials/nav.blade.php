@@ -38,7 +38,9 @@
                 
                     <li role="separator" class="divider"></li>
 
+                    <!--
                     <li {{ Request::is('community') ? 'class=active' : null }}><a href="/community">Community Members</a></li>
+                    -->
                     <li {{ Request::is('community/moderators') ? 'class=active' : null }}><a href="/community/moderators">Moderators</a></li>
                     <li {{ Request::is('community/managers') ? 'class=active' : null }}><a href="/community/managers">Managers</a></li>
                   </ul>
